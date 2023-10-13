@@ -1,0 +1,158 @@
+
+ul {
+  display: block;
+  background-color: #29333DCF;
+  padding:30px;
+  padding-left: 100px;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 30;
+  margin-right: 0;
+  font-weight: 1;
+  color: #EDE0CF;
+  font-family: 'Crimson Text', serif;
+  font-size: 22px;
+  max-width: 50ch;
+}
+
+
+.button-56 {
+  align-items: center;
+  background-color: #e28174;
+  border: 2px solid #111;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #111;
+  cursor: pointer;
+  display: flex;
+  font-family: 'Crimson Text', serif;
+  font-size: 20px;
+  height: 48px;
+  justify-content: center;
+  line-height: 24px;
+  max-width: 100%;
+  padding: 0 25px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-56:after {
+  background-color: #111;
+  border-radius: 8px;
+  content: "";
+  display: block;
+  height: 48px;
+  left: 0;
+  width: 100%;
+  position: absolute;
+  top: -2px;
+  transform: translate(8px, 8px);
+  transition: transform .2s ease-out;
+  z-index: -1;
+}
+
+.button-56:hover:after {
+  transform: translate(0, 0);
+}
+
+.button-56:active {
+  background-color: #ffdeda;
+  outline: 0;
+}
+
+.button-56:hover {
+  outline: 0;
+}
+
+
+
+
+
+@media (min-width: 768px) {
+  .button-56 {
+    padding: 0 40px;
+  }
+}
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+html, body{
+  height: 100%;
+  font-weight: 800;
+}
+
+body{
+  background: #fee6e3;
+  font-family: 'Unica One';
+}
+
+svg {
+    display: block;
+    font: 10.5em 'Unica One';
+    width: 960px;
+    height: 300px;
+    margin: 0 auto;
+}
+
+.text-copy {
+    fill: none;
+    stroke: white;
+    stroke-dasharray: 6% 29%;
+    stroke-width: 5px;
+    stroke-dashoffset: 0%;
+    animation: stroke-offset 5.5s infinite linear;
+}
+
+.text-copy:nth-child(1){
+  stroke: #ff3a3a;
+  animation-delay: -1;
+}
+
+.text-copy:nth-child(2){
+  stroke: #e13434;
+  animation-delay: -1.5s;
+}
+
+.text-copy:nth-child(3){
+  stroke: #a63434;
+  animation-delay: -3s;
+}
+
+.text-copy:nth-child(4){
+  stroke: #6c3333;
+  animation-delay: -3.5s;
+}
+
+.text-copy:nth-child(5){
+  stroke: #4ed3fb;
+  animation-delay: -10s;
+}
+
+@keyframes stroke-offset{
+  100% {stroke-dashoffset: -35%;}
+}
+
+
+.post-header { margin-bottom: 30px; position:static; }
+
+
+
+
+
+
+h1 { color: #29333DCF; font-family: 'Unica One', sans-serif; font-size: 46px; font-weight: 100; line-height: 50px; letter-spacing: 1px; padding: 0 0 40px; border-bottom: double #555; }
+
+
+p { color: #29333DCF; font-family: 'Crimson Text', serif, sans-serif; font-size: 16px; line-height: 26px; text-indent: 30px; margin: 0; }
+
+
+a { color: #c64119; border-bottom: 1px solid #c64119; text-decoration: none; }
+
+
+a:hover { color: #993213; border-bottom: 1px solid #993213; }
+
+
+.date { color: #bbc3c8; background: #292929; display: inline-block; font-family: 'Georgia', serif; font-style: italic; font-size: 18px; line-height: 22px; margin: 0 0 20px 18px; padding: 10px 12px 8px; position: absolute; bottom: -36px; }
