@@ -1,7 +1,8 @@
-const productPage = "https://voila.ca/products/490731EA/details";
+const productPage =
+  "https://www.saveonfoods.com/sm/pickup/rsid/1982/product/dairyland-1-skim-milk-id-00068700011030";
 const safewayMilk = "";
 // selector is the class (or whatever) of the data youre interested in. This will be different for each website
-const selector = ".$";
+const selector = ".PdpMainPrice--4c0ljm kLdUIn";
 
 const axios = require("axios");
 
@@ -13,7 +14,7 @@ async function getHTML(url) {
   });
 
   console.log("it worked");
-  //console.log(html);
+  console.log(html);
   return html;
 }
 
