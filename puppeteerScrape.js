@@ -4,6 +4,8 @@ const cheerio = require("cheerio");
 (async () => {
   const browser = await puppeteer.launch({ headless: false });
   const page = await browser.newPage();
+  await page.setGeolocation({ latitude: 51.049999, longitude: 114.0719 });
+  puppeteer.BrowserContext.overidePermissions;
   await page.goto(
     "https://www.realcanadiansuperstore.ca/milk-1-mf/p/20657990_EA"
   );
