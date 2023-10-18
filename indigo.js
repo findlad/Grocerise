@@ -1,5 +1,5 @@
 const productPage =
-  "https://www.indigo.ca/en-ca/a-short-history-of-nearly-everything/9780385660044.html?s_campaign=goo-PMaxSmartShop_Books_Hot_EN&gad_source=1&gclid=Cj0KCQjwhL6pBhDjARIsAGx8D5_WynIJchfibmIiJLaFi-UatI8fnVhdyRy2gfmIAikFlEKJMfh9vFQaAgUWEALw_wcB&gclsrc=aw.ds";
+  "https://www.indigo.ca/en-ca/salt-fat-acid-heat-mastering-the-elements-of-good-cooking/9781476753836.html";
 const safewayMilk = "";
 // selector is the class (or whatever) of the data youre interested in. This will be different for each website
 const selector = ".value";

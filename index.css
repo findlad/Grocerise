@@ -1,4 +1,21 @@
 
+.display_grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-column-gap: 1px;
+  grid-row-gap: 1px;
+  background-color:#bbc3c8;
+  outline: #111;
+  color: #EDE0CF;
+  font-family: 'Crimson Text', serif;
+  font-size: 22px;
+  font-weight: bolder;
+  border: #292929;
+
+
+}
+
 ul {
   display: block;
   background-color: #29333DCF;
@@ -146,7 +163,7 @@ svg {
 h1 { color: #29333DCF; font-family: 'Unica One', sans-serif; font-size: 46px; font-weight: 100; line-height: 50px; letter-spacing: 1px; padding: 0 0 40px; border-bottom: double #555; }
 
 
-p { color: #29333DCF; font-family: 'Crimson Text', serif, sans-serif; font-size: 16px; line-height: 26px; text-indent: 30px; margin: 0; }
+p { color: #29333DCF; font-family: 'Crimson Text', serif, sans-serif; font-size: 16px; line-height: 26px; text-indent: 30px; margin: 0; max-width: 800px; }
 
 
 a { color: #c64119; border-bottom: 1px solid #c64119; text-decoration: none; }
