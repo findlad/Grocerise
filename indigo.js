@@ -1,8 +1,8 @@
 const productPage =
-  "https://www.saveonfoods.com/sm/pickup/rsid/1982/product/dairyland-1-skim-milk-id-00068700011030";
+  "https://www.indigo.ca/en-ca/a-short-history-of-nearly-everything/9780385660044.html?s_campaign=goo-PMaxSmartShop_Books_Hot_EN&gad_source=1&gclid=Cj0KCQjwhL6pBhDjARIsAGx8D5_WynIJchfibmIiJLaFi-UatI8fnVhdyRy2gfmIAikFlEKJMfh9vFQaAgUWEALw_wcB&gclsrc=aw.ds";
 const safewayMilk = "";
 // selector is the class (or whatever) of the data youre interested in. This will be different for each website
-const selector = ".PdpMainPrice--4c0ljm kLdUIn";
+const selector = ".value";
 
 const axios = require("axios");
 
@@ -14,7 +14,7 @@ async function getHTML(url) {
   });
 
   console.log("it worked");
-  console.log(html);
+  //console.log(html);
   return html;
 }
 

@@ -32,13 +32,13 @@ const cheerio = require("cheerio");
   }
 })();
 
-// T and T
+// walmart
 
 (async () => {
   const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
   await page.goto(
-    "https://www.tntsupermarket.com/eng/76380101-dairyland-1-milk-jug.html"
+    "https://www.walmart.ca/en/ip/Dairyland-1-Partly-skimmed-milk/6000079800122"
   );
 
   try {
