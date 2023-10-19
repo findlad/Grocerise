@@ -1,9 +1,14 @@
 
 .display_grid {
   display: grid;
-  grid-template-columns: 20% 20% 20% 20%;
+  grid-template-columns: 10% 20% 20% 20%;
   grid-template-rows: 20% 20% 20% 20%;
+  grid-column-start: auto;
+  grid-column-end: auto;
+  margin-left: 100px;
+  margin-right: 100px;
   gap: 25px;
+  border-radius: 25px;
   justify-content: center;
   align-content: center;
   background-color:#bbc3c8;
