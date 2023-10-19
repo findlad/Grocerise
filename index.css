@@ -1,10 +1,11 @@
 
 .display_grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
-  grid-column-gap: 1px;
-  grid-row-gap: 1px;
+  grid-template-columns: 20% 20% 20% 20%;
+  grid-template-rows: 20% 20% 20% 20%;
+  gap: 25px;
+  justify-content: center;
+  align-content: center;
   background-color:#bbc3c8;
   outline: #111;
   color: #EDE0CF;
@@ -163,7 +164,9 @@ svg {
 h1 { color: #29333DCF; font-family: 'Unica One', sans-serif; font-size: 46px; font-weight: 100; line-height: 50px; letter-spacing: 1px; padding: 0 0 40px; border-bottom: double #555; }
 
 
-p { color: #29333DCF; font-family: 'Crimson Text', serif, sans-serif; font-size: 16px; line-height: 26px; text-indent: 30px; margin: 0; max-width: 800px; }
+p { color: #29333DCF; font-family: 'Crimson Text', serif, sans-serif; font-size: 22px;  line-height: 26px; text-indent: 30px; margin: 0; max-width: 1000px; }
+p.blocktext {margin-left: auto;
+  margin-right: auto;}
 
 
 a { color: #c64119; border-bottom: 1px solid #c64119; text-decoration: none; }
