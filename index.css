@@ -1,13 +1,11 @@
 
 .display_grid {
   display: grid;
-  grid-template-columns: 10% 20% 20% 20%;
-  grid-template-rows: 20% 20% 20% 20%;
-  grid-column-start: auto;
-  grid-column-end: auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  /* grid-template-rows: 20% 20% 20% 20%; */
   margin-left: 100px;
   margin-right: 100px;
-  gap: 25px;
+  grid-gap: 25px;
   border-radius: 25px;
   justify-content: center;
   align-content: center;
@@ -17,10 +15,15 @@
   font-family: 'Crimson Text', serif;
   font-size: 22px;
   font-weight: bolder;
-  border: #292929;
-
+  border: #292929
 
 }
+.display_grid > *{
+  background-color:#dee6eb;
+  outline: #111;
+  
+}
+
 
 ul {
   display: block;
@@ -169,7 +172,7 @@ svg {
 h1 { color: #29333DCF; font-family: 'Unica One', sans-serif; font-size: 46px; font-weight: 100; line-height: 50px; letter-spacing: 1px; padding: 0 0 40px; border-bottom: double #555; }
 
 
-p { color: #29333DCF; font-family: 'Crimson Text', serif, sans-serif; font-size: 22px;  line-height: 26px; text-indent: 30px; margin: 0; max-width: 1000px; }
+p { color: #29333DCF; font-family: 'Crimson Text', serif, sans-serif; font-size: 22px;  line-height: 26px; text-indent: 30px; margin: 0; max-width: 80%;}
 p.blocktext {margin-left: auto;
   margin-right: auto;}
 

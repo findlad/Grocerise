@@ -2,11 +2,30 @@ const puppeteer = require("puppeteer");
 const scrollPageToBottom = require("puppeteer-autoscroll-down");
 const cheerio = require("cheerio");
 
+async function autoScroll(page) {
+  await page.evaluate(async () => {
+    await new Promise((resolve) => {
+      var totalHeight = 0;
+      var distance = 100;
+      var timer = setInterval(() => {
+        var scrollHeight = document.body.scrollHeight;
+        window.scrollBy(0, distance);
+        totalHeight += distance;
+
+        if (totalHeight >= scrollHeight - window.innerHeight) {
+          clearInterval(timer);
+          resolve();
+        }
+      }, 100);
+    });
+  });
+}
+
 (async () => {
   // Superstore
   const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
-  //const displaySs = document.getElementById("supMilk");
+  const displaySs = document.getElementById("supMilk");
   await page.goto(
     "https://www.realcanadiansuperstore.ca/milk-1-mf/p/20657990_EA"
   );
@@ -16,7 +35,7 @@ const cheerio = require("cheerio");
       ".price__value.selling-price-list__item__price.selling-price-list__item__price--now-price__value";
     await page.waitForSelector(textSelectorSs);
 
-    const htmlCode = await page.content();
+    const htmlCodeSs = await page.content();
 
     function scrapePrice(html) {
       const $ = cheerio.load(html);
@@ -25,9 +44,9 @@ const cheerio = require("cheerio");
       return price;
     }
 
-    const superstoreMilkPrice = scrapePrice(htmlCode);
+    const superstoreMilkPrice = scrapePrice(htmlCodeSs);
     console.log("Superstore " + superstoreMilkPrice);
-    //displaySs.innerHTML = superstoreMilkPrice;
+    displaySs.innerHTML = superstoreMilkPrice;
   } catch (error) {
     console.error("Error: ", error);
   } finally {
@@ -38,22 +57,25 @@ const cheerio = require("cheerio");
 // walmart
 
 (async () => {
-  const browser = await puppeteer.launch({ headless: true });
+  const browser = await puppeteer.launch({ headless: false });
   const page = await browser.newPage();
+  await page.setViewport({ width: 1300, height: 1000 });
+
   await page.goto(
     "https://www.walmart.ca/en/ip/Dairyland-1-Partly-skimmed-milk/6000079800122"
   );
 
   try {
     const textSelectorWm = "span.inline-flex flex-column"; // Replace with the correct selector
-    //await page.waitForSelector(".relative lh-title f6 gray pb3 dn");
+    await page.waitForSelector(textSelectorWm);
     //await scrollPageToBottom(page);
-    //await page.waitForNetworkIdle;
+    //await page.waitForNetworkIdle(page,3000,0);
     //await page.waitForNavigation({ waitUntil: "networkidle2" });
     //await page.waitFor(5000);
-    await scrollPageToBottom(page);
+    //await scrollPageToBottom(page);
+    //await autoScroll(page);
 
-    const htmlCode = await page.content();
+    const htmlCodeWm = await page.content();
 
     function scrapePrice(html) {
       const $ = cheerio.load(html);
@@ -61,8 +83,8 @@ const cheerio = require("cheerio");
       console.log("Walmart " + priceWm.substring(0, 10));
       return priceWm;
     }
-    console.log(htmlCode);
-    const walmartMilkPrice = scrapePrice(htmlCode);
+    //console.log(htmlCode);
+    const walmartMilkPrice = scrapePrice(htmlCodeWm);
     console.log("walmart " + walmartMilkPrice);
   } catch (error) {
     console.error("Error: ", error);
@@ -73,16 +95,17 @@ const cheerio = require("cheerio");
 
 (async () => {
   // Safeway
-  const browser = await puppeteer.launch({ headless: true });
+  const browser = await puppeteer.launch({ headless: false });
   const page = await browser.newPage();
+  await page.setViewport({ width: 1920, height: 1080 });
   await page.goto("https://voila.ca/products/490731EA/details");
 
   try {
-    const textSelectorSw = ".text__Text-sc-6l1yjp-0 sc-jOxuqd bIGwoI gJweLJ"; // Replace with the correct selector
+    const textSelectorSw = ".text__Text-sc-6l1yjp-0 sc-hmjpBu bIGwoI jromfo"; // Replace with the correct selector
     await page.waitForSelector(textSelectorSw);
-    //await page.waitForNavigation({ waitUntil: "networkidle2" });
+    await page.waitForNavigation({ waitUntil: "networkidle2" });
 
-    const htmlCode = await page.content();
+    const htmlCodeSw = await page.content();
 
     function scrapePrice(html) {
       const $ = cheerio.load(html);
@@ -91,7 +114,7 @@ const cheerio = require("cheerio");
       return priceSw;
     }
 
-    const SafewayMilkPrice = scrapePrice(htmlCode);
+    const SafewayMilkPrice = scrapePrice(htmlCodeSw);
     console.log("Safeway " + SafewayMilkPrice);
   } catch (error) {
     console.error("Error: ", error);
@@ -111,7 +134,7 @@ const cheerio = require("cheerio");
       ".price__value selling-price-list__item__price selling-price-list__item__price--now-price__value";
     //await page.waitForSelector(textSelectorNf);
     await page.waitForNavigation({ waitUntil: "networkidle2" });
-    const htmlCode = await page.content();
+    const htmlCodeNf = await page.content();
 
     function scrapePrice(html) {
       const $ = cheerio.load(html);
@@ -120,7 +143,7 @@ const cheerio = require("cheerio");
       return priceNf;
     }
 
-    const noFrillsMilkPrice = scrapePrice(htmlCode);
+    const noFrillsMilkPrice = scrapePrice(htmlCodeNf);
     console.log("NoFrills " + noFrillsMilkPrice);
   } catch (error) {
     console.error("Error: ", error);
@@ -142,7 +165,7 @@ const cheerio = require("cheerio");
     await page.waitForSelector(textSelectorTt);
     //await page.waitForNavigation({ waitUntil: "networkidle2" });
 
-    const htmlCode = await page.content();
+    const htmlCodeTt = await page.content();
 
     function scrapePrice(html) {
       const $ = cheerio.load(html);
@@ -151,7 +174,7 @@ const cheerio = require("cheerio");
       return priceTt;
     }
 
-    const tandtMilkPrice = scrapePrice(htmlCode);
+    const tandtMilkPrice = scrapePrice(htmlCodeTt);
     console.log("T and T " + tandtMilkPrice);
   } catch (error) {
     console.error("Error: ", error);
