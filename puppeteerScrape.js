@@ -1,31 +1,15 @@
 const puppeteer = require("puppeteer");
 const scrollPageToBottom = require("puppeteer-autoscroll-down");
 const cheerio = require("cheerio");
-
-async function autoScroll(page) {
-  await page.evaluate(async () => {
-    await new Promise((resolve) => {
-      var totalHeight = 0;
-      var distance = 100;
-      var timer = setInterval(() => {
-        var scrollHeight = document.body.scrollHeight;
-        window.scrollBy(0, distance);
-        totalHeight += distance;
-
-        if (totalHeight >= scrollHeight - window.innerHeight) {
-          clearInterval(timer);
-          resolve();
-        }
-      }, 100);
-    });
-  });
-}
+const fs = require("fs");
+const delay = (milliseconds) =>
+  new Promise((resolve) => setTimeout(resolve, milliseconds));
 
 (async () => {
   // Superstore
   const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
-  const displaySs = document.getElementById("supMilk");
+  //const displaySs = document.getElementById("supMilk");
   await page.goto(
     "https://www.realcanadiansuperstore.ca/milk-1-mf/p/20657990_EA"
   );
@@ -46,12 +30,31 @@ async function autoScroll(page) {
 
     const superstoreMilkPrice = scrapePrice(htmlCodeSs);
     console.log("Superstore " + superstoreMilkPrice);
-    displaySs.innerHTML = superstoreMilkPrice;
+    //displaySs.innerHTML = superstoreMilkPrice;
   } catch (error) {
     console.error("Error: ", error);
   } finally {
     await browser.close();
   }
+  //save ssmilk price date to existing file somehow
+  let ssmilktoday = [{ item: ssmilk, price: superstoreMilkPrice, day: Date }];
+  fs.readFile("ssMilkHistory.json", "utf8", function (err, data) {
+    if (err) {
+      console.log(err);
+    } else {
+      const file = JSON.parse(data);
+      file.events.push({ item: ssmilk, price: superstoreMilkPrice, day: Date });
+      const json = JSON.stringify(file);
+
+      fs.writeFile("ssMilkHistory.json", json, "utf8", function (err) {
+        if (err) {
+          console.log(err);
+        } else {
+          //Everything went OK!
+        }
+      });
+    }
+  });
 })();
 
 // walmart
@@ -66,16 +69,30 @@ async function autoScroll(page) {
   );
 
   try {
-    const textSelectorWm = "span.inline-flex flex-column"; // Replace with the correct selector
-    await page.waitForSelector(textSelectorWm);
-    //await scrollPageToBottom(page);
-    //await page.waitForNetworkIdle(page,3000,0);
-    //await page.waitForNavigation({ waitUntil: "networkidle2" });
-    //await page.waitFor(5000);
-    //await scrollPageToBottom(page);
-    //await autoScroll(page);
+    const textSelectorWm = '[itemprop="price"]'; // Replace with the correct selector
+
+    await delay(5000);
 
     const htmlCodeWm = await page.content();
+    //console.log(htmlCodeWm);
+    /*fs.writeFile(
+      "wmhtml.txt",
+      htmlCodeWm,
+      {
+        encoding: "utf8",
+        flag: "w",
+        mode: 0o666,
+      },
+      (err) => {
+        if (err) {
+          console.error(err); // Use console.error to log errors.
+        } else {
+          console.log("File written successfully");
+          console.log("The written file has the following contents:");
+          console.log(fs.readFileSync("wmhtml.txt", "utf8"));
+        }
+      }
+    );*/
 
     function scrapePrice(html) {
       const $ = cheerio.load(html);
@@ -83,7 +100,7 @@ async function autoScroll(page) {
       console.log("Walmart " + priceWm.substring(0, 10));
       return priceWm;
     }
-    //console.log(htmlCode);
+
     const walmartMilkPrice = scrapePrice(htmlCodeWm);
     console.log("walmart " + walmartMilkPrice);
   } catch (error) {
@@ -105,7 +122,8 @@ async function autoScroll(page) {
     await page.waitForSelector(textSelectorSw);
     await page.waitForNavigation({ waitUntil: "networkidle2" });
 
-    const htmlCodeSw = await page.content();
+    //const htmlCodeSw = await page.content();
+    await delay(5000);
 
     function scrapePrice(html) {
       const $ = cheerio.load(html);
@@ -134,7 +152,8 @@ async function autoScroll(page) {
       ".price__value selling-price-list__item__price selling-price-list__item__price--now-price__value";
     //await page.waitForSelector(textSelectorNf);
     await page.waitForNavigation({ waitUntil: "networkidle2" });
-    const htmlCodeNf = await page.content();
+    //const htmlCodeNf = await page.content();
+    await delay(5000);
 
     function scrapePrice(html) {
       const $ = cheerio.load(html);
@@ -162,8 +181,9 @@ async function autoScroll(page) {
 
   try {
     const textSelectorTt = ".productFullDetail-productPrice-Aod";
-    await page.waitForSelector(textSelectorTt);
+    //await page.waitForSelector(textSelectorTt);
     //await page.waitForNavigation({ waitUntil: "networkidle2" });
+    await delay(5000);
 
     const htmlCodeTt = await page.content();
 
