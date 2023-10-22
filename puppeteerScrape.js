@@ -6,7 +6,7 @@ const delay = (milliseconds) =>
   new Promise((resolve) => setTimeout(resolve, milliseconds));
 let superstoreMilkPrice = "";
 let walmartMilkPrice = "";
-
+let safewayMilkPrice = scrapePrice(htmlCodesw);
 (async () => {
   // Superstore
   const browser = await puppeteer.launch({ headless: "New" });
