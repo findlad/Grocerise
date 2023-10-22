@@ -4,12 +4,13 @@ const cheerio = require("cheerio");
 const fs = require("fs");
 const delay = (milliseconds) =>
   new Promise((resolve) => setTimeout(resolve, milliseconds));
+let superstoreMilkPrice = "";
 
 (async () => {
   // Superstore
-  const browser = await puppeteer.launch({ headless: true });
+  const browser = await puppeteer.launch({ headless: "New" });
   const page = await browser.newPage();
-  //const displaySs = document.getElementById("supMilk");
+
   await page.goto(
     "https://www.realcanadiansuperstore.ca/milk-1-mf/p/20657990_EA"
   );
@@ -28,7 +29,7 @@ const delay = (milliseconds) =>
       return price;
     }
 
-    const superstoreMilkPrice = scrapePrice(htmlCodeSs);
+    let superstoreMilkPrice = scrapePrice(htmlCodeSs);
     console.log("Superstore " + superstoreMilkPrice);
     //displaySs.innerHTML = superstoreMilkPrice;
   } catch (error) {
@@ -37,20 +38,41 @@ const delay = (milliseconds) =>
     await browser.close();
   }
   //save ssmilk price date to existing file somehow
-  let ssmilktoday = [{ item: ssmilk, price: superstoreMilkPrice, day: Date }];
+  let ssmilktoday = [
+    {
+      item: "ssmilk",
+      price: superstoreMilkPrice,
+      day: new Date().toLocaleString(),
+    },
+  ];
   fs.readFile("ssMilkHistory.json", "utf8", function (err, data) {
     if (err) {
       console.log(err);
     } else {
-      const file = JSON.parse(data);
-      file.events.push({ item: ssmilk, price: superstoreMilkPrice, day: Date });
-      const json = JSON.stringify(file);
+      let file;
+      try {
+        file = JSON.parse(data);
+      } catch (error) {
+        // Handle the case where the file is empty or invalid JSON.
+        file = { events: [] };
+      }
 
+      if (!Array.isArray(file.events)) {
+        file.events = []; // Initialize as an empty array if it's not an array.
+      }
+
+      file.events.push({
+        item: "ssmilk",
+        price: superstoreMilkPrice,
+        day: new Date(),
+      });
+      const json = JSON.stringify(file);
+      console.log("Data to be written to the file:", json);
       fs.writeFile("ssMilkHistory.json", json, "utf8", function (err) {
         if (err) {
           console.log(err);
         } else {
-          //Everything went OK!
+          // Everything went OK!
         }
       });
     }
@@ -60,49 +82,64 @@ const delay = (milliseconds) =>
 // walmart
 
 (async () => {
-  const browser = await puppeteer.launch({ headless: false });
+  const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
-  await page.setViewport({ width: 1300, height: 1000 });
-
-  await page.goto(
-    "https://www.walmart.ca/en/ip/Dairyland-1-Partly-skimmed-milk/6000079800122"
-  );
 
   try {
-    const textSelectorWm = '[itemprop="price"]'; // Replace with the correct selector
-
-    await delay(5000);
-
-    const htmlCodeWm = await page.content();
-    //console.log(htmlCodeWm);
-    /*fs.writeFile(
-      "wmhtml.txt",
-      htmlCodeWm,
-      {
-        encoding: "utf8",
-        flag: "w",
-        mode: 0o666,
-      },
-      (err) => {
-        if (err) {
-          console.error(err); // Use console.error to log errors.
-        } else {
-          console.log("File written successfully");
-          console.log("The written file has the following contents:");
-          console.log(fs.readFileSync("wmhtml.txt", "utf8"));
-        }
-      }
-    );*/
+    await page.goto(
+      "https://www.realcanadiansuperstore.ca/milk-1-mf/p/20657990_EA"
+    );
+    await page.waitForSelector(
+      ".price__value.selling-price-list__item__price.selling-price-list__item__price--now-price__value"
+    );
+    const htmlCodeSs = await page.content();
 
     function scrapePrice(html) {
       const $ = cheerio.load(html);
-      const priceWm = $(textSelectorWm).text().trim();
-      console.log("Walmart " + priceWm.substring(0, 10));
-      return priceWm;
+      const textSelectorSs =
+        ".price__value.selling-price-list__item__price.selling-price-list__item__price--now-price__value";
+      const price = $(textSelectorSs).text().trim();
+      return price;
     }
 
-    const walmartMilkPrice = scrapePrice(htmlCodeWm);
-    console.log("walmart " + walmartMilkPrice);
+    const superstoreMilkPrice = scrapePrice(htmlCodeSs);
+    console.log("Superstore " + superstoreMilkPrice);
+
+    const ssmilkToday = {
+      item: "ssmilk",
+      price: superstoreMilkPrice,
+      day: new Date(),
+    };
+
+    fs.readFile("ssMilkHistory.json", "utf8", (err, data) => {
+      let file;
+      if (err) {
+        console.log(err);
+        file = { events: [] }; // Initialize with an empty array if the file doesn't exist
+      } else {
+        try {
+          file = JSON.parse(data);
+        } catch (error) {
+          console.log("Error parsing JSON:", error);
+          file = { events: [] }; // Initialize with an empty array if the JSON is invalid
+        }
+      }
+
+      if (!Array.isArray(file.events)) {
+        file.events = []; // Initialize as an empty array if it's not an array.
+      }
+
+      file.events.push(ssmilkToday);
+
+      const json = JSON.stringify(file);
+      fs.writeFile("ssMilkHistory.json", json, "utf8", (err) => {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log("Data saved to ssMilkHistory.json");
+        }
+      });
+    });
   } catch (error) {
     console.error("Error: ", error);
   } finally {
