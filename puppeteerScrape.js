@@ -4,9 +4,13 @@ const cheerio = require("cheerio");
 const fs = require("fs");
 const delay = (milliseconds) =>
   new Promise((resolve) => setTimeout(resolve, milliseconds));
-let superstoreMilkPrice = "";
-let walmartMilkPrice = "";
-let safewayMilkPrice = scrapePrice(htmlCodesw);
+let superstoreMilkPrice;
+let walmartMilkPrice;
+let safewayMilkPrice;
+let nofrillsMilkPrice;
+
+
+
 (async () => {
   // Superstore
   const browser = await puppeteer.launch({ headless: "New" });
@@ -32,8 +36,7 @@ let safewayMilkPrice = scrapePrice(htmlCodesw);
 
     let superstoreMilkPrice = scrapePrice(htmlCodeSs);
     console.log("Superstore " + superstoreMilkPrice);
-    //displaySs.innerHTML = superstoreMilkPrice;
-  } catch (error) {
+    } catch (error) {
     console.error("Error: ", error);
   } finally {
     await browser.close();
@@ -120,10 +123,10 @@ let safewayMilkPrice = scrapePrice(htmlCodesw);
     function scrapePrice(html) {
       const $ = cheerio.load(html);
       const priceWm = $(textSelectorWm).text().trim();
-      console.log("Walmart " + priceWm.substring(0, 10));
       return priceWm;
     }
-
+    
+    console.log("Walmart " + priceWm.substring(0, 10));
     let walmartMilkPrice = scrapePrice(htmlCodeWm);
   } catch (error) {
     console.error("Error: ", error);
@@ -164,8 +167,7 @@ let safewayMilkPrice = scrapePrice(htmlCodesw);
   });
 })();
 
-(async () => {
-  // safeway
+// Safeway
 
 (async () => {
   const browser = await puppeteer.launch({ headless: "New" });
@@ -173,21 +175,63 @@ let safewayMilkPrice = scrapePrice(htmlCodesw);
   await page.setViewport({ width: 1300, height: 1000 });
 
   await page.goto("https://voila.ca/products/490731EA/details");
+  const textSelectorsw = ".text__Text-sc-6l1yjp-0.sc-hmjpBu.bIGwoI.jromfo"; // Replace with the correct selector
+  
+  const htmlCodesw = await page.content();
+  function scrapePrice(html) {
+    const $ = cheerio.load(html);
+    const priceWm = $(textSelectorss).text().trim();
+    return pricess;
+  }
 
-  try {
-    const textSelectorsw = ".text__Text-sc-6l1yjp-0.sc-hmjpBu.bIGwoI.jromfo"; // Replace with the correct selector
+  const safewayMilkPrice = scrapePrice(htmlCodesw);
 
-    await delay(5000);
+  console.log("Safeway " + safewayMilkPrice);
+} catch (error) {
+  console.error("Error: ", error);
+} finally {
+  await browser.close();
+}
+})();
+    // Read the existing JSON file
+    fs.readFile("swMilkHistory.json", "utf8", function (err, data) {
+      if (err) {
+        console.log(err);
+      } else {
+        try {
+          file = JSON.parse(data);
+        } catch (error) {
+          // Handle the case where the file is empty or invalid JSON.
+          file = { events: [] };
+        }
 
-    const htmlCodesw = await page.content();
-    function scrapePrice(html) {
-      const $ = cheerio.load(html);
-      const pricesw = $(textSelectorsw).text().trim();
-      console.log("Safeway " + pricesw.substring(0, 10));
-      return pricesw;
-    }
+        if (!Array.isArray(file.events)) {
+          file.events = []; // Initialize as an empty array if it's not an array.
+        }
 
-    const safewayMilkPrice = scrapePrice(htmlCodesw);
+        // Create the data object to be appended
+        const newData = {
+          item: "swmilk",
+          price: safewayMilkPrice,
+          day: new Date().toLocaleString(),
+        };
+        console.log(newData);
+        // Push the new data into the events array
+        file.events.push(newData);
+        console.log(file.events);
+        // Convert the updated data to JSON
+        const json = JSON.stringify(file);
+
+        // Write the updated JSON back to the file
+        fs.writeFile("swMilkHistory.json", json, "utf8", function (err) {
+          if (err) {
+            console.log(err);
+          } else {
+            console.log("Data appended to the file successfully!");
+          }
+        });
+      }
+    });
   } catch (error) {
     console.error("Error: ", error);
   } finally {
@@ -197,59 +241,25 @@ let safewayMilkPrice = scrapePrice(htmlCodesw);
 
 //NoFrills
 (async () => {
-  const browser = await puppeteer.launch({ headless: true });
+  const browser = await puppeteer.launch({ headless: "New" });
   const page = await browser.newPage();
-  await page.goto("https://www.nofrills.ca/milk-1-mf/p/20657990_EA");
+  await page.setViewport({ width: 1300, height: 1000 });
 
-  try {
-    const textSelectorNf =
-      ".price__value selling-price-list__item__price selling-price-list__item__price--now-price__value";
-    //await page.waitForSelector(textSelectorNf);
-    await page.waitForNavigation({ waitUntil: "networkidle2" });
-    //const htmlCodeNf = await page.content();
-    await delay(5000);
+  await page.goto("https://voila.ca/products/490731EA/details");
+  const textSelectornf = ".text__Text-sc-6l1yjp-0.sc-hmjpBu.bIGwoI.jromfo"; // Replace with the correct selector
+
+   
+    const htmlCodenf = await page.content();
 
     function scrapePrice(html) {
       const $ = cheerio.load(html);
-      const priceNf = $(textSelectorNf).text().trim();
-
-      return priceNf;
+      const pricenf = $(textSelectornf).text().trim();
+      return pricenf;
     }
 
-    const noFrillsMilkPrice = scrapePrice(htmlCodeNf);
-    console.log("NoFrills " + noFrillsMilkPrice);
-  } catch (error) {
-    console.error("Error: ", error);
-  } finally {
-    await browser.close();
-  }
-})();
+    const nofrillsMilkPrice = scrapePrice(htmlCodenf);
 
-// t and t
-(async () => {
-  const browser = await puppeteer.launch({ headless: true });
-  const page = await browser.newPage();
-  await page.goto(
-    "https://www.tntsupermarket.com/eng/76380101-dairyland-1-milk-jug.html"
-  );
-
-  try {
-    const textSelectorTt = ".productFullDetail-productPrice-Aod";
-    //await page.waitForSelector(textSelectorTt);
-    //await page.waitForNavigation({ waitUntil: "networkidle2" });
-    await delay(5000);
-
-    const htmlCodeTt = await page.content();
-
-    function scrapePrice(html) {
-      const $ = cheerio.load(html);
-      const priceTt = $(textSelectorTt).text().trim();
-
-      return priceTt;
-    }
-
-    const tandtMilkPrice = scrapePrice(htmlCodeTt);
-    console.log("T and T " + tandtMilkPrice);
+    console.log("NoFrills " + nofrillsMilkPrice);
   } catch (error) {
     console.error("Error: ", error);
   } finally {

@@ -25,50 +25,49 @@ const delay = (milliseconds) =>
     }
 
     pricesw = scrapePrice(htmlCodesw); // Assign the result to pricesw
-    console.log("Safeway " + pricesw);
-    // Read the existing JSON file
-    fs.readFile("swMilkHistory.json", "utf8", function (err, data) {
-      if (err) {
-        console.log(err);
-      } else {
-        let file;
-        try {
-          file = JSON.parse(data);
-        } catch (error) {
-          // Handle the case where the file is empty or invalid JSON.
-          file = { events: [] };
-        }
-
-        if (!Array.isArray(file.events)) {
-          file.events = []; // Initialize as an empty array if it's not an array.
-        }
-
-        // Create the data object to be appended
-        const newData = {
-          item: "swmilk",
-          price: pricesw,
-          day: new Date().toLocaleString(),
-        };
-        console.log(newData);
-        // Push the new data into the events array
-        file.events.push(newData);
-        console.log(file.events);
-        // Convert the updated data to JSON
-        const json = JSON.stringify(file);
-
-        // Write the updated JSON back to the file
-        fs.writeFile("swMilkHistory.json", json, "utf8", function (err) {
-          if (err) {
-            console.log(err);
-          } else {
-            console.log("Data appended to the file successfully!");
-          }
-        });
-      }
-    });
   } catch (error) {
     console.error("Error: ", error);
   } finally {
     await browser.close();
-  }
-})();
+
+    //save swmilk price date to existing file somehow
+  let ssmilktoday = [
+    {
+      item: "swmilk",
+      price: pricesw,
+      day: new Date().toLocaleString(),
+    },
+  ];
+  fs.readFile("swMilkHistory.json", "utf8", function (err, data) {
+    if (err) {
+      console.log(err);
+    } else {
+      let file;
+      try {
+        file = JSON.parse(data);
+      } catch (error) {
+        // Handle the case where the file is empty or invalid JSON.
+        file = { events: [] };
+      }
+
+      if (!Array.isArray(file.events)) {
+        file.events = []; // Initialize as an empty array if it's not an array.
+      }
+
+      file.events.push({
+        item: "ssmilk",
+        price: pricesw,
+        day: new Date(),
+      });
+      const json = JSON.stringify(file);
+      console.log("Data to be written to the file:", json);
+      fs.writeFile("swMilkHistory.json", json, "utf8", function (err) {
+        if (err) {
+          console.log(err);
+        } else {
+          // Everything went OK!
+        }
+      });
+    }
+  });
+});

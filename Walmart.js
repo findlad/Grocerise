@@ -45,11 +45,11 @@ const delay = (milliseconds) =>
     function scrapePrice(html) {
       const $ = cheerio.load(html);
       const priceWm = $(textSelectorWm).text().trim();
-      console.log("Walmart " + priceWm.substring(0, 10));
       return priceWm;
     }
 
     const walmartMilkPrice = scrapePrice(htmlCodeWm);
+
     console.log("walmart " + walmartMilkPrice);
   } catch (error) {
     console.error("Error: ", error);
