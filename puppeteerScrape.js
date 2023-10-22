@@ -165,29 +165,29 @@ let walmartMilkPrice = "";
 })();
 
 (async () => {
-  // Safeway
-  const browser = await puppeteer.launch({ headless: false });
+  // safeway
+
+(async () => {
+  const browser = await puppeteer.launch({ headless: "New" });
   const page = await browser.newPage();
-  await page.setViewport({ width: 1920, height: 1080 });
+  await page.setViewport({ width: 1300, height: 1000 });
+
   await page.goto("https://voila.ca/products/490731EA/details");
 
   try {
-    const textSelectorSw = ".text__Text-sc-6l1yjp-0 sc-hmjpBu bIGwoI jromfo"; // Replace with the correct selector
-    await page.waitForSelector(textSelectorSw);
-    await page.waitForNavigation({ waitUntil: "networkidle2" });
+    const textSelectorsw = ".text__Text-sc-6l1yjp-0.sc-hmjpBu.bIGwoI.jromfo"; // Replace with the correct selector
 
-    //const htmlCodeSw = await page.content();
     await delay(5000);
 
+    const htmlCodesw = await page.content();
     function scrapePrice(html) {
       const $ = cheerio.load(html);
-      const priceSw = $(textSelectorSw).text().trim();
-      console.log("Safeway " + priceSw.substring(0, 10));
-      return priceSw;
+      const pricesw = $(textSelectorsw).text().trim();
+      console.log("Safeway " + pricesw.substring(0, 10));
+      return pricesw;
     }
 
-    const SafewayMilkPrice = scrapePrice(htmlCodeSw);
-    console.log("Safeway " + SafewayMilkPrice);
+    const safewayMilkPrice = scrapePrice(htmlCodesw);
   } catch (error) {
     console.error("Error: ", error);
   } finally {

@@ -8,14 +8,14 @@ const delay = (milliseconds) =>
 // safeway
 
 (async () => {
-  const browser = await puppeteer.launch({ headless: false });
+  const browser = await puppeteer.launch({ headless: "New" });
   const page = await browser.newPage();
   await page.setViewport({ width: 1300, height: 1000 });
 
   await page.goto("https://voila.ca/products/490731EA/details");
 
   try {
-    const textSelectorsw = ".text__Text-sc-6l1yjp-0 sc-hmjpBu bIGwoI jromfo"; // Replace with the correct selector
+    const textSelectorsw = ".text__Text-sc-6l1yjp-0.sc-hmjpBu.bIGwoI.jromfo"; // Replace with the correct selector
 
     await delay(5000);
 
