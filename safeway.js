@@ -25,11 +25,8 @@ const delay = (milliseconds) =>
     }
 
     pricesw = scrapePrice(htmlCodesw); // Assign the result to pricesw
-  } catch (error) {
-    console.error("Error: ", error);
-  } finally {
-    await browser.close();
-
+    console.log("Safeway " + pricesw);
+    // Read the existing JSON file
     fs.readFile("swMilkHistory.json", "utf8", function (err, data) {
       if (err) {
         console.log(err);
@@ -46,21 +43,32 @@ const delay = (milliseconds) =>
           file.events = []; // Initialize as an empty array if it's not an array.
         }
 
-        file.events.push({
+        // Create the data object to be appended
+        const newData = {
           item: "swmilk",
-          price: pricesw, // Use the pricesw variable here
-          day: new Date(),
-        });
+          price: pricesw,
+          day: new Date().toLocaleString(),
+        };
+        console.log(newData);
+        // Push the new data into the events array
+        file.events.push(newData);
+        console.log(file.events);
+        // Convert the updated data to JSON
         const json = JSON.stringify(file);
-        console.log("Data to be written to the file:", json);
+
+        // Write the updated JSON back to the file
         fs.writeFile("swMilkHistory.json", json, "utf8", function (err) {
           if (err) {
             console.log(err);
           } else {
-            // Everything went OK!
+            console.log("Data appended to the file successfully!");
           }
         });
       }
     });
+  } catch (error) {
+    console.error("Error: ", error);
+  } finally {
+    await browser.close();
   }
 })();
