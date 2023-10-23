@@ -9,7 +9,7 @@ let ssMilkPrice;
 let ssMilkPage =
   "https://www.realcanadiansuperstore.ca/milk-1-mf/p/20657990_EA";
 let ssMilkTarget =
-  ".price__value.selling-price-list__item__price.selling-price-list__item__price--now-price__value";
+  ".price__value selling-price-list__item__price selling-price-list__item__price--now-price__value";
 let wmMilkPage =
   "https://www.walmart.ca/en/ip/Dairyland-1-Partly-skimmed-milk/6000079800122";
 let wmMilkTarget = '[itemprop="price"]';
@@ -17,24 +17,27 @@ let wmMilkPrice;
 let swMilkPage = "https://voila.ca/products/490731EA/details";
 let swMilkTarget = ".text__Text-sc-6l1yjp-0.sc-hmjpBu.bIGwoI.jromfo";
 let swMilkPrice;
-let nfMilkPage = "https://voila.ca/products/490731EA/details";
-let nfMilkTarget = ".text__Text-sc-6l1yjp-0.sc-hmjpBu.bIGwoI.jromfo";
+let nfMilkPage = "https://www.nofrills.ca/skim-milk/p/20658003_EA";
+let nfMilkTarget =
+  ".price__value selling-price-list__item__price selling-price-list__item__price--now-price__value";
 let nfMilkPrice;
 
-function getPrice(targetPage, targetClass, vendor) {
+function getPrice(targetPage, target, vendor) {
   (async () => {
-    const browser = await puppeteer.launch({ headless: "New" });
+    let price = "";
+    const browser = await puppeteer.launch({ headless: false });
     const page = await browser.newPage();
-    await page.setViewport({ width: 1300, height: 1000 });
+    await page.setGeolocation({ latitude: 51.049999, longitude: -114.066666 });
+    await page.setViewport({ width: 1920, height: 1080, deviceScaleFactor: 1 });
     await page.goto(targetPage);
     try {
-      const textSelectorWm = targetClass;
-      await delay(5000);
+      const textSelector = target;
+      await delay(6000);
       const htmlCode = await page.content();
       function scrapePrice(html) {
         const $ = cheerio.load(html);
-        const priceWm = $(textSelectorWm).text().trim();
-        return priceWm;
+        const price = $(textSelector).text().trim();
+        return price;
       }
       const price = scrapePrice(htmlCode);
       console.log(vendor + " " + price);
@@ -48,3 +51,6 @@ function getPrice(targetPage, targetClass, vendor) {
 }
 
 ssMilkPrice = getPrice(ssMilkPage, ssMilkTarget, "Superstore");
+wmMilkPrice = getPrice(wmMilkPage, wmMilkTarget, "Walmart");
+swMilkPrice = getPrice(swMilkPage, swMilkTarget, "Safeway");
+nfMilkPrice = getPrice(nfMilkPage, nfMilkTarget, "NoFrills");
