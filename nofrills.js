@@ -9,8 +9,9 @@ const delay = (milliseconds) =>
   const page = await browser.newPage();
   await page.setViewport({ width: 1300, height: 1000 });
 
-  await page.goto("https://voila.ca/products/490731EA/details");
-  const textSelectornf = ".text__Text-sc-6l1yjp-0.sc-hmjpBu.bIGwoI.jromfo"; // Replace with the correct selector
+  await page.goto("https://www.nofrills.ca/skim-milk/p/20658003_EA");
+  const textSelectornf =
+    ".price__value selling-price-list__item__price selling-price-list__item__price--now-price__value"; // Replace with the correct selector
 
   let pricenf; // Define pricenf here
 
