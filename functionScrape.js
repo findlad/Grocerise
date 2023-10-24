@@ -43,13 +43,15 @@ let nfMilkPage = "https://www.nofrills.ca/skim-milk/p/20658003_EA";
 function getPrice(targetPage, target, vendor, type) {
   (async () => {
     let price = "";
+    //console.log(targetPage + " " + target + " " + vendor + " " + type);
+
     const browser = await puppeteer.launch({ headless: false });
     const page = await browser.newPage();
-    await page.setGeolocation({ latitude: 51.049999, longitude: -114.066666 });
-    await page.setViewport({ width: 1920, height: 1080, deviceScaleFactor: 1 });
+    //await page.setGeolocation({ latitude: 51.049999, longitude: -114.066666 });
+    await page.setViewport({ width: 1300, height: 1000 });
     await page.goto(targetPage);
     try {
-      //const textSelector = target;
+      const textSelector = target;
       await delay(5000);
       const htmlCode = await page.content();
 
@@ -57,9 +59,11 @@ function getPrice(targetPage, target, vendor, type) {
         const $ = cheerio.load(html);
         const priceTxt = $(target)
           .text()
+          .trim()
           .replace(/\$/g, " ")
-          .slice(0, 6)
-          .trim();
+          .slice(0, 6);
+
+        //console.log(priceTxt);
         return priceTxt;
       }
 
@@ -89,11 +93,17 @@ function getPrice(targetPage, target, vendor, type) {
 }
 
 ssMilkPrice = getPrice(ssMilkPage, ssTarget, "Superstore", "milk");
+
 wmMilkPrice = getPrice(wmMilkPage, wmTarget, "Walmart", "milk");
+
 swMilkPrice = getPrice(swMilkPage, swTarget, "Safeway", "milk");
+
 nfMilkPrice = getPrice(nfMilkPage, nfTarget, "NoFrills", "milk");
 
 ssEggPrice = getPrice(ssEggPage, ssTarget, "Superstore", "egg");
+
 wmEggPrice = getPrice(wmEggPage, wmTarget, "Walmart", "egg");
+
 swEggPrice = getPrice(swEggPage, swTarget, "Safeway", "egg");
+
 nfEggPrice = getPrice(nfEggPage, nfTarget, "NoFrills", "egg");
