@@ -1,17 +1,15 @@
 
 .display_grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   /* grid-template-rows: 20% 20% 20% 20%; */
   margin-left: 100px;
   margin-right: 100px;
   grid-gap: 25px;
   border-radius: 25px;
-  justify-content: center;
-  align-content: center;
   background-color:#bbc3c8;
   outline: #111;
-  color: #EDE0CF;
+  color: #EDE0CF; 
   font-family: 'Crimson Text', serif;
   font-size: 22px;
   font-weight: bolder;
@@ -19,8 +17,10 @@
 
 }
 .display_grid > *{
-  background-color:#dee6eb;
+  /* background-color:#dee6eb; */
   outline: #111;
+    justify-self: center;
+  align-self: center;
   
 }
 
