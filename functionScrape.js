@@ -8,8 +8,7 @@ const delay = (milliseconds) =>
 let ssEggPrice;
 let ssEggPage =
   "https://www.realcanadiansuperstore.ca/free-range-large-eggs/p/20881824001_EA";
-let ssTarget =
-  ".price__value selling-price-list__item__price selling-price-list__item__price--now-price__value";
+let ssTarget = ".price__value";
 
 let wmEggPrice;
 let wmEggPage =
@@ -18,13 +17,12 @@ let wmTarget = '[itemprop="price"]';
 
 let swEggPrice;
 let swEggPage = "https://voila.ca/products/150353EA/details";
-let swTarget = ".text__Text-sc-6l1yjp-0 sc-hmjpBu bIGwoI jromfo";
+let swTarget = ".jromfo";
 
 let nfEggPrice;
 let nfEggPage =
   "https://www.nofrills.ca/free-range-large-eggs/p/20881824001_EA";
-let nfTarget =
-  ".price__value selling-price-list__item__price selling-price-list__item__price--now-price__value";
+let nfTarget = ".price__value";
 
 let ssMilkPrice;
 let ssMilkPage =
@@ -54,6 +52,8 @@ function getPrice(targetPage, target, vendor, type) {
       const textSelector = target;
       await delay(5000);
       const htmlCode = await page.content();
+
+      // fs.writeFile("html.txt", htmlCode, "utf-8"); //dumps the html to check
 
       function scrapePrice(html) {
         const $ = cheerio.load(html);
