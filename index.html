@@ -85,8 +85,6 @@
       let items = ["milk", "egg"];
       let shops = ["Walmart", "Safeway", "NoFrills", "Superstore"];
 
-      // items.forEach(fetchPricesJSON);
-      // shops.forEach(fetchPricesJSON);
       async function fetchPricesJSON(thing, store) {
         const response = await fetch("priceHistory.json");
         const priceArray = await response.json();
