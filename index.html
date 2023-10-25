@@ -105,16 +105,11 @@
         console.log(gridId);
         document.getElementById(gridId).innerHTML = "$" + newestEntry.cost;
       }
-
-      fetchPricesJSON("milk", "Safeway");
-      fetchPricesJSON("milk", "NoFrills");
-      fetchPricesJSON("milk", "Walmart");
-      fetchPricesJSON("milk", "Superstore");
-
-      fetchPricesJSON("egg", "Safeway");
-      fetchPricesJSON("egg", "NoFrills");
-      fetchPricesJSON("egg", "Walmart");
-      fetchPricesJSON("egg", "Superstore");
+      items.forEach((item) => {
+        shops.forEach((shop) => {
+          fetchPricesJSON(item, shop);
+        });
+      });
     </script>
   </body>
 </html>
