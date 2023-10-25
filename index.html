@@ -82,21 +82,39 @@
 
     <script>
       //let gridId;
+      let items = ["milk", "egg"];
+      let shops = ["Walmart", "Safeway", "NoFrills", "Superstore"];
 
-      async function fetchPricesJSON(item) {
+      // items.forEach(fetchPricesJSON);
+      // shops.forEach(fetchPricesJSON);
+      async function fetchPricesJSON(thing, store) {
         const response = await fetch("priceHistory.json");
         const priceArray = await response.json();
         const categoryPrices = priceArray.filter(
-          (entry) => entry.item === item
+          (entry) => entry.item === thing
         );
-        categoryPrices.sort((a, b) => new Date(b.day) - new Date(a.day));
-        const newestEntry = categoryPrices[0];
+        console.log(store);
+        const categoryPricesStore = categoryPrices.filter(
+          (entry) => entry.shop === store
+        );
+        categoryPricesStore.sort((a, b) => new Date(b.day) - new Date(a.day));
+        console.log(categoryPricesStore);
+        const newestEntry = categoryPricesStore[0];
+        console.log(newestEntry);
         let gridId = newestEntry.shop + newestEntry.item;
         console.log(gridId);
         document.getElementById(gridId).innerHTML = "$" + newestEntry.cost;
       }
-      fetchPricesJSON("milk");
-      fetchPricesJSON("egg");
+
+      fetchPricesJSON("milk", "Safeway");
+      fetchPricesJSON("milk", "NoFrills");
+      fetchPricesJSON("milk", "Walmart");
+      fetchPricesJSON("milk", "Superstore");
+
+      fetchPricesJSON("egg", "Safeway");
+      fetchPricesJSON("egg", "NoFrills");
+      fetchPricesJSON("egg", "Walmart");
+      fetchPricesJSON("egg", "Superstore");
     </script>
   </body>
 </html>
