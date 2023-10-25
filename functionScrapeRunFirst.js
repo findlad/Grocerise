@@ -24,21 +24,6 @@ let nfEggPage =
   "https://www.nofrills.ca/free-range-large-eggs/p/20881824001_EA";
 let nfTarget = ".price__value";
 
-let ssChickenPrice;
-let ssChickenPage =
-  "https://www.realcanadiansuperstore.ca/chicken-breast-boneless-skinless-3-pack/p/21340952_EA";
-
-let wmChickenPrice;
-let wmChickenPage =
-  "https://www.walmart.ca/en/ip/prime-boneless-skinless-chicken-breast-raised-without-antibiotics/6000203053980?from=/search";
-
-let swChickenPrice;
-let swChickenPage = "https://voila.ca/products/340841KG/details";
-
-let nfChickenPrice;
-let nfChickenPage =
-  "https://www.nofrills.ca/chicken-breast-boneless-skinless-3-pack/p/21340952_EA";
-
 let ssMilkPrice;
 let ssMilkPage =
   "https://www.realcanadiansuperstore.ca/milk-1-mf/p/20657990_EA";
@@ -52,21 +37,6 @@ let swMilkPage = "https://voila.ca/products/490731EA/details";
 
 let nfMilkPrice;
 let nfMilkPage = "https://www.nofrills.ca/skim-milk/p/20658003_EA";
-
-let ssRicePrice;
-let ssRicePage =
-  "https://www.realcanadiansuperstore.ca/premium-long-grain-rice/p/20074783001_EA";
-
-let wmRicePrice;
-let wmRicePage =
-  "https://www.walmart.ca/en/ip/Minute-Rice-Premium-Instant-Long-Grain-White-Rice-1-4-kg/10299508?from=/search";
-
-let swRicePrice;
-let swRicePage = "https://voila.ca/products/160395EA/details";
-
-let nfRicePrice;
-let nfRicePage =
-  "https://www.nofrills.ca/premium-long-grain-rice/p/20074783001_EA";
 
 function getPrice(targetPage, target, vendor, type) {
   (async () => {
@@ -137,11 +107,3 @@ wmEggPrice = getPrice(wmEggPage, wmTarget, "Walmart", "egg");
 swEggPrice = getPrice(swEggPage, swTarget, "Safeway", "egg");
 
 nfEggPrice = getPrice(nfEggPage, nfTarget, "NoFrills", "egg");
-
-ssChickenPrice = getPrice(ssEggPage, ssTarget, "Superstore", "chicken");
-
-wmChickenPrice = getPrice(wmEggPage, wmTarget, "Walmart", "chicken");
-
-swChickenPrice = getPrice(swEggPage, swTarget, "Safeway", "chicken");
-
-nfChickenPrice = getPrice(nfEggPage, nfTarget, "NoFrills", "chicken");
