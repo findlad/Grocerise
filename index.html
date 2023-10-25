@@ -65,48 +65,38 @@
           alt="Milk"
         />
       </div>
-      <div><input id="SuperstoreMilk" disabled /></div>
-      <div><input id="SafewayMilk" disabled /></div>
-      <div><input id="WalmartMilk" disabled /></div>
-      <div><input id="NoFrillsMilk" disabled /></div>
+      <div id="Superstoremilk"></div>
+      <div id="Safewaymilk"></div>
+      <div id="Walmartmilk"></div>
+      <div id="NoFrillsmilk"></div>
       <div class="Eggs">
         <img src="eggs-svgrepo-com.svg" width="75%" height="75%" alt="Eggs" />
       </div>
-      <div><input id="SuperstoreEgg" disabled /></div>
-      <div><input id="SafewayEgg" disabled /></div>
-      <div><input id="WalmartEgg" disabled /></div>
-      <div><input id="NoFrillsEgg" disabled /></div>
+      <div id="Superstoreegg"></div>
+      <div id="Safewayegg"></div>
+      <div id="Walmartegg"></div>
+      <div id="NoFrillsegg"></div>
     </div>
 
     <hr />
 
     <script>
-      // Load the JSON file using Fetch API
-      fetch("priceHistory.json")
-        .then((response) => response.json())
-        .then((data) => {
-          // Filter the entries by category
-          const category = "milk"; // Change this to the category you want
-          const categoryEntries = data.filter(
-            (entry) => entry.category === category
-          );
+      //let gridId;
 
-          // Find the newest entry in the filtered category
-          categoryEntries.sort((a, b) => new Date(b.day) - new Date(a.day));
-          const newestEntry = categoryEntries[0];
-
-          // Display the result
-          const dataContainer = document.getElementById(
-            newestEntry.shop + newestEntry.item
-          );
-          dataContainer.textContent = JSON.stringify(newestEntry, null, 2);
-        })
-        .catch((error) => {
-          console.error("Error loading JSON file:", error);
-        });
+      async function fetchPricesJSON(item) {
+        const response = await fetch("priceHistory.json");
+        const priceArray = await response.json();
+        const categoryPrices = priceArray.filter(
+          (entry) => entry.item === item
+        );
+        categoryPrices.sort((a, b) => new Date(b.day) - new Date(a.day));
+        const newestEntry = categoryPrices[0];
+        let gridId = newestEntry.shop + newestEntry.item;
+        console.log(gridId);
+        document.getElementById(gridId).innerHTML = "$" + newestEntry.cost;
+      }
+      fetchPricesJSON("milk");
+      fetchPricesJSON("egg");
     </script>
-
-    //
-    <script src="app.js"></script>
   </body>
 </html>

@@ -1,7 +1,7 @@
 
 
 let gridId;
-document.getElementById("loadData").addEventListener("click", function() {
+document.getElementById("loadData").addEventListener("click", function()) {
     // Load the JSON file using Fetch API
     fetch("priceHistory.json")
     .then(response => response.json())
