@@ -1,29 +1,67 @@
 
-.display_grid {
+.grid_container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  /* grid-template-rows: 20% 20% 20% 20%; */
-  margin-left: 100px;
-  margin-right: 100px;
-  grid-gap: 25px;
-  border-radius: 25px;
-  background-color:#bbc3c8;
-  outline: #111;
-  color: #EDE0CF; 
-  font-family: 'Crimson Text', serif;
-  font-size: 22px;
-  font-weight: bolder;
-  border: #292929
-
-}
-.display_grid > *{
-  /* background-color:#dee6eb; */
-  outline: #111;
-    justify-self: center;
-  align-self: center;
-  
+  margin: 50px;
+  gap: 20px; /* Gap between grid items */
+  max-width: 1000px; /* Limit the maximum width of the grid */
+  margin: 20px auto; /* Center the grid horizontally */
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
 }
 
+/* Style the grid items */
+.grid-item {
+  display: flex;
+  max-width: 200px;
+  background-color: #fff;
+  padding: 5%;
+  max-height: 200px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 2vw;
+}
+
+/* Add some hover effect to the grid items */
+.grid-item:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
+}
+
+.animate-charcter
+{
+   /* text-transform: uppercase; */
+  background-image: linear-gradient(
+    -225deg,
+    #231557 0%,
+    #44107a 29%,
+    #ff1361 67%,
+    #fff800 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 5s linear infinite;
+  margin: auto;
+  text-align: center;
+  font-size: 10vw;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
 
 ul {
   display: block;
@@ -40,62 +78,6 @@ ul {
   font-size: 22px;
   max-width: 50ch;
 }
-
-
-.button-56 {
-  align-items: center;
-  background-color: #e28174;
-  border: 2px solid #111;
-  border-radius: 8px;
-  box-sizing: border-box;
-  color: #111;
-  cursor: pointer;
-  display: flex;
-  font-family: 'Crimson Text', serif;
-  font-size: 20px;
-  height: 48px;
-  justify-content: center;
-  line-height: 24px;
-  max-width: 100%;
-  padding: 0 25px;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
-
-.button-56:after {
-  background-color: #111;
-  border-radius: 8px;
-  content: "";
-  display: block;
-  height: 48px;
-  left: 0;
-  width: 100%;
-  position: absolute;
-  top: -2px;
-  transform: translate(8px, 8px);
-  transition: transform .2s ease-out;
-  z-index: -1;
-}
-
-.button-56:hover:after {
-  transform: translate(0, 0);
-}
-
-.button-56:active {
-  background-color: #ffdeda;
-  outline: 0;
-}
-
-.button-56:hover {
-  outline: 0;
-}
-
-
-
 
 
 @media (min-width: 768px) {
@@ -172,7 +154,7 @@ svg {
 h1 { color: #29333DCF; font-family: 'Unica One', sans-serif; font-size: 46px; font-weight: 100; line-height: 50px; letter-spacing: 1px; padding: 0 0 40px; border-bottom: double #555; }
 
 
-p { color: #29333DCF; font-family: 'Crimson Text', serif, sans-serif; font-size: 22px;  line-height: 26px; text-indent: 30px; margin: 0; max-width: 80%;}
+p { color: #29333DCF; font-family: 'Crimson Text', serif, sans-serif; font-size: 22px;  line-height: 26px; text-indent: 30px; margin: 0; max-width: 1000px;}
 p.blocktext {margin-left: auto;
   margin-right: auto;}
 
