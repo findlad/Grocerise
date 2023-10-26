@@ -1,3 +1,19 @@
+body{
+  /* background:#F0ECE8; */
+  background-image: url(background.jpg);
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: 'Unica One';
+}
+
+svg {
+    display: block;
+    font: 10.5em 'Unica One';
+    width: 960px;
+    height: 300px;
+    margin: 0 auto;
+}
 
 .grid_container {
   display: grid;
@@ -7,15 +23,31 @@
   max-width: 1000px; /* Limit the maximum width of the grid */
   margin: 20px auto; /* Center the grid horizontally */
   padding: 20px;
-  background-color: #f0f0f0;
+  background-color: #5A4D38;
   border-radius: 10px;
+  opacity: 90%;
 }
 
 /* Style the grid items */
 .grid-item {
   display: flex;
   max-width: 200px;
-  background-color: #fff;
+  background-color: #F0ECE8;
+  padding: 5%;
+  max-height: 200px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 2vw;
+}
+
+.grid-title {
+  display: flex;
+  max-width: 200px;
+  background-color: #F0ECE8;
   padding: 5%;
   max-height: 200px;
   border: 1px solid #ddd;
@@ -38,10 +70,10 @@
    /* text-transform: uppercase; */
   background-image: linear-gradient(
     -225deg,
-    #231557 0%,
-    #44107a 29%,
-    #ff1361 67%,
-    #fff800 100%
+    #fff655 0%,
+    #ff5858 29%,
+    #fe6dac 67%,
+    #89a841 100%
   );
   background-size: auto auto;
   background-clip: border-box;
@@ -92,18 +124,6 @@ html, body{
   font-weight: 800;
 }
 
-body{
-  background: #fee6e3;
-  font-family: 'Unica One';
-}
-
-svg {
-    display: block;
-    font: 10.5em 'Unica One';
-    width: 960px;
-    height: 300px;
-    margin: 0 auto;
-}
 
 .text-copy {
     fill: none;
@@ -154,7 +174,7 @@ svg {
 h1 { color: #29333DCF; font-family: 'Unica One', sans-serif; font-size: 46px; font-weight: 100; line-height: 50px; letter-spacing: 1px; padding: 0 0 40px; border-bottom: double #555; }
 
 
-p { color: #29333DCF; font-family: 'Crimson Text', serif, sans-serif; font-size: 22px;  line-height: 26px; text-indent: 30px; margin: 0; max-width: 1000px;}
+p { color: black; font-family: 'Crimson Text', serif, sans-serif; font-size: 22px;  line-height: 26px; text-indent: 30px; margin: 0; max-width: 1000px ; opacity: 90% ;  background-color: #F0ECE8;padding: 15px;}
 p.blocktext {margin-left: auto;
   margin-right: auto;}
 
