@@ -2,11 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=1000
-  , initial-scale=1.0"
-    />
+    <meta name="viewport" content="width=1000, initial-scale=1.0" />
     <title>Grocerise</title>
     <link
       href="https://fonts.googleapis.com/css?family=Crimson+Text|Unica+One"
@@ -22,35 +18,18 @@
         </div>
       </div>
     </div>
-    <!-- <svg viewBox="0 0 960 300">
-      <symbol id="s-text">
-        <text text-anchor="middle" x="50%" y="40%">Scraping</text>
-        <text text-anchor="middle" x="50.5%" y="80%">Groceries</text>
-      </symbol>
-
-      <g class="g-ants">
-        <use xlink:href="#s-text" class="text-copy"></use>
-        <use xlink:href="#s-text" class="text-copy"></use>
-        <use xlink:href="#s-text" class="text-copy"></use>
-        <use xlink:href="#s-text" class="text-copy"></use>
-        <use xlink:href="#s-text" class="text-copy"></use>
-      </g>
-    </svg> -->
 
     <p class="blocktext">
-      Isn`t it crazy how expensive everything is? Wouldn`t it be nice if you
-      could figure out the least expensive grocery store for what you want to
-      buy NOW? How about how prices have been changing over the last wee while?
-      Then my friend, you are in the right place. Lets explore together how much
-      your basket of groceries would cost, and save you money!
+      Getting your groceries is expensive. Where do you to get the most bang for
+      your buck? Check out the grid.
     </p>
 
     <div class="grid_container">
       <div></div>
-      <div class="grid-title" class="superstoreCol">
-        <img src="superstore.svg" alt="Superstore" width="75%x" height="75%" />
+      <div class="grid-title superstoreCol">
+        <img src="superstore.svg" alt="Superstore" width="75%" height="75%" />
       </div>
-      <div class="grid-title" class="safewayCol">
+      <div class="grid-title safewayCol">
         <img
           src="Safeway_Inc.-Logo.svg"
           alt="Safeway"
@@ -58,13 +37,13 @@
           height="75%"
         />
       </div>
-      <div class="grid-title" class="Walmart">
+      <div class="grid-title Walmartcol">
         <img src="Walmart_logo.svg" alt="Walmart" width="75%" height="75%" />
       </div>
-      <div class="grid-title" class="NoFrills">
+      <div class="grid-title NoFrills">
         <img src="No_Frills_logo.svg" alt="NoFrills" width="75%" height="75%" />
       </div>
-      <div class="grid-title" class="milk">
+      <div class="grid-title milkrow">
         <img
           src="milk-bottle-svgrepo-com.svg"
           width="75%"
@@ -76,26 +55,26 @@
       <div class="grid-item" id="Safewaymilk"></div>
       <div class="grid-item" id="Walmartmilk"></div>
       <div class="grid-item" id="NoFrillsmilk"></div>
-      <div class="grid-title" class="Eggs">
+      <div class="grid-title Eggsrow">
         <img src="eggs-svgrepo-com.svg" width="75%" height="75%" alt="Eggs" />
       </div>
       <div class="grid-item" id="Superstoreegg"></div>
       <div class="grid-item" id="Safewayegg"></div>
       <div class="grid-item" id="Walmartegg"></div>
       <div class="grid-item" id="NoFrillsegg"></div>
-      <div class="grid-title" class="Rice">
+      <div class="grid-title Ricerow">
         <img src="rice-svgrepo-com.svg" width="75%" height="75%" alt="Eggs" />
       </div>
       <div class="grid-item" id="Superstorerice"></div>
       <div class="grid-item" id="Safewayrice"></div>
       <div class="grid-item" id="Walmartrice"></div>
       <div class="grid-item" id="NoFrillsrice"></div>
-      <div class="grid-title" class="Chicken">
+      <div class="grid-title Chickenrow">
         <img
           src="chicken-2-svgrepo-com.svg"
           width="75%"
           height="75%"
-          alt="Eggs"
+          alt="Chicken"
         />
       </div>
       <div class="grid-item" id="Superstorechicken"></div>
@@ -109,6 +88,7 @@
     <script>
       let items = ["milk", "egg", "chicken", "rice"];
       let shops = ["Walmart", "Safeway", "NoFrills", "Superstore"];
+      let priceArray = [];
 
       async function fetchPricesJSON(thing, store) {
         const response = await fetch("priceHistory.json");
@@ -116,18 +96,25 @@
         const categoryPrices = priceArray.filter(
           (entry) => entry.item === thing
         );
-        console.log(store);
+        //console.log(store);
         const categoryPricesStore = categoryPrices.filter(
           (entry) => entry.shop === store
         );
         categoryPricesStore.sort((a, b) => new Date(b.day) - new Date(a.day));
-        console.log(categoryPricesStore);
+        //console.log(categoryPricesStore);
         const newestEntry = categoryPricesStore[0];
-        console.log(newestEntry);
+        //console.log(newestEntry);
         let gridId = newestEntry.shop + newestEntry.item;
-        console.log(gridId);
+        //console.log(gridId);
         document.getElementById(gridId).innerHTML = "$" + newestEntry.cost;
       }
+
+      let shopArray = [...new Set(priceArray.map((item) => item.shop))];
+      let itemArray = [...new Set(priceArray.map((item) => item.item))];
+      console.log(priceArray);
+      console.log(shopArray);
+      console.log(itemArray);
+
       items.forEach((item) => {
         shops.forEach((shop) => {
           fetchPricesJSON(item, shop);
