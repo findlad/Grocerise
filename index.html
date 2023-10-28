@@ -108,18 +108,18 @@
         document.getElementById(gridId).innerHTML = "$" + newestEntry.cost;
       }
 
-      let jsonArray = [];
       async function loadJSON() {
         const response = await fetch("priceHistory.json");
-        jsonArray = await response.json();
+        let jsonArray = await response.json();
+        return jsonArray;
       }
 
-      loadJSON();
-      let shopArray = [...new Set(jsonArray.map((item) => item.shop))];
-      let itemArray = [...new Set(jsonArray.map((item) => item.item))];
-      console.log(jsonArray);
-      console.log(shopArray);
-      console.log(itemArray);
+      // let priceJSON = await loadJSON();
+      // console.log(priceJSON);
+      // let shopArray = [...new Set(priceJSON.map((item) => item.shop))];
+      // let itemArray = [...new Set(priceJSON.map((item) => item.item))];
+      // console.log(shopArray);
+      // console.log(itemArray);
 
       items.forEach((item) => {
         shops.forEach((shop) => {
