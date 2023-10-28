@@ -45,7 +45,7 @@ function getPrice(targetPage, target, vendor, type) {
     let price = "";
     //console.log(targetPage + " " + target + " " + vendor + " " + type);
 
-    const browser = await puppeteer.launch({ headless: false });
+    const browser = await puppeteer.launch({ headless: "New" });
     const page = await browser.newPage();
     //await page.setGeolocation({ latitude: 51.049999, longitude: -114.066666 });
     await page.setViewport({ width: 1300, height: 1000 });

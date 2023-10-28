@@ -88,11 +88,10 @@
     <script>
       let items = ["milk", "egg", "chicken", "rice"];
       let shops = ["Walmart", "Safeway", "NoFrills", "Superstore"];
-      let priceArray = [];
 
       async function fetchPricesJSON(thing, store) {
         const response = await fetch("priceHistory.json");
-        const priceArray = await response.json();
+        priceArray = await response.json();
         const categoryPrices = priceArray.filter(
           (entry) => entry.item === thing
         );
@@ -109,9 +108,16 @@
         document.getElementById(gridId).innerHTML = "$" + newestEntry.cost;
       }
 
-      let shopArray = [...new Set(priceArray.map((item) => item.shop))];
-      let itemArray = [...new Set(priceArray.map((item) => item.item))];
-      console.log(priceArray);
+      let jsonArray = [];
+      async function loadJSON() {
+        const response = await fetch("priceHistory.json");
+        jsonArray = await response.json();
+      }
+
+      loadJSON();
+      let shopArray = [...new Set(jsonArray.map((item) => item.shop))];
+      let itemArray = [...new Set(jsonArray.map((item) => item.item))];
+      console.log(jsonArray);
       console.log(shopArray);
       console.log(itemArray);
 
