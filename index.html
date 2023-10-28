@@ -43,6 +43,13 @@
       <div class="grid-title NoFrills">
         <img src="No_Frills_logo.svg" alt="NoFrills" width="75%" height="75%" />
       </div>
+
+      <div class="grid-title titleRow">Total</div>
+      <div class="grid-item" id="SuperstoreTotal"></div>
+      <div class="grid-item" id="SafewayTotal"></div>
+      <div class="grid-item" id="WalmartTotal"></div>
+      <div class="grid-item" id="NoFrillTotal"></div>
+
       <div class="grid-title milkrow">
         <img
           src="milk-bottle-svgrepo-com.svg"
@@ -107,12 +114,11 @@
         //console.log(gridId);
         document.getElementById(gridId).innerHTML = "$" + newestEntry.cost;
       }
-
-      async function loadJSON() {
-        const response = await fetch("priceHistory.json");
-        let jsonArray = await response.json();
-        return jsonArray;
-      }
+      // async function loadJSON() {
+      //   const response = await fetch("priceHistory.json");
+      //   let jsonArray = await response.json();
+      //   return jsonArray;
+      // }
 
       // let priceJSON = await loadJSON();
       // console.log(priceJSON);
@@ -126,6 +132,37 @@
           fetchPricesJSON(item, shop);
         });
       });
+      // Calculate the sum and update the total
+      calculateAndDisplayTotal();
+
+      async function calculateAndDisplayTotal() {
+        let superstoreSum =
+          Number(
+            document
+              .getElementById("Superstorechicken")
+              .textContent.replace("$", "")
+          ) +
+          Number(
+            document
+              .getElementById("Superstorerice")
+              .textContent.replace("$", "")
+          ) +
+          Number(
+            document
+              .getElementById("Superstoremilk")
+              .textContent.replace("$", "")
+          ) +
+          Number(
+            document
+              .getElementById("Superstoreegg")
+              .textContent.replace("$", "")
+          );
+
+        console.log(superstoreSum);
+
+        document.getElementById("SuperstoreTotal").innerHTML =
+          "$ " + superstoreSum;
+      }
     </script>
   </body>
 </html>
