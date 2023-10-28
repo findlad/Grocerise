@@ -48,7 +48,7 @@
       <div class="grid-item" id="SuperstoreTotal"></div>
       <div class="grid-item" id="SafewayTotal"></div>
       <div class="grid-item" id="WalmartTotal"></div>
-      <div class="grid-item" id="NoFrillTotal"></div>
+      <div class="grid-item" id="NoFrillsTotal"></div>
 
       <div class="grid-title milkrow">
         <img
@@ -93,6 +93,8 @@
     <hr />
 
     <script>
+      const delay = (milliseconds) =>
+        new Promise((resolve) => setTimeout(resolve, milliseconds));
       let items = ["milk", "egg", "chicken", "rice"];
       let shops = ["Walmart", "Safeway", "NoFrills", "Superstore"];
 
@@ -136,6 +138,7 @@
       calculateAndDisplayTotal();
 
       async function calculateAndDisplayTotal() {
+        await delay(1000);
         let superstoreSum =
           Number(
             document
@@ -158,10 +161,73 @@
               .textContent.replace("$", "")
           );
 
-        console.log(superstoreSum);
+        console.log(superstoreSum.toFixed(2));
 
         document.getElementById("SuperstoreTotal").innerHTML =
-          "$ " + superstoreSum;
+          "$ " + superstoreSum.toFixed(2);
+
+        let safewaySum =
+          Number(
+            document
+              .getElementById("Safewaychicken")
+              .textContent.replace("$", "")
+          ) +
+          Number(
+            document.getElementById("Safewayrice").textContent.replace("$", "")
+          ) +
+          Number(
+            document.getElementById("Safewaymilk").textContent.replace("$", "")
+          ) +
+          Number(
+            document.getElementById("Safewayegg").textContent.replace("$", "")
+          );
+
+        console.log(safewaySum.toFixed(2));
+
+        document.getElementById("SafewayTotal").innerHTML =
+          "$ " + safewaySum.toFixed(2);
+
+        let walmartSum =
+          Number(
+            document
+              .getElementById("Walmartchicken")
+              .textContent.replace("$", "")
+          ) +
+          Number(
+            document.getElementById("Walmartrice").textContent.replace("$", "")
+          ) +
+          Number(
+            document.getElementById("Walmartmilk").textContent.replace("$", "")
+          ) +
+          Number(
+            document.getElementById("Walmartegg").textContent.replace("$", "")
+          );
+
+        console.log(walmartSum.toFixed(2));
+
+        document.getElementById("WalmartTotal").innerHTML =
+          "$ " + walmartSum.toFixed(2);
+
+        let nofrillsSum =
+          Number(
+            document
+              .getElementById("NoFrillschicken")
+              .textContent.replace("$", "")
+          ) +
+          Number(
+            document.getElementById("NoFrillsrice").textContent.replace("$", "")
+          ) +
+          Number(
+            document.getElementById("NoFrillsmilk").textContent.replace("$", "")
+          ) +
+          Number(
+            document.getElementById("NoFrillsegg").textContent.replace("$", "")
+          );
+
+        console.log(nofrillsSum.toFixed(2));
+
+        document.getElementById("NoFrillsTotal").innerHTML =
+          "$ " + nofrillsSum.toFixed(2);
       }
     </script>
   </body>
