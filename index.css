@@ -48,7 +48,7 @@ svg {
   text-align: center;
   justify-content: center;
   align-items: center;
-  font-size: 2vw;
+  font-size: 2vh;
 }
 
 .grid-title {
@@ -63,7 +63,7 @@ svg {
   text-align: center;
   justify-content: center;
   align-items: center;
-  font-size: 2vw;
+  font-size: 2vh;
 }
 
 /* Add some hover effect to the grid items */
@@ -172,12 +172,11 @@ html, body{
 
 
 
-h1 { color: #29333DCF; font-family: 'Unica One', sans-serif; font-size: 46px; font-weight: 100; line-height: 50px; letter-spacing: 1px; padding: 0 0 40px; border-bottom: double #555; }
+h1 { color: #29333DCF; font-family: 'Unica One', sans-serif; font-size: 2vh; font-weight: 100; line-height: 50px; letter-spacing: 1px; padding: 0 0 40px; border-bottom: double #555; }
 
 
-p { color: black; font-family: 'Crimson Text', serif, sans-serif; font-size: 22px;  line-height: 26px; text-indent: 30px; margin: 0; max-width: 1000px ; opacity: 90% ;  background-color: #F0ECE8;padding: 15px;}
-p.blocktext {margin-left: auto;
-  margin-right: auto;}
+p { color: black; font-family: 'Crimson Text', serif, sans-serif; font-size: 2vh;  line-height: 26px; text-indent: 30px; max-width: 1000px ; opacity: 90% ;  background-color: #F0ECE8;padding: 10px; margin: auto}
+
 
 
 a { color: #c64119; border-bottom: 1px solid #c64119; text-decoration: none; }
