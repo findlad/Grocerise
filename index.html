@@ -18,8 +18,8 @@
         </div>
       </div>
     </div>
-
-    <p class="blocktext">
+    
+    <p>
       Getting your groceries is expensive. Where do you to get the most bang for
       your buck? Check out the grid.
     </p>
@@ -109,9 +109,7 @@
     <script>
       const delay = (milliseconds) =>
         new Promise((resolve) => setTimeout(resolve, milliseconds));
-      let items = ["milk", "egg", "chicken", "rice", 'towel'];
-      let shops = ["Walmart", "Safeway", "NoFrills", "Superstore"];
-
+  
       async function fetchPricesJSON(thing, store) {
         const response = await fetch("priceHistory.json");
         priceArray = await response.json();
@@ -132,29 +130,35 @@
       }
 
       let globalArray = [];
+      let shopArray=[];
+      let itemArray=[];
+
       async function loadJSON() {
         const response = await fetch("priceHistory.json");
         let jsonArray = await response.json();
         globalArray = jsonArray;
+  
       }
 
-      loadJSON();
-      console.log(globalArray);
-      let shopArray = [...new Set(globalArray.map((item) => item.shop))];
-      let itemArray = [...new Set(globalArray.map((item) => item.item))];
-      console.log(shopArray);
-      console.log(itemArray);
+      async function loading(){
+        await loadJSON();
 
-      items.forEach((item) => {
-        shops.forEach((shop) => {
-          fetchPricesJSON(item, shop);
+        console.log(globalArray);
+        shopArray = [...new Set(globalArray.map((item) => item.shop))];
+        itemArray = [...new Set(globalArray.map((item) => item.item))];
+         itemArray.forEach((item) => {
+          shopArray.forEach((shop) => {
+            fetchPricesJSON(item, shop);
+          });
         });
-      });
+      }
+loading();
+
       // Calculate the sum and update the total
       calculateAndDisplayTotal();
 
       async function calculateAndDisplayTotal() {
-        await delay(1000);
+        await delay(500);
         let superstoreSum =
           Number(
             document
