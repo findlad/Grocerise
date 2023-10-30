@@ -28,7 +28,7 @@ svg {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   margin: 75px;
-  gap: 2.5vh; /* Gap between grid items */
+  gap: clamp(10px, 2.5vh, 3vh); /* Gap between grid items */
   max-width: 1000px; /* Limit the maximum width of the grid */
   margin: auto; /* Center the grid horizontally */
   padding: 25px;
@@ -42,7 +42,7 @@ svg {
   display: flex;
   max-width: 200px;
   background-color: #F0ECE8;
-  padding: 15%;
+  padding: 5%;
   max-height: 200px;
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -50,14 +50,14 @@ svg {
   text-align: center;
   justify-content: center;
   align-items: center;
-  font-size: 3vh;
+  font-size: clamp(0.5vw, 2.5vw, 3vw);
 }
 
 .grid-title {
   display: flex;
   max-width: 200px;
   background-color: #F0ECE8;
-  padding: 5%;
+  /* padding: 5%; */
   max-height: 200px;
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -77,24 +77,24 @@ svg {
 @media (max-width: 768px) {
   .grid_container {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    gap: 0.5vh; /* Adjust gap to be smaller */
-    padding: 0.5vh; /* Reduce padding */
+    gap: 0.25vh; /* Adjust gap to be smaller */
+    padding: 0.25vh; /* Reduce padding */
     max-width: 100%; /* Make it 100% of the viewport width */
   }
 
   .grid-item {
     display: flex;
-    max-width: 100px;
+    /* max-width: 100px; */
     background-color: #F0ECE8;
     /* padding: 5%; */
-    max-height: 50px;
+    /* max-height: 50px; */
     border: 1px solid #ddd;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
     justify-content: center;
     align-items: center;
-    font-size: 16px;
+    /* font-size: 16px; */
   }
 
   p {
