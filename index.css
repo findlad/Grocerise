@@ -74,7 +74,7 @@ svg {
   transition: transform 0.2s ease;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .grid_container {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     gap: 0.25vh; /* Adjust gap to be smaller */
@@ -119,9 +119,6 @@ svg {
   }
 }
 
-
-
-
 .animate-charcter
 {
    /* text-transform: uppercase; */
@@ -151,10 +148,6 @@ svg {
     background-position: 200% center;
   }
 }
-
-
-
-
 
 html, body{
   height: 100%;
@@ -200,17 +193,4 @@ html, body{
   100% {stroke-dashoffset: -35%;}
 }
 
-
 .post-header { margin-bottom: 30px; position:static; }
-
-
-
-
-
-
-
-
-
-
-
-
