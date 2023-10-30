@@ -26,10 +26,10 @@ svg {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   margin: 50px;
-  gap: 20px; /* Gap between grid items */
+  gap: 15px; /* Gap between grid items */
   max-width: 1000px; /* Limit the maximum width of the grid */
-  margin: 20px auto; /* Center the grid horizontally */
-  padding: 20px;
+  margin: 15px auto; /* Center the grid horizontally */
+  padding: 15px;
   background-color: #5A4D38;
   border-radius: 10px;
   opacity: 90%;
@@ -84,7 +84,7 @@ svg {
   );
   background-size: auto auto;
   background-clip: border-box;
-  background-size: 200% auto;
+  background-size: 250% auto;
   color: #fff;
   background-clip: text;
   text-fill-color: transparent;
@@ -93,7 +93,7 @@ svg {
   animation: textclip 5s linear infinite;
   margin: auto;
   text-align: center;
-  font-size: 10vw;
+  font-size: 13vw;
 }
 
 @keyframes textclip {
