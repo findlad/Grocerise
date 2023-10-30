@@ -60,7 +60,7 @@ svg {
   align-items: center;
   font-size: 3.5vh;
 }
-@media (max-width: 768px) {
+@media (max-width: 800px) {
   .grid_container {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr; 
     gap: 1.5vh; /* Adjust gap to be smaller */
