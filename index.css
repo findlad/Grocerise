@@ -50,7 +50,7 @@ svg {
   text-align: center;
   justify-content: center;
   align-items: center;
-  font-size: 3.5vh;
+  font-size: 3vh;
 }
 
 .grid-title {
@@ -65,10 +65,16 @@ svg {
   text-align: center;
   justify-content: center;
   align-items: center;
-  font-size: 3vw;
+  font-size: 3vh;
 }
 
-@media (max-width: 750px) {
+/* Add some hover effect to the grid items */
+.grid-item:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
+}
+
+@media (max-width: 768px) {
   .grid_container {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     gap: 0.5vh; /* Adjust gap to be smaller */
@@ -80,7 +86,7 @@ svg {
     display: flex;
     max-width: 100px;
     background-color: #F0ECE8;
-    padding: 5%;
+    /* padding: 5%; */
     max-height: 50px;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -88,7 +94,7 @@ svg {
     text-align: center;
     justify-content: center;
     align-items: center;
-    font-size: 1vh;
+    font-size: 16px;
   }
 
   p {
@@ -107,17 +113,14 @@ svg {
     text-align: center;
     justify-content: center;
     align-items: center;
-    font-size: 1vh;
+    font-size: 16
+    
+    
   }
 }
 
 
 
-/* Add some hover effect to the grid items */
-.grid-item:hover {
-  transform: scale(1.05);
-  transition: transform 0.2s ease;
-}
 
 .animate-charcter
 {
@@ -149,21 +152,7 @@ svg {
   }
 }
 
-ul {
-  display: block;
-  background-color: #29333DCF;
-  padding:30px;
-  padding-left: 100px;
-  margin-top: 0.67em;
-  margin-bottom: 0.67em;
-  margin-left: 30;
-  margin-right: 0;
-  font-weight: 1;
-  color: #EDE0CF;
-  font-family: 'Crimson Text', serif;
-  font-size: 22px;
-  max-width: 50ch;
-}
+
 
 
 
@@ -219,16 +208,9 @@ html, body{
 
 
 
-h1 { color: #29333DCF; font-family: 'Unica One', sans-serif; font-size: 2vh; font-weight: 100; line-height: 50px; letter-spacing: 1px; padding: 0 0 40px; border-bottom: double #555; }
 
 
 
 
 
-a { color: #c64119; border-bottom: 1px solid #c64119; text-decoration: none; }
 
-
-a:hover { color: #993213; border-bottom: 1px solid #993213; }
-
-
-.date { color: #bbc3c8; background: #292929; display: inline-block; font-family: 'Georgia', serif; font-style: italic; font-size: 18px; line-height: 22px; margin: 0 0 20px 18px; padding: 10px 12px 8px; position: absolute; bottom: -36px; }
