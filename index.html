@@ -88,14 +88,28 @@
       <div class="grid-item" id="Safewaychicken"></div>
       <div class="grid-item" id="Walmartchicken"></div>
       <div class="grid-item" id="NoFrillschicken"></div>
+      <div class="grid-title Towelrow">
+        <img
+          src="towel-paper.svg"
+          width="75%"
+          height="75%"
+          alt="Paper Towel"
+        />
+      </div>
+      <div class="grid-item" id="Superstoretowel"></div>
+      <div class="grid-item" id="Safewaytowel"></div>
+      <div class="grid-item" id="Walmarttowel"></div>
+      <div class="grid-item" id="NoFrillstowel"></div>
     </div>
+    </div>
+
 
     <hr />
 
     <script>
       const delay = (milliseconds) =>
         new Promise((resolve) => setTimeout(resolve, milliseconds));
-      let items = ["milk", "egg", "chicken", "rice"];
+      let items = ["milk", "egg", "chicken", "rice", 'towel'];
       let shops = ["Walmart", "Safeway", "NoFrills", "Superstore"];
 
       async function fetchPricesJSON(thing, store) {
@@ -161,6 +175,12 @@
             document
               .getElementById("Superstoreegg")
               .textContent.replace("$", "")
+          )
+          +
+          Number(
+            document
+              .getElementById("Superstoretowel")
+              .textContent.replace("$", "")
           );
 
         console.log(superstoreSum.toFixed(2));
@@ -182,6 +202,9 @@
           ) +
           Number(
             document.getElementById("Safewayegg").textContent.replace("$", "")
+          ) +
+          Number(
+            document.getElementById("Safewaytowel").textContent.replace("$", "")
           );
 
         console.log(safewaySum.toFixed(2));
@@ -203,6 +226,9 @@
           ) +
           Number(
             document.getElementById("Walmartegg").textContent.replace("$", "")
+          )  +
+          Number(
+            document.getElementById("Walmarttowel").textContent.replace("$", "")
           );
 
         console.log(walmartSum.toFixed(2));
@@ -224,6 +250,9 @@
           ) +
           Number(
             document.getElementById("NoFrillsegg").textContent.replace("$", "")
+          ) +
+          Number(
+            document.getElementById("NoFrillstowel").textContent.replace("$", "")
           );
 
         console.log(nofrillsSum.toFixed(2));

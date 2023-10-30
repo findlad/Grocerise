@@ -5,24 +5,39 @@ const fs = require("fs");
 const delay = (milliseconds) =>
   new Promise((resolve) => setTimeout(resolve, milliseconds));
 
+let wmTarget = '[itemprop="price"]';
+let ssTarget = ".price__value";
+let swTarget = ".jromfo";
+let nfTarget = ".price__value";
+
 let ssEggPrice;
 let ssEggPage =
   "https://www.realcanadiansuperstore.ca/free-range-large-eggs/p/20881824001_EA";
-let ssTarget = ".price__value";
 
 let wmEggPrice;
 let wmEggPage =
-  "https://www.walmart.ca/en/ip/Farmer-s-Finest-Free-Range-Large-Brown-Eggs/6000196823906?from=/search";
-let wmTarget = '[itemprop="price"]';
+  "https://www.walmart.ca/en/ip/Farmer-s-Finest-Free-Range-Large-Brown-Eggs/6000196823906";
 
 let swEggPrice;
 let swEggPage = "https://voila.ca/products/150353EA/details";
-let swTarget = ".jromfo";
 
 let nfEggPrice;
 let nfEggPage =
   "https://www.nofrills.ca/free-range-large-eggs/p/20881824001_EA";
-let nfTarget = ".price__value";
+
+let ssTowelPrice;
+let ssTowelPage =
+  "https://www.realcanadiansuperstore.ca/paper-towel-6-12/p/21515966_EA";
+
+let wmTowelPrice;
+let wmTowelPage =
+  "https://www.walmart.ca/en/ip/bounty-select-a-size-paper-towels-6-double-rolls-white-90-sheets-per-roll/6000205967050";
+
+let swTowelPrice;
+let swTowelPage = "https://voila.ca/products/5026EA/details";
+
+let nfTowelPrice;
+let nfTowelPage = "https://www.nofrills.ca/paper-towel-6-12/p/21515966_EA";
 
 let ssMilkPrice;
 let ssMilkPage =
@@ -43,9 +58,9 @@ function getPrice(targetPage, target, vendor, type) {
     let price = "";
     //console.log(targetPage + " " + target + " " + vendor + " " + type);
 
-    const browser = await puppeteer.launch({ headless: "New" });
+    const browser = await puppeteer.launch({ headless: "false" });
     const page = await browser.newPage();
-    //await page.setGeolocation({ latitude: 51.049999, longitude: -114.066666 });
+    await page.setGeolocation({ latitude: 51.049999, longitude: -114.066666 });
     await page.setViewport({ width: 1300, height: 1000 });
     await page.goto(targetPage);
     try {
@@ -92,18 +107,18 @@ function getPrice(targetPage, target, vendor, type) {
   })();
 }
 
-ssMilkPrice = getPrice(ssMilkPage, ssTarget, "Superstore", "milk");
-
 wmMilkPrice = getPrice(wmMilkPage, wmTarget, "Walmart", "milk");
+wmEggPrice = getPrice(wmEggPage, wmTarget, "Walmart", "egg");
+wmTowelPrice = getPrice(wmTowelPage, wmTarget, "Walmart", "towel");
+
+ssMilkPrice = getPrice(ssMilkPage, ssTarget, "Superstore", "milk");
+ssEggPrice = getPrice(ssEggPage, ssTarget, "Superstore", "egg");
+ssTowelPrice = getPrice(ssTowelPage, ssTarget, "Superstore", "towel");
 
 swMilkPrice = getPrice(swMilkPage, swTarget, "Safeway", "milk");
+swEggPrice = getPrice(swEggPage, swTarget, "Safeway", "egg");
+swTowelPrice = getPrice(swTowelPage, swTarget, "Safeway", "towel");
 
 nfMilkPrice = getPrice(nfMilkPage, nfTarget, "NoFrills", "milk");
-
-ssEggPrice = getPrice(ssEggPage, ssTarget, "Superstore", "egg");
-
-wmEggPrice = getPrice(wmEggPage, wmTarget, "Walmart", "egg");
-
-swEggPrice = getPrice(swEggPage, swTarget, "Safeway", "egg");
-
 nfEggPrice = getPrice(nfEggPage, nfTarget, "NoFrills", "egg");
+nfTowelPrice = getPrice(nfTowelPage, nfTarget, "NoFrills", "towel");

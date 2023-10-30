@@ -48,7 +48,7 @@ svg {
   text-align: center;
   justify-content: center;
   align-items: center;
-  font-size: 2vh;
+  font-size: 3vw;
 }
 
 .grid-title {
@@ -63,7 +63,7 @@ svg {
   text-align: center;
   justify-content: center;
   align-items: center;
-  font-size: 2vh;
+  font-size: 3vw;
 }
 
 /* Add some hover effect to the grid items */
