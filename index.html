@@ -141,7 +141,7 @@
       async function loading(){
         await loadJSON();
 
-        console.log(globalArray);
+        //console.log(globalArray);
         shopArray = [...new Set(globalArray.map((item) => item.shop))];
         itemArray = [...new Set(globalArray.map((item) => item.item))];
          itemArray.forEach((item) => {
@@ -185,7 +185,7 @@ loading();
               .textContent.replace("$", "")
           );
 
-        console.log(superstoreSum.toFixed(2));
+        //console.log(superstoreSum.toFixed(2));
 
         document.getElementById("SuperstoreTotal").innerHTML =
           "$ " + superstoreSum.toFixed(2);
@@ -209,7 +209,7 @@ loading();
             document.getElementById("Safewaytowel").textContent.replace("$", "")
           );
 
-        console.log(safewaySum.toFixed(2));
+        //console.log(safewaySum.toFixed(2));
 
         document.getElementById("SafewayTotal").innerHTML =
           "$ " + safewaySum.toFixed(2);
@@ -233,7 +233,7 @@ loading();
             document.getElementById("Walmarttowel").textContent.replace("$", "")
           );
 
-        console.log(walmartSum.toFixed(2));
+        //console.log(walmartSum.toFixed(2));
 
         document.getElementById("WalmartTotal").innerHTML =
           "$ " + walmartSum.toFixed(2);
@@ -257,7 +257,7 @@ loading();
             document.getElementById("NoFrillstowel").textContent.replace("$", "")
           );
 
-        console.log(nofrillsSum.toFixed(2));
+        //console.log(nofrillsSum.toFixed(2));
 
         document.getElementById("NoFrillsTotal").innerHTML =
           "$ " + nofrillsSum.toFixed(2);

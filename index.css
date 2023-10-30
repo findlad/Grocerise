@@ -4,16 +4,8 @@
     padding: 0 40px;
   }
 }
-/* .paragraph {
-  background-color: #F0ECE8;
-  border-radius: 25px;
-  padding: 25px;
-  display: flex;
-  color: black; font-family: 'Crimson Text', serif, sans-serif; font-size: 2vh;
-  margin: auto;
-  line-height: 26px
-} */
- p { display: flex; color: black; border-radius: 25px; font-family: 'Crimson Text', serif, sans-serif; font-size: 1.5vw;    max-width: 1000px ; opacity: 95% ;  background-color: #F0ECE8; padding: 25px; margin: auto; } 
+
+ p { display: flex; color: black; border-radius: 25px; font-family: 'Crimson Text', serif, sans-serif; font-size: 3vh;  max-width: 1000px ; opacity: 0.9 ;  background-color: #F0ECE8; padding: 25px; margin: auto; } 
 
 body{
   background:#F0ECE8;
@@ -60,20 +52,6 @@ svg {
   align-items: center;
   font-size: 3.5vh;
 }
-@media (max-width: 800px) {
-  .grid_container {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr; 
-    gap: 1.5vh; /* Adjust gap to be smaller */
-    padding: 1.5vh; /* Reduce padding */
-    max-width: 95%; /* Make it 90% of the viewport width */
-  }
-  .grid-item{font-size: 3vw
-  }
-  p {
-    font-size: 3vw;
-  }
-}
-
 
 .grid-title {
   display: flex;
@@ -89,6 +67,51 @@ svg {
   align-items: center;
   font-size: 3vw;
 }
+
+@media (max-width: 750px) {
+  .grid_container {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 0.5vh; /* Adjust gap to be smaller */
+    padding: 0.5vh; /* Reduce padding */
+    max-width: 100%; /* Make it 100% of the viewport width */
+  }
+
+  .grid-item {
+    display: flex;
+    max-width: 100px;
+    background-color: #F0ECE8;
+    padding: 5%;
+    max-height: 50px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 1vh;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  .grid-title {
+    display: flex;
+    /* max-width: 75px; */
+    max-height: 50px;
+    background-color: #F0ECE8;
+    padding: 5%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 1vh;
+  }
+}
+
+
 
 /* Add some hover effect to the grid items */
 .grid-item:hover {
