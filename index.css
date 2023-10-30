@@ -42,7 +42,7 @@ svg {
   display: flex;
   max-width: 200px;
   background-color: #F0ECE8;
-  padding: 5%;
+  /* padding: 5%; */
   max-height: 200px;
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -50,7 +50,7 @@ svg {
   text-align: center;
   justify-content: center;
   align-items: center;
-  font-size: clamp(0.5vw, 2.5vw, 3vw);
+  font-size: clamp(16px, 2.5vw, 3vw);
 }
 
 .grid-title {
