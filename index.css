@@ -5,7 +5,7 @@
   }
 }
 
- p { display: flex; color: black; border-radius: 25px; font-family: 'Crimson Text', serif, sans-serif; font-size: 3vh;  max-width: 1000px ; opacity: 0.9 ;  background-color: #F0ECE8; padding: 25px; margin: auto; } 
+ p { display: flex; color: black; border-radius: 25px; font-family: 'Crimson Text', serif, sans-serif; font-size: clamp(26px,2.5vh,3vh);  max-width: 1000px ; opacity: 0.9 ;  background-color: #F0ECE8; padding: 25px; margin: auto; } 
 
 body{
   background:#F0ECE8;
@@ -28,7 +28,7 @@ svg {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   margin: 75px;
-  gap: clamp(10px, 2.5vh, 3vh); /* Gap between grid items */
+  gap: clamp(1vh, 1.5vh, 3vh); /* Gap between grid items */
   max-width: 1000px; /* Limit the maximum width of the grid */
   margin: auto; /* Center the grid horizontally */
   padding: 25px;
@@ -50,7 +50,7 @@ svg {
   text-align: center;
   justify-content: center;
   align-items: center;
-  font-size: clamp(16px, 2.5vw, 3vw);
+  font-size: clamp(2.5vw, 3vw, 36px);
 }
 
 .grid-title {
@@ -77,7 +77,7 @@ svg {
 @media (max-width: 600px) {
   .grid_container {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    gap: 0.25vh; /* Adjust gap to be smaller */
+    /* gap: 0.25vh; Adjust gap to be smaller */
     padding: 0.25vh; /* Reduce padding */
     max-width: 100%; /* Make it 100% of the viewport width */
   }
@@ -95,10 +95,6 @@ svg {
     justify-content: center;
     align-items: center;
     /* font-size: 16px; */
-  }
-
-  p {
-    font-size: 16px;
   }
 
   .grid-title {
