@@ -94,14 +94,14 @@ function getPrice(targetPage, target, vendor, type) {
   })();
 }
 
-// ssRicePrice = getPrice(ssRicePage, ssTarget, "Superstore", "rice");
-// ssChickenPrice = getPrice(ssChickenPage, ssTarget, "Superstore", "chicken");
+ssRicePrice = getPrice(ssRicePage, ssTarget, "Superstore", "rice");
+ssChickenPrice = getPrice(ssChickenPage, ssTarget, "Superstore", "chicken");
 
-// swRicePrice = getPrice(swRicePage, swTarget, "Safeway", "rice");
-// swChickenPrice = getPrice(swChickenPage, swTarget, "Safeway", "chicken");
+swRicePrice = getPrice(swRicePage, swTarget, "Safeway", "rice");
+swChickenPrice = getPrice(swChickenPage, swTarget, "Safeway", "chicken");
 
-// nfRicePrice = getPrice(nfRicePage, nfTarget, "NoFrills", "rice");
-// nfChickenPrice = getPrice(nfChickenPage, nfTarget, "NoFrills", "chicken");
+nfRicePrice = getPrice(nfRicePage, nfTarget, "NoFrills", "rice");
+nfChickenPrice = getPrice(nfChickenPage, nfTarget, "NoFrills", "chicken");
 
 wmRicePrice = getPrice(wmRicePage, wmTarget, "Walmart", "rice");
 wmChickenPrice = getPrice(wmChickenPage, wmTarget, "Walmart", "chicken");

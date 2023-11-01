@@ -9,6 +9,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="index.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
     <div class="container">
@@ -26,10 +27,10 @@
 
     <div class="grid_container">
       <div></div>
-      <div class="grid-title superstoreCol">
+      <div class="grid-shop superstoreCol">
         <img src="superstore.svg" alt="Superstore" width="75%" height="75%" />
       </div>
-      <div class="grid-title safewayCol">
+      <div class="grid-shop safewayCol">
         <img
           src="Safeway_Inc.-Logo.svg"
           alt="Safeway"
@@ -37,20 +38,20 @@
           height="75%"
         />
       </div>
-      <div class="grid-title Walmartcol">
+      <div class="grid-shop Walmartcol">
         <img src="Walmart_logo.svg" alt="Walmart" width="75%" height="75%" />
       </div>
-      <div class="grid-title NoFrills">
+      <div class="grid-shop NoFrills">
         <img src="No_Frills_logo.svg" alt="NoFrills" width="75%" height="75%" />
       </div>
 
-      <div class="grid-title titleRow">Total</div>
+      <div class="titleRow">Total</div>
       <div class="grid-item" id="SuperstoreTotal"></div>
       <div class="grid-item" id="SafewayTotal"></div>
       <div class="grid-item" id="WalmartTotal"></div>
       <div class="grid-item" id="NoFrillsTotal"></div>
 
-      <div class="grid-title milkrow">
+      <div class="grid-title milkrow" title="4l 1% Milk">
         <img
           src="milk-bottle-svgrepo-com.svg"
           width="75%"
@@ -58,25 +59,25 @@
           alt="Milk"
         />
       </div>
-      <div class="grid-item" id="Superstoremilk"></div>
-      <div class="grid-item" id="Safewaymilk"></div>
-      <div class="grid-item" id="Walmartmilk"></div>
-      <div class="grid-item" id="NoFrillsmilk"></div>
-      <div class="grid-title Eggsrow">
+      <div class="grid-item" id="Superstoremilk" data-store="Superstore" data-item="milk"></div>
+      <div class="grid-item" id="Safewaymilk" data-store="Safeway" data-item="milk"></div>
+      <div class="grid-item" id="Walmartmilk" data-store="Walmart" data-item="milk"></div>
+      <div class="grid-item" id="NoFrillsmilk" data-store="NoFrills" data-item="milk"></div>
+      <div class="grid-title Eggsrow" title="12 Free Range Eggs">
         <img src="eggs-svgrepo-com.svg" width="75%" height="75%" alt="Eggs" />
       </div>
-      <div class="grid-item" id="Superstoreegg"></div>
-      <div class="grid-item" id="Safewayegg"></div>
-      <div class="grid-item" id="Walmartegg"></div>
-      <div class="grid-item" id="NoFrillsegg"></div>
-      <div class="grid-title Ricerow">
+      <div class="grid-item" id="Superstoreegg" data-store="Superstore" data-item="egg"></div>
+      <div class="grid-item" id="Safewayegg" data-store="Safeway" data-item="egg"></div>
+      <div class="grid-item" id="Walmartegg" data-store="Walmart" data-item="egg"></div>
+      <div class="grid-item" id="NoFrillsegg" data-store="NoFrills" data-item="egg"></div>
+      <div class="grid-title Ricerow" title="1.4kg Minute Rice">
         <img src="rice-svgrepo-com.svg" width="75%" height="75%" alt="Eggs" />
       </div>
-      <div class="grid-item" id="Superstorerice"></div>
-      <div class="grid-item" id="Safewayrice"></div>
-      <div class="grid-item" id="Walmartrice"></div>
-      <div class="grid-item" id="NoFrillsrice"></div>
-      <div class="grid-title Chickenrow">
+      <div class="grid-item" id="Superstorerice" data-store="Superstore" data-item="rice"></div>
+      <div class="grid-item" id="Safewayrice" data-store="Safeway" data-item="rice"></div>
+      <div class="grid-item" id="Walmartrice" data-store="Walmart" data-item="rice"></div>
+      <div class="grid-item" id="NoFrillsrice" data-store="NoFrills" data-item="rice"></div>
+      <div class="grid-title Chickenrow" title="3 Skinless Chicken Breasts">
         <img
           src="chicken-2-svgrepo-com.svg"
           width="75%"
@@ -84,184 +85,37 @@
           alt="Chicken"
         />
       </div>
-      <div class="grid-item" id="Superstorechicken"></div>
-      <div class="grid-item" id="Safewaychicken"></div>
-      <div class="grid-item" id="Walmartchicken"></div>
-      <div class="grid-item" id="NoFrillschicken"></div>
-      <div class="grid-title Towelrow">
+      <div class="grid-item" id="Superstorechicken" data-store="Superstore" data-item="chicken"></div>
+      <div class="grid-item" id="Safewaychicken" data-store="Safeway" data-item="chicken"></div>
+      <div class="grid-item" id="Walmartchicken" data-store="Walmart" data-item="chicken"></div>
+      <div class="grid-item" id="NoFrillschicken" data-store="NoFrills" data-item="chicken"></div>
+      <div class="grid-title Towelrow" title="4 90 sheet rolls of Bounty">
         <img
+          class="icon"
           src="towel-paper.svg"
           width="75%"
           height="75%"
           alt="Paper Towel"
         />
       </div>
-      <div class="grid-item" id="Superstoretowel"></div>
-      <div class="grid-item" id="Safewaytowel"></div>
-      <div class="grid-item" id="Walmarttowel"></div>
-      <div class="grid-item" id="NoFrillstowel"></div>
+      <div class="grid-item" id="Superstoretowel" data-store="Superstore" data-item="towel"></div>
+      <div class="grid-item" id="Safewaytowel" data-store="Safeway" data-item="towel"></div>
+      <div class="grid-item" id="Walmarttowel" data-store="Walmart" data-item="towel"></div>
+      <div class="grid-item" id="NoFrillstowel" data-store="NoFrills" data-item="towel"></div>
     </div>
     </div>
 
+    <div id="modalBox" class="modal">
+      <div class="modal-content">
+        <!-- Canvas element for your chart -->
+        <canvas id="graph"></canvas>
+        <span class="close" id="closeModalButton">&times;</span>
+      </div>
+    </div>
 
-    <script>
-      const delay = (milliseconds) =>
-        new Promise((resolve) => setTimeout(resolve, milliseconds));
-  
-      async function fetchPricesJSON(thing, store) {
-        const response = await fetch("priceHistory.json");
-        priceArray = await response.json();
-        const categoryPrices = priceArray.filter(
-          (entry) => entry.item === thing
-        );
-        //console.log(store);
-        const categoryPricesStore = categoryPrices.filter(
-          (entry) => entry.shop === store
-        );
-        categoryPricesStore.sort((a, b) => new Date(b.day) - new Date(a.day));
-        //console.log(categoryPricesStore);
-        const newestEntry = categoryPricesStore[0];
-        //console.log(newestEntry);
-        let gridId = newestEntry.shop + newestEntry.item;
-        //console.log(gridId);
-        document.getElementById(gridId).innerHTML = "$" + newestEntry.cost;
-      }
-
-      let globalArray = [];
-      let shopArray=[];
-      let itemArray=[];
-
-      async function loadJSON() {
-        const response = await fetch("priceHistory.json");
-        let jsonArray = await response.json();
-        globalArray = jsonArray;
-  
-      }
-
-      async function loading(){
-        await loadJSON();
-
-        //console.log(globalArray);
-        shopArray = [...new Set(globalArray.map((item) => item.shop))];
-        itemArray = [...new Set(globalArray.map((item) => item.item))];
-         itemArray.forEach((item) => {
-          shopArray.forEach((shop) => {
-            fetchPricesJSON(item, shop);
-          });
-        });
-      }
-loading();
-
-      // Calculate the sum and update the total
-      calculateAndDisplayTotal();
-
-      async function calculateAndDisplayTotal() {
-        await delay(500);
-        let superstoreSum =
-          Number(
-            document
-              .getElementById("Superstorechicken")
-              .textContent.replace("$", "")
-          ) +
-          Number(
-            document
-              .getElementById("Superstorerice")
-              .textContent.replace("$", "")
-          ) +
-          Number(
-            document
-              .getElementById("Superstoremilk")
-              .textContent.replace("$", "")
-          ) +
-          Number(
-            document
-              .getElementById("Superstoreegg")
-              .textContent.replace("$", "")
-          )
-          +
-          Number(
-            document
-              .getElementById("Superstoretowel")
-              .textContent.replace("$", "")
-          );
-
-        //console.log(superstoreSum.toFixed(2));
-
-        document.getElementById("SuperstoreTotal").innerHTML =
-          "$ " + superstoreSum.toFixed(2);
-
-        let safewaySum =
-          Number(
-            document
-              .getElementById("Safewaychicken")
-              .textContent.replace("$", "")
-          ) +
-          Number(
-            document.getElementById("Safewayrice").textContent.replace("$", "")
-          ) +
-          Number(
-            document.getElementById("Safewaymilk").textContent.replace("$", "")
-          ) +
-          Number(
-            document.getElementById("Safewayegg").textContent.replace("$", "")
-          ) +
-          Number(
-            document.getElementById("Safewaytowel").textContent.replace("$", "")
-          );
-
-        //console.log(safewaySum.toFixed(2));
-
-        document.getElementById("SafewayTotal").innerHTML =
-          "$ " + safewaySum.toFixed(2);
-
-        let walmartSum =
-          Number(
-            document
-              .getElementById("Walmartchicken")
-              .textContent.replace("$", "")
-          ) +
-          Number(
-            document.getElementById("Walmartrice").textContent.replace("$", "")
-          ) +
-          Number(
-            document.getElementById("Walmartmilk").textContent.replace("$", "")
-          ) +
-          Number(
-            document.getElementById("Walmartegg").textContent.replace("$", "")
-          )  +
-          Number(
-            document.getElementById("Walmarttowel").textContent.replace("$", "")
-          );
-
-        //console.log(walmartSum.toFixed(2));
-
-        document.getElementById("WalmartTotal").innerHTML =
-          "$ " + walmartSum.toFixed(2);
-
-        let nofrillsSum =
-          Number(
-            document
-              .getElementById("NoFrillschicken")
-              .textContent.replace("$", "")
-          ) +
-          Number(
-            document.getElementById("NoFrillsrice").textContent.replace("$", "")
-          ) +
-          Number(
-            document.getElementById("NoFrillsmilk").textContent.replace("$", "")
-          ) +
-          Number(
-            document.getElementById("NoFrillsegg").textContent.replace("$", "")
-          ) +
-          Number(
-            document.getElementById("NoFrillstowel").textContent.replace("$", "")
-          );
-
-        //console.log(nofrillsSum.toFixed(2));
-
-        document.getElementById("NoFrillsTotal").innerHTML =
-          "$ " + nofrillsSum.toFixed(2);
-      }
+    <script src="app.js">
+     
     </script>
+    
   </body>
 </html>

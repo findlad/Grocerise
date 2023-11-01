@@ -37,7 +37,23 @@ svg {
   opacity: 0.85;
 }
 
+.grid-shop {
+  display: flex;
+  max-width: 200px;
+  background-color: #F0ECE8;
+  /* padding: 5%; */
+  max-height: 200px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-size: clamp(2.5vw, 3vw, 36px);
+}
+
 /* Style the grid items */
+
 .grid-item {
   display: flex;
   max-width: 200px;
@@ -53,7 +69,7 @@ svg {
   font-size: clamp(2.5vw, 3vw, 36px);
 }
 
-.grid-title {
+.titleRow {
   display: flex;
   max-width: 200px;
   background-color: #F0ECE8;
@@ -66,7 +82,46 @@ svg {
   justify-content: center;
   align-items: center;
   font-size: 3vh;
+} 
+
+.grid-title {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+  max-width: 200px;
+  background-color: #F0ECE8;
+  max-height: 200px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-size: 3vh;
+} 
+
+.grid-title::before {
+  content: attr(title); /* Display the title attribute text */
+  position: absolute;
+  vertical-align: middle;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 5px;
+  display: none; /* Initially hidden */
+  pointer-events: none; /* Ensure the pseudo-element doesn't interfere with hover events */
 }
+
+.grid-title:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease; }
+  
+.grid-title:hover::before {
+    display: block; /* Show the title attribute on hover */
+  }
+
 
 /* Add some hover effect to the grid items */
 .grid-item:hover {
@@ -114,6 +169,40 @@ svg {
     
   }
 }
+
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Modal content */
+.modal-content {
+  background-color: #f4f4f4;
+  margin: 15% auto;
+  padding: 5%;
+  border: 1px solid #888;
+  width: 60%;
+}
+
+/* Close button */
+.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  cursor: pointer;
+}
+
 
 .animate-charcter
 {
