@@ -62,6 +62,9 @@ async function calculateAndDisplayTotal() {
     ) +
     Number(
       document.getElementById("Superstoretowel").textContent.replace("$", "")
+    ) +
+    Number(
+      document.getElementById("Superstorecoke").textContent.replace("$", "")
     );
 
   //console.log(superstoreSum.toFixed(2));
@@ -82,7 +85,8 @@ async function calculateAndDisplayTotal() {
     Number(document.getElementById("Safewayegg").textContent.replace("$", "")) +
     Number(
       document.getElementById("Safewaytowel").textContent.replace("$", "")
-    );
+    ) +
+    Number(document.getElementById("Safewaycoke").textContent.replace("$", ""));
 
   //console.log(safewaySum.toFixed(2));
 
@@ -102,7 +106,8 @@ async function calculateAndDisplayTotal() {
     Number(document.getElementById("Walmartegg").textContent.replace("$", "")) +
     Number(
       document.getElementById("Walmarttowel").textContent.replace("$", "")
-    );
+    ) +
+    Number(document.getElementById("Walmartcoke").textContent.replace("$", ""));
 
   //console.log(walmartSum.toFixed(2));
 
@@ -124,6 +129,9 @@ async function calculateAndDisplayTotal() {
     ) +
     Number(
       document.getElementById("NoFrillstowel").textContent.replace("$", "")
+    ) +
+    Number(
+      document.getElementById("NoFrillscoke").textContent.replace("$", "")
     );
 
   //console.log(nofrillsSum.toFixed(2));
@@ -169,28 +177,6 @@ async function fetchChartJSON(thing, store) {
 }
 
 // // JavaScript code for opening and closing the modal
-// const openWalmarteggModalButton = document.getElementById("Walmartegg");
-// const closeModalButton = document.getElementById("closeModalButton");
-// const modal = document.getElementById("modalBox");
-
-// openWalmarteggModalButton.addEventListener("click", () => {
-//   modal.style.display = "block";
-//   // Add your chart creation code here (similar to your previous code)
-//   fetchChartJSON(
-//     openWalmarteggModalButton.dataset.item,
-//     openWalmarteggModalButton.dataset.store
-//   );
-// });
-
-// closeModalButton.addEventListener("click", () => {
-//   modal.style.display = "none";
-// });
-
-// window.addEventListener("click", (event) => {
-//   if (event.target == modal) {
-//     modal.style.display = "none";
-//   }
-// });
 
 const gridItems = document.querySelectorAll(".grid-item");
 const closeModalButton = document.getElementById("closeModalButton");

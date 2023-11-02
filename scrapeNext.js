@@ -10,6 +10,21 @@ let wmTarget = '[itemprop="price"]';
 let swTarget = ".jromfo";
 let nfTarget = ".price__value";
 
+let wmCokeZeroPrice;
+let wmCokeZeroPage =
+  "https://www.walmart.ca/en/ip/Coca-Cola-Zero-Sugar-2L-Bottle/10214488";
+
+let ssCokeZeroPrice;
+let ssCokeZeroPage =
+  "https://www.realcanadiansuperstore.ca/zero-sugar-bottle/p/20316026005_EA";
+
+let swCokeZeroPrice;
+let swCokeZeroPage = "https://voila.ca/products/450610EA/details";
+
+let nfCokeZeroPrice;
+let nfCokeZeroPage =
+  "https://www.nofrills.ca/zero-sugar-bottle/p/20316026005_EA";
+
 let ssChickenPrice;
 let ssChickenPage =
   "https://www.realcanadiansuperstore.ca/chicken-breast-boneless-skinless-3-pack/p/21340952_EA";
@@ -94,14 +109,18 @@ function getPrice(targetPage, target, vendor, type) {
   })();
 }
 
-// ssRicePrice = getPrice(ssRicePage, ssTarget, "Superstore", "rice");
-// ssChickenPrice = getPrice(ssChickenPage, ssTarget, "Superstore", "chicken");
+ssRicePrice = getPrice(ssRicePage, ssTarget, "Superstore", "rice");
+ssChickenPrice = getPrice(ssChickenPage, ssTarget, "Superstore", "chicken");
+ssCokeZeroPrice = getPrice(ssCokeZeroPage, ssTarget, "Superstore", "coke");
 
-// swRicePrice = getPrice(swRicePage, swTarget, "Safeway", "rice");
-// swChickenPrice = getPrice(swChickenPage, swTarget, "Safeway", "chicken");
+swRicePrice = getPrice(swRicePage, swTarget, "Safeway", "rice");
+swChickenPrice = getPrice(swChickenPage, swTarget, "Safeway", "chicken");
+swCokeZeroPrice = getPrice(swCokeZeroPage, swTarget, "Safeway", "coke");
 
-// nfRicePrice = getPrice(nfRicePage, nfTarget, "NoFrills", "rice");
-// nfChickenPrice = getPrice(nfChickenPage, nfTarget, "NoFrills", "chicken");
+nfRicePrice = getPrice(nfRicePage, nfTarget, "NoFrills", "rice");
+nfChickenPrice = getPrice(nfChickenPage, nfTarget, "NoFrills", "chicken");
+nfCokeZeroPrice = getPrice(nfCokeZeroPage, nfTarget, "NoFrills", "coke");
 
 wmRicePrice = getPrice(wmRicePage, wmTarget, "Walmart", "rice");
 wmChickenPrice = getPrice(wmChickenPage, wmTarget, "Walmart", "chicken");
+wmCokeZeroPrice = getPrice(wmCokeZeroPage, wmTarget, "Walmart", "coke");
