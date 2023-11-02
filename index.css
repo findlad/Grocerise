@@ -176,6 +176,8 @@ svg {
   justify-content: center;
   display: none; /* Hidden by default */
   position: fixed;
+  width: 400px;
+  height: 400px;
   z-index: 1;
   left: 0;
   top: 0;
@@ -191,7 +193,8 @@ svg {
   margin: 15% auto;
   padding: 5%;
   border: 1px solid #888;
-  width: 60%;
+  width: 400px;
+  height: 400px;
 }
 
 /* Close button */
