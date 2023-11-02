@@ -188,14 +188,29 @@ svg {
 }
 
 /* Modal content */
+/* Center the modal content */
 .modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background-color: #f4f4f4;
-  margin: 15% auto;
-  padding: 5%;
+  margin: 20px;
+  padding: 20px;
   border: 1px solid #888;
-  width: 400px;
-  height: 400px;
+  width: 80%;
+  max-width: 600px;
+  height: auto;
 }
+
+/* Set dimensions for the canvas element */
+canvas#graph {
+  width: 100%; /* Adjust the width as needed, e.g., 100% for full width */
+  max-width: 100%; /* Ensure the canvas takes the full width of its parent */
+  height: auto; /* Allow the height to adjust based on content */
+}
+
+
 
 /* Close button */
 .close {
