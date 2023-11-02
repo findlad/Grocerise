@@ -23,7 +23,7 @@ let swEggPage = "https://voila.ca/products/150353EA/details";
 
 let nfEggPrice;
 let nfEggPage =
-  "https://www.nofrills.ca/free-range-large-eggs/p/20881824001_EA";
+  "https://www.nofrills.ca/free-run-brown-eggs-large/p/20813628001_EA";
 
 let ssTowelPrice;
 let ssTowelPage =
