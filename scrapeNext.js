@@ -45,9 +45,9 @@ function getPrice(targetPage, target, vendor, type) {
     let price = "";
     //console.log(targetPage + " " + target + " " + vendor + " " + type);
 
-    const browser = await puppeteer.launch({ headless: "New" });
+    const browser = await puppeteer.launch({ headless: false });
     const page = await browser.newPage();
-    //await page.setGeolocation({ latitude: 51.049999, longitude: -114.066666 });
+    await page.setGeolocation({ latitude: 51.049999, longitude: -114.066666 });
     await page.setViewport({ width: 1300, height: 1000 });
     await page.goto(targetPage);
     try {
@@ -94,14 +94,14 @@ function getPrice(targetPage, target, vendor, type) {
   })();
 }
 
-ssRicePrice = getPrice(ssRicePage, ssTarget, "Superstore", "rice");
-ssChickenPrice = getPrice(ssChickenPage, ssTarget, "Superstore", "chicken");
+// ssRicePrice = getPrice(ssRicePage, ssTarget, "Superstore", "rice");
+// ssChickenPrice = getPrice(ssChickenPage, ssTarget, "Superstore", "chicken");
 
-swRicePrice = getPrice(swRicePage, swTarget, "Safeway", "rice");
-swChickenPrice = getPrice(swChickenPage, swTarget, "Safeway", "chicken");
+// swRicePrice = getPrice(swRicePage, swTarget, "Safeway", "rice");
+// swChickenPrice = getPrice(swChickenPage, swTarget, "Safeway", "chicken");
 
-nfRicePrice = getPrice(nfRicePage, nfTarget, "NoFrills", "rice");
-nfChickenPrice = getPrice(nfChickenPage, nfTarget, "NoFrills", "chicken");
+// nfRicePrice = getPrice(nfRicePage, nfTarget, "NoFrills", "rice");
+// nfChickenPrice = getPrice(nfChickenPage, nfTarget, "NoFrills", "chicken");
 
 wmRicePrice = getPrice(wmRicePage, wmTarget, "Walmart", "rice");
 wmChickenPrice = getPrice(wmChickenPage, wmTarget, "Walmart", "chicken");
