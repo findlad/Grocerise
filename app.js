@@ -168,18 +168,48 @@ async function fetchChartJSON(thing, store) {
   });
 }
 
-// JavaScript code for opening and closing the modal
-const openWalmarteggModalButton = document.getElementById("Walmartegg");
+// // JavaScript code for opening and closing the modal
+// const openWalmarteggModalButton = document.getElementById("Walmartegg");
+// const closeModalButton = document.getElementById("closeModalButton");
+// const modal = document.getElementById("modalBox");
+
+// openWalmarteggModalButton.addEventListener("click", () => {
+//   modal.style.display = "block";
+//   // Add your chart creation code here (similar to your previous code)
+//   fetchChartJSON(
+//     openWalmarteggModalButton.dataset.item,
+//     openWalmarteggModalButton.dataset.store
+//   );
+// });
+
+// closeModalButton.addEventListener("click", () => {
+//   modal.style.display = "none";
+// });
+
+// window.addEventListener("click", (event) => {
+//   if (event.target == modal) {
+//     modal.style.display = "none";
+//   }
+// });
+
+const gridItems = document.querySelectorAll(".grid-item");
 const closeModalButton = document.getElementById("closeModalButton");
 const modal = document.getElementById("modalBox");
 
-openWalmarteggModalButton.addEventListener("click", () => {
-  modal.style.display = "block";
-  // Add your chart creation code here (similar to your previous code)
-  fetchChartJSON(
-    openWalmarteggModalButton.dataset.item,
-    openWalmarteggModalButton.dataset.store
-  );
+gridItems.forEach((gridItem) => {
+  gridItem.addEventListener("click", () => {
+    const thing = gridItem.dataset.item;
+    const store = gridItem.dataset.store;
+
+    modal.style.display = "block";
+
+    // Clear the previous chart, if any
+    const modalContent = document.querySelector(".modal-content");
+    modalContent.innerHTML = '<canvas id="graph"></canvas>';
+
+    // Add your chart creation code here based on the thing and store
+    fetchChartJSON(thing, store);
+  });
 });
 
 closeModalButton.addEventListener("click", () => {
