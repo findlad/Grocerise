@@ -9,7 +9,7 @@
 
 body{
   background:#F0ECE8;
-  background-image: url(background.jpg);
+  /* background-image: url(background.jpg); */
   background-position: center center;
   background-size: cover;
   background-attachment: fixed;
@@ -259,39 +259,40 @@ html, body{
 
 .post-header { margin-bottom: 30px; position:static; }
 
-.modal {
+#modalBox {
   display: none;
   position: fixed;
-  margin: auto;
+  /* margin: auto; */
   top: 0;
-  left: 0;
+  /* left: 0; */
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
-  z-index: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+
+  /* justify-content: center; */
+  /* align-items: center; */
 } 
 
 /* Modal content */
 /* Center the modal content */
 .modal-content {
   background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  max-width: 90%; /* Adjust the maximum width as needed */
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Center horizontally */
-  justify-content: center; /* Center vertically */
+  /* padding: 100px; */
+  /* border-radius: 5px; */
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
+  max-width: 80%; /*Adjust the maximum width as needed
+  
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: center; Center horizontally */
+  /* justify-content: center; Center vertically */
 }
 
 /* Set dimensions for the canvas element */
 canvas {
   max-width: 100%;
-  min-height: 400px;
-  height: auto; /* Allow the chart's height to adapt */
+  min-height: 500px;
+  height: auto;  /*Allow the chart's height to adapt */
   
 }
