@@ -172,6 +172,9 @@ async function fetchChartJSON(thing, store) {
     },
     options: {
       // Add any chart options you need here
+      responsive: true, // Make the chart responsive
+      maintainAspectRatio: false, // Allow the aspect ratio to change
+      // Add any other chart options you need here
     },
   });
 }

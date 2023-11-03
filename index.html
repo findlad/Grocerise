@@ -11,6 +11,7 @@
     />
     <link rel="stylesheet" href="index.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
     <div class="container">
@@ -121,12 +122,13 @@
     </div>
 
     <div id="modalBox" class="modal">
-      <div class="modal-content" style="position: relative">
+      <div class="modal-content">
         <!-- Canvas element for your chart -->
-        <canvas id="graph" width="400" height="400"></canvas>
+        <canvas id="graph"></canvas>
         <span class="close" id="closeModalButton">&times;</span>
       </div>
     </div>
+    
 
     <script src="app.js">
      
