@@ -5,15 +5,18 @@
   }
 }
 
- p { display: flex; color: black; border-radius: 25px; font-family: 'Crimson Text', serif, sans-serif; font-size: clamp(26px,2.5vh,3vh);  max-width: 1000px ; opacity: 0.9 ;  background-color: #F0ECE8; padding: 25px; margin: auto; } 
+
+
+ p { display: flex; color: black; border-radius: 25px; font-family: 'Lora', serif;
+  font-size: clamp(26px,2.5vh,3vh);  max-width: 1000px ; opacity: 0.9 ;  background-color: #D6EDFF; padding: 25px; margin-left: auto; margin-right: auto; margin-top: 25px; margin-bottom: 25px; } 
 
 body{
-  background:#F0ECE8;
+  background:#A3D5FF;
   /* background-image: url(background.jpg); */
   background-position: center center;
   background-size: cover;
   background-attachment: fixed;
-  font-family: 'Unica One';
+  font-family: 'Roboto', sans-serif;
 }
 
 svg {
@@ -28,11 +31,11 @@ svg {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   margin: 75px;
-  gap: clamp(1vh, 1.5vh, 3vh); /* Gap between grid items */
+  gap: clamp(0.5vh, 0.8vh, 2vh); /* Gap between grid items */
   max-width: 1000px; /* Limit the maximum width of the grid */
   margin: auto; /* Center the grid horizontally */
   padding: 25px;
-  background-color: #5A4D38;
+  background-color: #6E9CDF;
   border-radius: 15px;
   opacity: 0.85;
 }
@@ -40,10 +43,10 @@ svg {
 .grid-shop {
   display: flex;
   max-width: 200px;
-  background-color: #F0ECE8;
+  background-color: #DFF1FF;
   /* padding: 5%; */
   max-height: 200px;
-  border: 1px solid #ddd;
+  /* border: 1px solid #ddd; */
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -57,25 +60,25 @@ svg {
 .grid-item {
   display: flex;
   max-width: 200px;
-  background-color: #F0ECE8;
+  background-color: #DFF1FF;
   /* padding: 5%; */
   max-height: 200px;
-  border: 1px solid #ddd;
+  /* border: 1px solid #ddd; */
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: center;
   justify-content: center;
   align-items: center;
-  font-size: clamp(2.5vw, 3vw, 36px);
+  font-size: clamp(1vw, 2vw, 30px);
 }
 
 .titleRow {
   display: flex;
   max-width: 200px;
-  background-color: #F0ECE8;
+  background-color: #DFF1FF;
   /* padding: 5%; */
   max-height: 200px;
-  border: 1px solid #ddd;
+  /* border: 1px solid #ddd; */
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -90,9 +93,9 @@ svg {
   justify-content: center; /* Center vertically */
   align-items: center; /* Center horizontally */
   max-width: 200px;
-  background-color: #F0ECE8;
+  background-color: #DFF1FF;
   max-height: 200px;
-  border: 1px solid #ddd;
+  /* border: 1px solid #ddd; */
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -107,7 +110,8 @@ svg {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: #233B86;
+  opacity: 0.7;
   color: #fff;
   padding: 5px;
   display: none; /* Initially hidden */
@@ -188,10 +192,10 @@ svg {
   /* text-transform: uppercase; */
   background-image: linear-gradient(
     -225deg,
-    #fff655 0%,
-    #ff5858 29%,
-    #fe6dac 67%,
-    #89a841 100%
+    #98C1D9 0%,
+    #FFFFFF 29%,
+    #EE6C4D 67%,
+    #293241 100%
     );
     background-size: auto auto;
     background-clip: border-box;
