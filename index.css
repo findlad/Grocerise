@@ -8,7 +8,7 @@
 
 
  p { display: flex; color: black; border-radius: 25px; font-family: 'Lora', serif;
-  font-size: clamp(26px,2.5vh,3vh);  max-width: 1000px ; opacity: 0.9 ;  background-color: #D6EDFF; padding: 25px; margin-left: auto; margin-right: auto; margin-top: 25px; margin-bottom: 25px; } 
+  font-size: clamp(26px,2.5vh,3vh);  max-width: 1000px ; opacity: 0.9 ;  /*background-color: #D6EDFF;*/ padding: 25px; margin-left: auto; margin-right: auto; margin-top: 25px; margin-bottom: 25px; } 
 
 body{
   /* background:#ffffff; */
@@ -22,9 +22,8 @@ body{
 
 svg {
     display: block;
-    font: 10.5em 'Unica One';
-    width: 960px;
-    height: 300px;
+    /* width: 960px;
+    height: 300px; */
     margin: 0 auto;
 }
 
@@ -70,7 +69,7 @@ svg {
   text-align: center;
   justify-content: center;
   align-items: center;
-  font-size: clamp(1vw, 2vw, 30px);
+  font-size: clamp(2.5vw, 3vw, 30px);
 }
 
 .titleRow {
@@ -145,10 +144,10 @@ svg {
   .grid-item {
     display: flex;
     /* max-width: 100px; */
-    background-color: #F0ECE8;
+    /* background-color: #F0ECE8; */
     /* padding: 5%; */
     /* max-height: 50px; */
-    border: 1px solid #ddd;
+    /* border: 1px solid #ddd; */
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -161,7 +160,6 @@ svg {
     display: flex;
     /* max-width: 75px; */
     max-height: 50px;
-    background-color: #F0ECE8;
     padding: 5%;
     border: 1px solid #ddd;
     border-radius: 5px;
