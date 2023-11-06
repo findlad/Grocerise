@@ -138,6 +138,37 @@ async function calculateAndDisplayTotal() {
 
   document.getElementById("NoFrillsTotal").innerHTML =
     "$ " + nofrillsSum.toFixed(2);
+
+  let noFrillsTotal = Number(
+    document.getElementById("NoFrillsTotal").innerHTML
+  );
+  let walmartTotal = Number(document.getElementById("WalmartTotal").innerHTML);
+  let safewayTotal = Number(document.getElementById("SafewayTotal").innerHTML);
+  let superstoreTotal = Number(
+    document.getElementById("SuperstoreTotal").innerHTML
+  );
+
+  if (
+    noFrillsTotal > walmartTotal &&
+    noFrillsTotal > safewayTotal &&
+    noFrillsTotal > superstoreTotal
+  ) {
+    document.getElementById("NoFrillsTotal").classList.add("cheapest");
+  } else if (
+    safewayTotal > walmartTotal &&
+    safewayTotal > noFrillsTotal &&
+    safewayTotal > superstoreTotal
+  ) {
+    document.getElementById("SafewayTotal").classList.add("cheapest");
+  } else if (
+    walmartTotal > safewayTotal &&
+    walmartTotal > noFrillsTotal &&
+    walmartTotal > superstoreTotal
+  ) {
+    document.getElementById("WalmartTotal").classList.add("cheapest");
+  } else {
+    document.getElementById("SuperstoreTotal").classList.add("cheapest");
+  }
 }
 
 // Your JavaScript code for creating the chart
@@ -164,8 +195,6 @@ async function fetchChartJSON(thing, store) {
       datasets: [
         {
           label: `Price History for ${thing} at ${store}`,
-          backgroundColor: "rgba(0, 0, 255, 0.2)",
-          borderColor: "rgba(0, 0, 255, 1.0)",
           data: y,
         },
       ],
@@ -190,7 +219,7 @@ gridItems.forEach((gridItem) => {
     const thing = gridItem.dataset.item;
     const store = gridItem.dataset.store;
 
-    modal.style.display = "block";
+    modal.style.display = "flex";
 
     // Clear the previous chart, if any
     const modalContent = document.querySelector(".modal-content");
