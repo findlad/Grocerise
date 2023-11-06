@@ -65,6 +65,15 @@ async function calculateAndDisplayTotal() {
     ) +
     Number(
       document.getElementById("Superstorecoke").textContent.replace("$", "")
+    ) +
+    Number(
+      document.getElementById("Superstorechips").textContent.replace("$", "")
+    ) +
+    Number(
+      document.getElementById("Superstorebran").textContent.replace("$", "")
+    ) +
+    Number(
+      document.getElementById("Superstorepizza").textContent.replace("$", "")
     );
 
   //console.log(superstoreSum.toFixed(2));
@@ -86,7 +95,18 @@ async function calculateAndDisplayTotal() {
     Number(
       document.getElementById("Safewaytowel").textContent.replace("$", "")
     ) +
-    Number(document.getElementById("Safewaycoke").textContent.replace("$", ""));
+    Number(
+      document.getElementById("Safewaycoke").textContent.replace("$", "")
+    ) +
+    Number(
+      document.getElementById("Safewaychips").textContent.replace("$", "")
+    ) +
+    Number(
+      document.getElementById("Safewaybran").textContent.replace("$", "")
+    ) +
+    Number(
+      document.getElementById("Safewaypizza").textContent.replace("$", "")
+    );
 
   //console.log(safewaySum.toFixed(2));
 
@@ -107,7 +127,18 @@ async function calculateAndDisplayTotal() {
     Number(
       document.getElementById("Walmarttowel").textContent.replace("$", "")
     ) +
-    Number(document.getElementById("Walmartcoke").textContent.replace("$", ""));
+    Number(
+      document.getElementById("Walmartcoke").textContent.replace("$", "")
+    ) +
+    Number(
+      document.getElementById("Walmartchips").textContent.replace("$", "")
+    ) +
+    Number(
+      document.getElementById("Walmartbran").textContent.replace("$", "")
+    ) +
+    Number(
+      document.getElementById("Walmartpizza").textContent.replace("$", "")
+    );
 
   //console.log(walmartSum.toFixed(2));
 
@@ -132,6 +163,15 @@ async function calculateAndDisplayTotal() {
     ) +
     Number(
       document.getElementById("NoFrillscoke").textContent.replace("$", "")
+    ) +
+    Number(
+      document.getElementById("NoFrillschips").textContent.replace("$", "")
+    ) +
+    Number(
+      document.getElementById("NoFrillsbran").textContent.replace("$", "")
+    ) +
+    Number(
+      document.getElementById("NoFrillspizza").textContent.replace("$", "")
     );
 
   //console.log(nofrillsSum.toFixed(2));
