@@ -11,8 +11,9 @@
   font-size: clamp(26px,2.5vh,3vh);  max-width: 1000px ; opacity: 0.9 ;  background-color: #D6EDFF; padding: 25px; margin-left: auto; margin-right: auto; margin-top: 25px; margin-bottom: 25px; } 
 
 body{
-  background:#A3D5FF;
+  /* background:#ffffff; */
   /* background-image: url(background.jpg); */
+  background-image: linear-gradient(#F1FCFF, #BFE8FD);
   background-position: center center;
   background-size: cover;
   background-attachment: fixed;
@@ -43,7 +44,7 @@ svg {
 .grid-shop {
   display: flex;
   max-width: 200px;
-  background-color: #DFF1FF;
+  background-color: #A3D5FF;
   /* padding: 5%; */
   max-height: 200px;
   /* border: 1px solid #ddd; */
@@ -75,7 +76,7 @@ svg {
 .titleRow {
   display: flex;
   max-width: 200px;
-  background-color: #DFF1FF;
+  background-color: #A3D5FF;
   /* padding: 5%; */
   max-height: 200px;
   /* border: 1px solid #ddd; */
@@ -93,7 +94,7 @@ svg {
   justify-content: center; /* Center vertically */
   align-items: center; /* Center horizontally */
   max-width: 200px;
-  background-color: #DFF1FF;
+  background-color: #A3D5FF;
   max-height: 200px;
   /* border: 1px solid #ddd; */
   border-radius: 5px;
@@ -192,10 +193,10 @@ svg {
   /* text-transform: uppercase; */
   background-image: linear-gradient(
     -225deg,
-    #98C1D9 0%,
-    #FFFFFF 29%,
-    #EE6C4D 67%,
-    #293241 100%
+    #4cbcfc 0%,
+    #1d1a7e 29%,
+    #c34dee 67%,
+    #4c515a 100%
     );
     background-size: auto auto;
     background-clip: border-box;
