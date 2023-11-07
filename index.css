@@ -67,7 +67,7 @@ svg {
   text-align: center;
   justify-content: center;
   align-items: center;
-  font-size: clamp(2vw, 2.5vw, 2em);
+  font-size: clamp(2.5vw, 3vw, 2em);
 }
 
 .titleRow {
