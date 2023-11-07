@@ -8,7 +8,7 @@
 
 
  p { display: flex; color: black; border-radius: 25px; font-family: 'Lora', serif;
-  font-size: clamp(16px,2.5vh,3vh);  max-width: 1000px ; opacity: 0.9 ;  padding: 25px; margin-left: auto; margin-right: auto; margin-top: 10px; margin-bottom: 10px; } 
+  font-size: clamp(2vh,2.5vh,3vh);  max-width: 1000px ; opacity: 0.9 ;  padding: 15px; margin-left: auto; margin-right: auto; margin-top: 0px; margin-bottom: 0px; } 
 
 body{
   background-image: linear-gradient(to bottom right, #ffffff, #81a5b6);
