@@ -120,7 +120,11 @@ svg {
   transition: transform 0.2s ease; }
   
 .grid-title:hover::before {
-    display: block; /* Show the title attribute on hover */
+    display: flex;
+    font-size: 2vh;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle; /* Show the title attribute on hover */
   }
 
 .cheapest {
@@ -149,18 +153,15 @@ svg {
 
   .grid-item {
     display: flex;
-
     border-radius: 5px;
-    
     text-align: center;
     justify-content: center;
     align-items: center;
-    /* font-size: 16px; */
+    
   }
 
   .grid-title {
     display: flex;
-    /* max-width: 75px; */
     max-height: 50px;
     padding: 5%;
     border: 1px solid #ddd;
