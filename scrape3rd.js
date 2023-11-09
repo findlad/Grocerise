@@ -77,8 +77,8 @@ function getPrice(targetPage, target, vendor, type) {
         const priceTxt = $(target)
           .text()
           .trim()
-          .replace(/\$/g, " ")
-          .slice(0, 6);
+          .replace(/[^-.0-9]/g, "")
+          .slice(0, 5);
 
         //console.log(priceTxt);
         return priceTxt;

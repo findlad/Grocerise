@@ -175,35 +175,39 @@ async function calculateAndDisplayTotal() {
     );
 
   //console.log(nofrillsSum.toFixed(2));
-
+  // await delay(500);
   document.getElementById("NoFrillsTotal").innerHTML =
     "$ " + nofrillsSum.toFixed(2);
 
   let noFrillsTotal = Number(
-    document.getElementById("NoFrillsTotal").innerHTML
+    document.getElementById("NoFrillsTotal").innerHTML.replace("$", "")
   );
-  let walmartTotal = Number(document.getElementById("WalmartTotal").innerHTML);
-  let safewayTotal = Number(document.getElementById("SafewayTotal").innerHTML);
+  let walmartTotal = Number(
+    document.getElementById("WalmartTotal").innerHTML.replace("$", "")
+  );
+  let safewayTotal = Number(
+    document.getElementById("SafewayTotal").innerHTML.replace("$", "")
+  );
   let superstoreTotal = Number(
-    document.getElementById("SuperstoreTotal").innerHTML
+    document.getElementById("SuperstoreTotal").innerHTML.replace("$", "")
   );
 
   if (
-    noFrillsTotal > walmartTotal &&
-    noFrillsTotal > safewayTotal &&
-    noFrillsTotal > superstoreTotal
+    noFrillsTotal <= walmartTotal &&
+    noFrillsTotal <= safewayTotal &&
+    noFrillsTotal <= superstoreTotal
   ) {
     document.getElementById("NoFrillsTotal").classList.add("cheapest");
   } else if (
-    safewayTotal > walmartTotal &&
-    safewayTotal > noFrillsTotal &&
-    safewayTotal > superstoreTotal
+    safewayTotal <= walmartTotal &&
+    safewayTotal <= noFrillsTotal &&
+    safewayTotal <= superstoreTotal
   ) {
     document.getElementById("SafewayTotal").classList.add("cheapest");
   } else if (
-    walmartTotal > safewayTotal &&
-    walmartTotal > noFrillsTotal &&
-    walmartTotal > superstoreTotal
+    walmartTotal <= safewayTotal &&
+    walmartTotal <= noFrillsTotal &&
+    walmartTotal <= superstoreTotal
   ) {
     document.getElementById("WalmartTotal").classList.add("cheapest");
   } else {

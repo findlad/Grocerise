@@ -61,7 +61,7 @@ function getPrice(targetPage, target, vendor, type) {
     const browser = await puppeteer.launch({ headless: false });
     const page = await browser.newPage();
     await page.setGeolocation({ latitude: 51.049999, longitude: -114.066666 });
-    await page.setViewport({ width: 1300, height: 1000 });
+    await page.setViewport({ width: 1700, height: 1000 });
     await page.goto(targetPage);
     try {
       const textSelector = target;
@@ -75,8 +75,8 @@ function getPrice(targetPage, target, vendor, type) {
         const priceTxt = $(target)
           .text()
           .trim()
-          .replace(/\$/g, " ")
-          .slice(0, 6);
+          .replace(/[^-.0-9]/g, "")
+          .slice(0, 5);
 
         //console.log(priceTxt);
         return priceTxt;

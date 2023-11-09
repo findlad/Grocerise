@@ -63,11 +63,11 @@ function getPrice(targetPage, target, vendor, type) {
     const browser = await puppeteer.launch({ headless: false });
     const page = await browser.newPage();
     await page.setGeolocation({ latitude: 51.049999, longitude: -114.066666 });
-    await page.setViewport({ width: 1300, height: 1000 });
+    await page.setViewport({ width: 1700, height: 1000 });
     await page.goto(targetPage);
     try {
       const textSelector = target;
-      await delay(5000);
+      await delay(10000);
       const htmlCode = await page.content();
 
       // fs.writeFile("html.txt", htmlCode, "utf-8"); //dumps the html to check
@@ -77,8 +77,8 @@ function getPrice(targetPage, target, vendor, type) {
         const priceTxt = $(target)
           .text()
           .trim()
-          .replace(/\$/g, " ")
-          .slice(0, 6);
+          .replace(/[^-.0-9]/g, "")
+          .slice(0, 5);
 
         //console.log(priceTxt);
         return priceTxt;
@@ -109,17 +109,17 @@ function getPrice(targetPage, target, vendor, type) {
   })();
 }
 
-ssRicePrice = getPrice(ssRicePage, ssTarget, "Superstore", "rice");
-ssChickenPrice = getPrice(ssChickenPage, ssTarget, "Superstore", "chicken");
-ssCokeZeroPrice = getPrice(ssCokeZeroPage, ssTarget, "Superstore", "coke");
+// ssRicePrice = getPrice(ssRicePage, ssTarget, "Superstore", "rice");
+// ssChickenPrice = getPrice(ssChickenPage, ssTarget, "Superstore", "chicken");
+// ssCokeZeroPrice = getPrice(ssCokeZeroPage, ssTarget, "Superstore", "coke");
 
-swRicePrice = getPrice(swRicePage, swTarget, "Safeway", "rice");
-swChickenPrice = getPrice(swChickenPage, swTarget, "Safeway", "chicken");
-swCokeZeroPrice = getPrice(swCokeZeroPage, swTarget, "Safeway", "coke");
+// swRicePrice = getPrice(swRicePage, swTarget, "Safeway", "rice");
+// swChickenPrice = getPrice(swChickenPage, swTarget, "Safeway", "chicken");
+// swCokeZeroPrice = getPrice(swCokeZeroPage, swTarget, "Safeway", "coke");
 
-nfRicePrice = getPrice(nfRicePage, nfTarget, "NoFrills", "rice");
-nfChickenPrice = getPrice(nfChickenPage, nfTarget, "NoFrills", "chicken");
-nfCokeZeroPrice = getPrice(nfCokeZeroPage, nfTarget, "NoFrills", "coke");
+// nfRicePrice = getPrice(nfRicePage, nfTarget, "NoFrills", "rice");
+// nfChickenPrice = getPrice(nfChickenPage, nfTarget, "NoFrills", "chicken");
+// nfCokeZeroPrice = getPrice(nfCokeZeroPage, nfTarget, "NoFrills", "coke");
 
 wmRicePrice = getPrice(wmRicePage, wmTarget, "Walmart", "rice");
 wmChickenPrice = getPrice(wmChickenPage, wmTarget, "Walmart", "chicken");

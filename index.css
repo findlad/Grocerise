@@ -121,7 +121,7 @@ svg {
   
 .grid-title:hover::before {
     display: flex;
-    font-size: 2vh;
+    font-size: 2vw;
     justify-content: center;
     align-items: center;
     vertical-align: middle; /* Show the title attribute on hover */
