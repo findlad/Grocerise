@@ -74,13 +74,14 @@ function getPrice(targetPage, target, vendor, type) {
 
       function scrapePrice(html) {
         const $ = cheerio.load(html);
-        const priceTxt = $(target)
+        let priceTxt = $(target)
           .text()
           .trim()
-          .replace(/[^-.0-9]/g, "")
-          .slice(0, 5);
+          .replace(/[^-.0-9]/g, "");
+        // console.log(priceTxt);
+        priceTxt = Number(priceTxt.slice(0, 5)).toFixed(2);
 
-        //console.log(priceTxt);
+        // console.log(priceTxt);
         return priceTxt;
       }
 

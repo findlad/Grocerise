@@ -74,13 +74,14 @@ function getPrice(targetPage, target, vendor, type) {
 
       function scrapePrice(html) {
         const $ = cheerio.load(html);
-        const priceTxt = $(target)
+        let priceTxt = $(target)
           .text()
           .trim()
-          .replace(/[^-.0-9]/g, "")
-          .slice(0, 5);
+          .replace(/[^-.0-9]/g, "");
+        // console.log(priceTxt);
+        priceTxt = Number(priceTxt.slice(0, 5)).toFixed(2);
 
-        //console.log(priceTxt);
+        // console.log(priceTxt);
         return priceTxt;
       }
 
@@ -109,17 +110,17 @@ function getPrice(targetPage, target, vendor, type) {
   })();
 }
 
-// ssRicePrice = getPrice(ssRicePage, ssTarget, "Superstore", "rice");
-// ssChickenPrice = getPrice(ssChickenPage, ssTarget, "Superstore", "chicken");
-// ssCokeZeroPrice = getPrice(ssCokeZeroPage, ssTarget, "Superstore", "coke");
+ssRicePrice = getPrice(ssRicePage, ssTarget, "Superstore", "rice");
+ssChickenPrice = getPrice(ssChickenPage, ssTarget, "Superstore", "chicken");
+ssCokeZeroPrice = getPrice(ssCokeZeroPage, ssTarget, "Superstore", "coke");
 
-// swRicePrice = getPrice(swRicePage, swTarget, "Safeway", "rice");
-// swChickenPrice = getPrice(swChickenPage, swTarget, "Safeway", "chicken");
-// swCokeZeroPrice = getPrice(swCokeZeroPage, swTarget, "Safeway", "coke");
+swRicePrice = getPrice(swRicePage, swTarget, "Safeway", "rice");
+swChickenPrice = getPrice(swChickenPage, swTarget, "Safeway", "chicken");
+swCokeZeroPrice = getPrice(swCokeZeroPage, swTarget, "Safeway", "coke");
 
-// nfRicePrice = getPrice(nfRicePage, nfTarget, "NoFrills", "rice");
-// nfChickenPrice = getPrice(nfChickenPage, nfTarget, "NoFrills", "chicken");
-// nfCokeZeroPrice = getPrice(nfCokeZeroPage, nfTarget, "NoFrills", "coke");
+nfRicePrice = getPrice(nfRicePage, nfTarget, "NoFrills", "rice");
+nfChickenPrice = getPrice(nfChickenPage, nfTarget, "NoFrills", "chicken");
+nfCokeZeroPrice = getPrice(nfCokeZeroPage, nfTarget, "NoFrills", "coke");
 
 wmRicePrice = getPrice(wmRicePage, wmTarget, "Walmart", "rice");
 wmChickenPrice = getPrice(wmChickenPage, wmTarget, "Walmart", "chicken");
