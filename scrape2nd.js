@@ -7,7 +7,7 @@ const delay = (milliseconds) =>
 
 let ssTarget = ".price__value";
 let wmTarget = '[itemprop="price"]';
-let swTarget = ".jromfo";
+let swTarget = ".iHsOrF";
 let nfTarget = ".price__value";
 
 let wmCokeZeroPrice;
