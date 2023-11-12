@@ -65,7 +65,7 @@ function getPrice(targetPage, target, vendor, type) {
     await page.goto(targetPage);
     try {
       const textSelector = target;
-      await delay(5000);
+      await delay(10000);
       const htmlCode = await page.content();
 
       // fs.writeFile("html.txt", htmlCode, "utf-8"); //dumps the html to check
