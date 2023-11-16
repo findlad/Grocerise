@@ -16,7 +16,7 @@ let ssEggPage =
 
 let wmEggPrice;
 let wmEggPage =
-  "https://www.walmart.ca/en/ip/Farmer-s-Finest-Free-Range-Large-Brown-Eggs/6000196823906";
+  "https://www.walmart.ca/en/ip/goldegg-free-run-large-eggs/6000196823370";
 
 let swEggPrice;
 let swEggPage = "https://voila.ca/products/150353EA/details";
