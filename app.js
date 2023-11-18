@@ -45,169 +45,49 @@ loading();
 // Calculate the sum and update the total
 calculateAndDisplayTotal();
 
+function getNumber(store, item) {
+  return Number(
+    document.getElementById(store + item).textContent.replace("$", "")
+  );
+}
+
 async function calculateAndDisplayTotal() {
-  await delay(500);
-  let superstoreSum =
-    Number(
-      document.getElementById("Superstorechicken").textContent.replace("$", "")
-    ) +
-    Number(
-      document.getElementById("Superstorerice").textContent.replace("$", "")
-    ) +
-    Number(
-      document.getElementById("Superstoremilk").textContent.replace("$", "")
-    ) +
-    Number(
-      document.getElementById("Superstoreegg").textContent.replace("$", "")
-    ) +
-    Number(
-      document.getElementById("Superstoretowel").textContent.replace("$", "")
-    ) +
-    Number(
-      document.getElementById("Superstorecoke").textContent.replace("$", "")
-    ) +
-    Number(
-      document.getElementById("Superstorechips").textContent.replace("$", "")
-    ) +
-    Number(
-      document.getElementById("Superstorebran").textContent.replace("$", "")
-    ) +
-    Number(
-      document.getElementById("Superstorepizza").textContent.replace("$", "")
-    );
+  await delay(250);
 
-  //console.log(superstoreSum.toFixed(2));
+  let superstoreSum = 0;
+  let safewaySum = 0;
+  let walmartSum = 0;
+  let nofrillsSum = 0;
 
-  document.getElementById("SuperstoreTotal").innerHTML =
-    "$ " + superstoreSum.toFixed(2);
+  function storeSummation(store, itemArray) {
+    let sum = 0;
+    itemArray.forEach((item) => {
+      sum += getNumber(store, item);
+    });
+    document.getElementById(store + "Total").innerHTML = "$ " + sum.toFixed(2);
+  }
 
-  let safewaySum =
-    Number(
-      document.getElementById("Safewaychicken").textContent.replace("$", "")
-    ) +
-    Number(
-      document.getElementById("Safewayrice").textContent.replace("$", "")
-    ) +
-    Number(
-      document.getElementById("Safewaymilk").textContent.replace("$", "")
-    ) +
-    Number(document.getElementById("Safewayegg").textContent.replace("$", "")) +
-    Number(
-      document.getElementById("Safewaytowel").textContent.replace("$", "")
-    ) +
-    Number(
-      document.getElementById("Safewaycoke").textContent.replace("$", "")
-    ) +
-    Number(
-      document.getElementById("Safewaychips").textContent.replace("$", "")
-    ) +
-    Number(
-      document.getElementById("Safewaybran").textContent.replace("$", "")
-    ) +
-    Number(
-      document.getElementById("Safewaypizza").textContent.replace("$", "")
-    );
-
-  //console.log(safewaySum.toFixed(2));
-
-  document.getElementById("SafewayTotal").innerHTML =
-    "$ " + safewaySum.toFixed(2);
-
-  let walmartSum =
-    Number(
-      document.getElementById("Walmartchicken").textContent.replace("$", "")
-    ) +
-    Number(
-      document.getElementById("Walmartrice").textContent.replace("$", "")
-    ) +
-    Number(
-      document.getElementById("Walmartmilk").textContent.replace("$", "")
-    ) +
-    Number(document.getElementById("Walmartegg").textContent.replace("$", "")) +
-    Number(
-      document.getElementById("Walmarttowel").textContent.replace("$", "")
-    ) +
-    Number(
-      document.getElementById("Walmartcoke").textContent.replace("$", "")
-    ) +
-    Number(
-      document.getElementById("Walmartchips").textContent.replace("$", "")
-    ) +
-    Number(
-      document.getElementById("Walmartbran").textContent.replace("$", "")
-    ) +
-    Number(
-      document.getElementById("Walmartpizza").textContent.replace("$", "")
-    );
-
-  //console.log(walmartSum.toFixed(2));
-
-  document.getElementById("WalmartTotal").innerHTML =
-    "$ " + walmartSum.toFixed(2);
-
-  let nofrillsSum =
-    Number(
-      document.getElementById("NoFrillschicken").textContent.replace("$", "")
-    ) +
-    Number(
-      document.getElementById("NoFrillsrice").textContent.replace("$", "")
-    ) +
-    Number(
-      document.getElementById("NoFrillsmilk").textContent.replace("$", "")
-    ) +
-    Number(
-      document.getElementById("NoFrillsegg").textContent.replace("$", "")
-    ) +
-    Number(
-      document.getElementById("NoFrillstowel").textContent.replace("$", "")
-    ) +
-    Number(
-      document.getElementById("NoFrillscoke").textContent.replace("$", "")
-    ) +
-    Number(
-      document.getElementById("NoFrillschips").textContent.replace("$", "")
-    ) +
-    Number(
-      document.getElementById("NoFrillsbran").textContent.replace("$", "")
-    ) +
-    Number(
-      document.getElementById("NoFrillspizza").textContent.replace("$", "")
-    );
-
-  //console.log(nofrillsSum.toFixed(2));
-  // await delay(500);
-  document.getElementById("NoFrillsTotal").innerHTML =
-    "$ " + nofrillsSum.toFixed(2);
-
-  let noFrillsTotal = Number(
-    document.getElementById("NoFrillsTotal").innerHTML.replace("$", "")
-  );
-  let walmartTotal = Number(
-    document.getElementById("WalmartTotal").innerHTML.replace("$", "")
-  );
-  let safewayTotal = Number(
-    document.getElementById("SafewayTotal").innerHTML.replace("$", "")
-  );
-  let superstoreTotal = Number(
-    document.getElementById("SuperstoreTotal").innerHTML.replace("$", "")
-  );
+  storeSummation("Superstore", itemArray);
+  storeSummation("Walmart", itemArray);
+  storeSummation("Safeway", itemArray);
+  storeSummation("NoFrills", itemArray);
 
   if (
-    noFrillsTotal <= walmartTotal &&
-    noFrillsTotal <= safewayTotal &&
-    noFrillsTotal <= superstoreTotal
+    nofrillsSum <= walmartSum &&
+    nofrillsSum <= safewaySum &&
+    nofrillsSum <= superstoreSum
   ) {
     document.getElementById("NoFrillsTotal").classList.add("cheapest");
   } else if (
-    safewayTotal <= walmartTotal &&
-    safewayTotal <= noFrillsTotal &&
-    safewayTotal <= superstoreTotal
+    safewaySum <= walmartSum &&
+    safewaySum <= noFrillsSum &&
+    safewaySum <= superstoreSum
   ) {
     document.getElementById("SafewayTotal").classList.add("cheapest");
   } else if (
-    walmartTotal <= safewayTotal &&
-    walmartTotal <= noFrillsTotal &&
-    walmartTotal <= superstoreTotal
+    walmartSum <= safewaySum &&
+    walmartSum <= noFrillsSum &&
+    walmartSum <= superstoreSum
   ) {
     document.getElementById("WalmartTotal").classList.add("cheapest");
   } else {
