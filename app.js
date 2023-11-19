@@ -52,7 +52,7 @@ function getNumber(store, item) {
 }
 
 async function calculateAndDisplayTotal() {
-  await delay(250);
+  await delay(500);
 
   let superstoreSum = 0;
   let safewaySum = 0;
