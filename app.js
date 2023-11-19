@@ -58,6 +58,7 @@ async function calculateAndDisplayTotal() {
   let safewaySum = 0;
   let walmartSum = 0;
   let nofrillsSum = 0;
+  let coopSum = 0;
 
   function storeSummation(store, itemArray) {
     let sum = 0;
@@ -71,22 +72,26 @@ async function calculateAndDisplayTotal() {
   storeSummation("Walmart", itemArray);
   storeSummation("Safeway", itemArray);
   storeSummation("NoFrills", itemArray);
+  storeSummation("Coop", itemArray);
 
   if (
     nofrillsSum <= walmartSum &&
     nofrillsSum <= safewaySum &&
-    nofrillsSum <= superstoreSum
+    nofrillsSum <= superstoreSum &&
+    nofrillsSum <= coopSum
   ) {
     document.getElementById("NoFrillsTotal").classList.add("cheapest");
   } else if (
     safewaySum <= walmartSum &&
     safewaySum <= noFrillsSum &&
-    safewaySum <= superstoreSum
+    safewaySum <= superstoreSum &&
+    safewaySum <= coopSum
   ) {
     document.getElementById("SafewayTotal").classList.add("cheapest");
   } else if (
     walmartSum <= safewaySum &&
     walmartSum <= noFrillsSum &&
+    walmartSum <= superstoreSum &&
     walmartSum <= superstoreSum
   ) {
     document.getElementById("WalmartTotal").classList.add("cheapest");

@@ -26,7 +26,7 @@ svg {
 
 .grid_container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   margin: 75px;
   gap: clamp(0.5vh, 0.8vh, 2vh); /* Gap between grid items */
   max-width: 1000px; /* Limit the maximum width of the grid */
