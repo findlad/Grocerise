@@ -34,16 +34,17 @@ async function loading() {
   //console.log(globalArray);
   shopArray = [...new Set(globalArray.map((item) => item.shop))];
   itemArray = [...new Set(globalArray.map((item) => item.item))];
-  itemArray.forEach((item) => {
-    shopArray.forEach((shop) => {
-      fetchPricesJSON(item, shop);
+  await itemArray.forEach(async (item) => {
+    await shopArray.forEach(async (shop) => {
+      await fetchPricesJSON(item, shop);
     });
   });
+  await calculateAndDisplayTotal(itemArray);
 }
 loading();
 
 // Calculate the sum and update the total
-calculateAndDisplayTotal();
+// calculateAndDisplayTotal();
 
 function getNumber(store, item) {
   return Number(
@@ -51,7 +52,7 @@ function getNumber(store, item) {
   );
 }
 
-async function calculateAndDisplayTotal() {
+async function calculateAndDisplayTotal(itemArray) {
   await delay(500);
 
   let superstoreSum = 0;
@@ -66,6 +67,23 @@ async function calculateAndDisplayTotal() {
       sum += getNumber(store, item);
     });
     document.getElementById(store + "Total").innerHTML = "$ " + sum.toFixed(2);
+    switch (store) {
+      case "Superstore":
+        superstoreSum = sum;
+        break;
+      case "Safeway":
+        safewaySum = sum;
+        break;
+      case "Walmart":
+        walmartSum = sum;
+        break;
+      case "NoFrills":
+        nofrillsSum = sum;
+        break;
+      case "Coop":
+        coopSum = sum;
+        break;
+    }
   }
 
   storeSummation("Superstore", itemArray);
@@ -74,28 +92,25 @@ async function calculateAndDisplayTotal() {
   storeSummation("NoFrills", itemArray);
   storeSummation("Coop", itemArray);
 
-  if (
-    nofrillsSum <= walmartSum &&
-    nofrillsSum <= safewaySum &&
-    nofrillsSum <= superstoreSum &&
-    nofrillsSum <= coopSum
-  ) {
+  const minimum = Math.min(
+    ...[nofrillsSum, walmartSum, safewaySum, superstoreSum, coopSum]
+  );
+  console.log("minimum");
+  console.log(minimum);
+
+  if (minimum === nofrillsSum) {
     document.getElementById("NoFrillsTotal").classList.add("cheapest");
-  } else if (
-    safewaySum <= walmartSum &&
-    safewaySum <= noFrillsSum &&
-    safewaySum <= superstoreSum &&
-    safewaySum <= coopSum
-  ) {
+  }
+  if (minimum === safewaySum) {
     document.getElementById("SafewayTotal").classList.add("cheapest");
-  } else if (
-    walmartSum <= safewaySum &&
-    walmartSum <= noFrillsSum &&
-    walmartSum <= superstoreSum &&
-    walmartSum <= superstoreSum
-  ) {
+  }
+  if (minimum === walmartSum) {
     document.getElementById("WalmartTotal").classList.add("cheapest");
-  } else {
+  }
+  if (minimum === coopSum) {
+    document.getElementById("CoopTotal").classList.add("cheapest");
+  }
+  if (minimum === superstoreSum) {
     document.getElementById("SuperstoreTotal").classList.add("cheapest");
   }
 }
