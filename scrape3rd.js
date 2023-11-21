@@ -9,6 +9,7 @@ let ssTarget = ".price__value";
 let wmTarget = '[itemprop="price"]';
 let swTarget = ".iHsOrF";
 let nfTarget = ".price__value";
+let coopTarget = ".product-price";
 
 let wmBranPrice;
 let wmBranPage =
@@ -25,7 +26,10 @@ let nfBranPrice;
 let nfBranPage =
   "https://www.nofrills.ca/raisin-bran-family-size-cereal/p/21430755_EA";
 
-let ssChickenPrice;
+let coopBranPrice;
+let coopBranPage = "https://shoponline.calgarycoop.com/Midtown#/product/32516";
+
+let ssPizzaPrice;
 let ssPizzaPage =
   "https://www.realcanadiansuperstore.ca/giuseppe-pizzeria-rising-crust-pepperoni-pizza/p/21106361_EA";
 
@@ -39,6 +43,9 @@ let swPizzaPage = "https://voila.ca/products/819557EA/details";
 let nfPizzaPrice;
 let nfPizzaPage =
   "https://www.nofrills.ca/giuseppe-pizzeria-rising-crust-pepperoni-pizza/p/21106361_EA";
+
+let coopPizzaPrice;
+let coopPizzaPage = "https://shoponline.calgarycoop.com/Midtown#/product/6001";
 
 let ssChipsPrice;
 let ssChipsPage =
@@ -54,6 +61,9 @@ let swChipsPage = "https://voila.ca/products/890971EA/details";
 let nfChipsPrice;
 let nfChipsPage =
   "https://www.nofrills.ca/oven-baked-bar-b-q-flavoured-potato-chips/p/21434125_EA";
+
+let coopChipsPrice;
+let coopChipsPage = "https://shoponline.calgarycoop.com/Midtown#/product/32844";
 
 function getPrice(targetPage, target, vendor, type) {
   (async () => {
@@ -110,18 +120,22 @@ function getPrice(targetPage, target, vendor, type) {
   })();
 }
 
-ssChipsPrice = getPrice(ssChipsPage, ssTarget, "Superstore", "chips");
-ssPizzaPrice = getPrice(ssPizzaPage, ssTarget, "Superstore", "pizza");
-ssBranPrice = getPrice(ssBranPage, ssTarget, "Superstore", "bran");
+// ssChipsPrice = getPrice(ssChipsPage, ssTarget, "Superstore", "chips");
+// ssPizzaPrice = getPrice(ssPizzaPage, ssTarget, "Superstore", "pizza");
+// ssBranPrice = getPrice(ssBranPage, ssTarget, "Superstore", "bran");
 
-swChipsPrice = getPrice(swChipsPage, swTarget, "Safeway", "chips");
-swPizzaPrice = getPrice(swPizzaPage, swTarget, "Safeway", "pizza");
-swBranPrice = getPrice(swBranPage, swTarget, "Safeway", "bran");
+// swChipsPrice = getPrice(swChipsPage, swTarget, "Safeway", "chips");
+// swPizzaPrice = getPrice(swPizzaPage, swTarget, "Safeway", "pizza");
+// swBranPrice = getPrice(swBranPage, swTarget, "Safeway", "bran");
 
-nfChipsPrice = getPrice(nfChipsPage, nfTarget, "NoFrills", "chips");
-nfPizzaPrice = getPrice(nfPizzaPage, nfTarget, "NoFrills", "pizza");
-nfBranPrice = getPrice(nfBranPage, nfTarget, "NoFrills", "bran");
+// nfChipsPrice = getPrice(nfChipsPage, nfTarget, "NoFrills", "chips");
+// nfPizzaPrice = getPrice(nfPizzaPage, nfTarget, "NoFrills", "pizza");
+// nfBranPrice = getPrice(nfBranPage, nfTarget, "NoFrills", "bran");
 
-wmChipsPrice = getPrice(wmChipsPage, wmTarget, "Walmart", "chips");
-wmPizzaPrice = getPrice(wmPizzaPage, wmTarget, "Walmart", "pizza");
-wmBranPrice = getPrice(wmBranPage, wmTarget, "Walmart", "bran");
+// wmChipsPrice = getPrice(wmChipsPage, wmTarget, "Walmart", "chips");
+// wmPizzaPrice = getPrice(wmPizzaPage, wmTarget, "Walmart", "pizza");
+// wmBranPrice = getPrice(wmBranPage, wmTarget, "Walmart", "bran");
+
+coopChipsPrice = getPrice(coopChipsPage, coopTarget, "Coop", "chips");
+coopPizzaPrice = getPrice(coopPizzaPage, coopTarget, "Coop", "pizza");
+coopBranPrice = getPrice(coopBranPage, coopTarget, "Coop", "bran");

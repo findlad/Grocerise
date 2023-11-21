@@ -9,6 +9,7 @@ let ssTarget = ".price__value";
 let wmTarget = '[itemprop="price"]';
 let swTarget = ".iHsOrF";
 let nfTarget = ".price__value";
+let coopTarget = ".product-price";
 
 let wmCokeZeroPrice;
 let wmCokeZeroPage =
@@ -25,6 +26,10 @@ let nfCokeZeroPrice;
 let nfCokeZeroPage =
   "https://www.nofrills.ca/zero-sugar-bottle/p/20316026005_EA";
 
+let coopCokeZeroPrice;
+let coopCokeZeroPage =
+  "https://shoponline.calgarycoop.com/Midtown#/product/3878";
+
 let ssChickenPrice;
 let ssChickenPage =
   "https://www.realcanadiansuperstore.ca/chicken-breast-boneless-skinless-3-pack/p/21340952_EA";
@@ -40,6 +45,10 @@ let nfChickenPrice;
 let nfChickenPage =
   "https://www.nofrills.ca/chicken-breast-boneless-skinless-3-pack/p/21340952_EA";
 
+let coopChickenPrice;
+let coopChickenPage =
+  "https://shoponline.calgarycoop.com/Midtown#/product/38061";
+
 let ssRicePrice;
 let ssRicePage =
   "https://www.realcanadiansuperstore.ca/premium-long-grain-rice/p/20074783001_EA";
@@ -54,6 +63,9 @@ let swRicePage = "https://voila.ca/products/160395EA/details";
 let nfRicePrice;
 let nfRicePage =
   "https://www.nofrills.ca/premium-long-grain-rice/p/20074783001_EA";
+
+let coopRicePrice;
+let coopRicePage = "https://shoponline.calgarycoop.com/Midtown#/product/119";
 
 function getPrice(targetPage, target, vendor, type) {
   (async () => {
@@ -110,18 +122,22 @@ function getPrice(targetPage, target, vendor, type) {
   })();
 }
 
-ssRicePrice = getPrice(ssRicePage, ssTarget, "Superstore", "rice");
-ssChickenPrice = getPrice(ssChickenPage, ssTarget, "Superstore", "chicken");
-ssCokeZeroPrice = getPrice(ssCokeZeroPage, ssTarget, "Superstore", "coke");
+// ssRicePrice = getPrice(ssRicePage, ssTarget, "Superstore", "rice");
+// ssChickenPrice = getPrice(ssChickenPage, ssTarget, "Superstore", "chicken");
+// ssCokeZeroPrice = getPrice(ssCokeZeroPage, ssTarget, "Superstore", "coke");
 
-swRicePrice = getPrice(swRicePage, swTarget, "Safeway", "rice");
-swChickenPrice = getPrice(swChickenPage, swTarget, "Safeway", "chicken");
-swCokeZeroPrice = getPrice(swCokeZeroPage, swTarget, "Safeway", "coke");
+// swRicePrice = getPrice(swRicePage, swTarget, "Safeway", "rice");
+// swChickenPrice = getPrice(swChickenPage, swTarget, "Safeway", "chicken");
+// swCokeZeroPrice = getPrice(swCokeZeroPage, swTarget, "Safeway", "coke");
 
-nfRicePrice = getPrice(nfRicePage, nfTarget, "NoFrills", "rice");
-nfChickenPrice = getPrice(nfChickenPage, nfTarget, "NoFrills", "chicken");
-nfCokeZeroPrice = getPrice(nfCokeZeroPage, nfTarget, "NoFrills", "coke");
+// nfRicePrice = getPrice(nfRicePage, nfTarget, "NoFrills", "rice");
+// nfChickenPrice = getPrice(nfChickenPage, nfTarget, "NoFrills", "chicken");
+// nfCokeZeroPrice = getPrice(nfCokeZeroPage, nfTarget, "NoFrills", "coke");
 
-wmRicePrice = getPrice(wmRicePage, wmTarget, "Walmart", "rice");
-wmChickenPrice = getPrice(wmChickenPage, wmTarget, "Walmart", "chicken");
-wmCokeZeroPrice = getPrice(wmCokeZeroPage, wmTarget, "Walmart", "coke");
+// wmRicePrice = getPrice(wmRicePage, wmTarget, "Walmart", "rice");
+// wmChickenPrice = getPrice(wmChickenPage, wmTarget, "Walmart", "chicken");
+// wmCokeZeroPrice = getPrice(wmCokeZeroPage, wmTarget, "Walmart", "coke");
+
+coopRicePrice = getPrice(coopRicePage, coopTarget, "Coop", "rice");
+coopChickenPrice = getPrice(coopChickenPage, coopTarget, "Coop", "chicken");
+coopCokeZeroPrice = getPrice(coopCokeZeroPage, coopTarget, "Coop", "coke");

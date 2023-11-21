@@ -9,6 +9,7 @@ let wmTarget = '[itemprop="price"]';
 let ssTarget = ".price__value";
 let swTarget = ".iHsOrF";
 let nfTarget = ".price__value";
+let coopTarget = ".product-price";
 
 let ssEggPrice;
 let ssEggPage =
@@ -25,6 +26,9 @@ let nfEggPrice;
 let nfEggPage =
   "https://www.nofrills.ca/free-run-brown-eggs-large/p/20813628001_EA";
 
+let coopEggPrice;
+let coopEggPage = "https://shoponline.calgarycoop.com/crowfoot#/product/563";
+
 let ssTowelPrice;
 let ssTowelPage =
   "https://www.realcanadiansuperstore.ca/paper-towel-6-12/p/21515966_EA";
@@ -39,6 +43,10 @@ let swTowelPage = "https://voila.ca/products/5026EA/details";
 let nfTowelPrice;
 let nfTowelPage = "https://www.nofrills.ca/paper-towel-6-12/p/21515966_EA";
 
+let coopTowelPrice;
+let coopTowelPage =
+  "https://shoponline.calgarycoop.com/crowfoot#/product/17720";
+
 let ssMilkPrice;
 let ssMilkPage =
   "https://www.realcanadiansuperstore.ca/milk-1-mf/p/20657990_EA";
@@ -52,6 +60,9 @@ let swMilkPage = "https://voila.ca/products/490731EA/details";
 
 let nfMilkPrice;
 let nfMilkPage = "https://www.nofrills.ca/skim-milk/p/20658003_EA";
+
+let coopMilkPrice;
+let coopMilkPage = "https://shoponline.calgarycoop.com/crowfoot#/product/211";
 
 function getPrice(targetPage, target, vendor, type) {
   (async () => {
@@ -108,18 +119,22 @@ function getPrice(targetPage, target, vendor, type) {
   })();
 }
 
-wmMilkPrice = getPrice(wmMilkPage, wmTarget, "Walmart", "milk");
-wmEggPrice = getPrice(wmEggPage, wmTarget, "Walmart", "egg");
-wmTowelPrice = getPrice(wmTowelPage, wmTarget, "Walmart", "towel");
+// wmMilkPrice = getPrice(wmMilkPage, wmTarget, "Walmart", "milk");
+// wmEggPrice = getPrice(wmEggPage, wmTarget, "Walmart", "egg");
+// wmTowelPrice = getPrice(wmTowelPage, wmTarget, "Walmart", "towel");
 
-ssMilkPrice = getPrice(ssMilkPage, ssTarget, "Superstore", "milk");
-ssEggPrice = getPrice(ssEggPage, ssTarget, "Superstore", "egg");
-ssTowelPrice = getPrice(ssTowelPage, ssTarget, "Superstore", "towel");
+// ssMilkPrice = getPrice(ssMilkPage, ssTarget, "Superstore", "milk");
+// ssEggPrice = getPrice(ssEggPage, ssTarget, "Superstore", "egg");
+// ssTowelPrice = getPrice(ssTowelPage, ssTarget, "Superstore", "towel");
 
-swMilkPrice = getPrice(swMilkPage, swTarget, "Safeway", "milk");
-swEggPrice = getPrice(swEggPage, swTarget, "Safeway", "egg");
-swTowelPrice = getPrice(swTowelPage, swTarget, "Safeway", "towel");
+// swMilkPrice = getPrice(swMilkPage, swTarget, "Safeway", "milk");
+// swEggPrice = getPrice(swEggPage, swTarget, "Safeway", "egg");
+// swTowelPrice = getPrice(swTowelPage, swTarget, "Safeway", "towel");
 
-nfMilkPrice = getPrice(nfMilkPage, nfTarget, "NoFrills", "milk");
-nfEggPrice = getPrice(nfEggPage, nfTarget, "NoFrills", "egg");
-nfTowelPrice = getPrice(nfTowelPage, nfTarget, "NoFrills", "towel");
+// nfMilkPrice = getPrice(nfMilkPage, nfTarget, "NoFrills", "milk");
+// nfEggPrice = getPrice(nfEggPage, nfTarget, "NoFrills", "egg");
+// nfTowelPrice = getPrice(nfTowelPage, nfTarget, "NoFrills", "towel");
+
+coopEggPrice = getPrice(coopEggPage, coopTarget, "Coop", "egg");
+coopMilkPrice = getPrice(coopMilkPage, coopTarget, "Coop", "milk");
+coopTowelPrice = getPrice(coopTowelPage, coopTarget, "Coop", "towel");
