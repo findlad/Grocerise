@@ -120,21 +120,21 @@ function getPrice(targetPage, target, vendor, type) {
   })();
 }
 
-// ssChipsPrice = getPrice(ssChipsPage, ssTarget, "Superstore", "chips");
-// ssPizzaPrice = getPrice(ssPizzaPage, ssTarget, "Superstore", "pizza");
-// ssBranPrice = getPrice(ssBranPage, ssTarget, "Superstore", "bran");
+ssChipsPrice = getPrice(ssChipsPage, ssTarget, "Superstore", "chips");
+ssPizzaPrice = getPrice(ssPizzaPage, ssTarget, "Superstore", "pizza");
+ssBranPrice = getPrice(ssBranPage, ssTarget, "Superstore", "bran");
 
-// swChipsPrice = getPrice(swChipsPage, swTarget, "Safeway", "chips");
-// swPizzaPrice = getPrice(swPizzaPage, swTarget, "Safeway", "pizza");
-// swBranPrice = getPrice(swBranPage, swTarget, "Safeway", "bran");
+swChipsPrice = getPrice(swChipsPage, swTarget, "Safeway", "chips");
+swPizzaPrice = getPrice(swPizzaPage, swTarget, "Safeway", "pizza");
+swBranPrice = getPrice(swBranPage, swTarget, "Safeway", "bran");
 
-// nfChipsPrice = getPrice(nfChipsPage, nfTarget, "NoFrills", "chips");
-// nfPizzaPrice = getPrice(nfPizzaPage, nfTarget, "NoFrills", "pizza");
-// nfBranPrice = getPrice(nfBranPage, nfTarget, "NoFrills", "bran");
+nfChipsPrice = getPrice(nfChipsPage, nfTarget, "NoFrills", "chips");
+nfPizzaPrice = getPrice(nfPizzaPage, nfTarget, "NoFrills", "pizza");
+nfBranPrice = getPrice(nfBranPage, nfTarget, "NoFrills", "bran");
 
-// wmChipsPrice = getPrice(wmChipsPage, wmTarget, "Walmart", "chips");
-// wmPizzaPrice = getPrice(wmPizzaPage, wmTarget, "Walmart", "pizza");
-// wmBranPrice = getPrice(wmBranPage, wmTarget, "Walmart", "bran");
+wmChipsPrice = getPrice(wmChipsPage, wmTarget, "Walmart", "chips");
+wmPizzaPrice = getPrice(wmPizzaPage, wmTarget, "Walmart", "pizza");
+wmBranPrice = getPrice(wmBranPage, wmTarget, "Walmart", "bran");
 
 coopChipsPrice = getPrice(coopChipsPage, coopTarget, "Coop", "chips");
 coopPizzaPrice = getPrice(coopPizzaPage, coopTarget, "Coop", "pizza");

@@ -296,7 +296,8 @@ html, body{
 /* Set dimensions for the canvas element */
 canvas {
   max-width: 100%;
-  min-height: 500px;
+  max-height: 80vh;
+  min-height: 300px;
   height: auto;  /*Allow the chart's height to adapt */
   
 }

@@ -123,17 +123,17 @@ function getPrice(targetPage, target, vendor, type) {
 // wmEggPrice = getPrice(wmEggPage, wmTarget, "Walmart", "egg");
 // wmTowelPrice = getPrice(wmTowelPage, wmTarget, "Walmart", "towel");
 
-// ssMilkPrice = getPrice(ssMilkPage, ssTarget, "Superstore", "milk");
-// ssEggPrice = getPrice(ssEggPage, ssTarget, "Superstore", "egg");
-// ssTowelPrice = getPrice(ssTowelPage, ssTarget, "Superstore", "towel");
+ssMilkPrice = getPrice(ssMilkPage, ssTarget, "Superstore", "milk");
+ssEggPrice = getPrice(ssEggPage, ssTarget, "Superstore", "egg");
+ssTowelPrice = getPrice(ssTowelPage, ssTarget, "Superstore", "towel");
 
-// swMilkPrice = getPrice(swMilkPage, swTarget, "Safeway", "milk");
-// swEggPrice = getPrice(swEggPage, swTarget, "Safeway", "egg");
-// swTowelPrice = getPrice(swTowelPage, swTarget, "Safeway", "towel");
+swMilkPrice = getPrice(swMilkPage, swTarget, "Safeway", "milk");
+swEggPrice = getPrice(swEggPage, swTarget, "Safeway", "egg");
+swTowelPrice = getPrice(swTowelPage, swTarget, "Safeway", "towel");
 
-// nfMilkPrice = getPrice(nfMilkPage, nfTarget, "NoFrills", "milk");
-// nfEggPrice = getPrice(nfEggPage, nfTarget, "NoFrills", "egg");
-// nfTowelPrice = getPrice(nfTowelPage, nfTarget, "NoFrills", "towel");
+nfMilkPrice = getPrice(nfMilkPage, nfTarget, "NoFrills", "milk");
+nfEggPrice = getPrice(nfEggPage, nfTarget, "NoFrills", "egg");
+nfTowelPrice = getPrice(nfTowelPage, nfTarget, "NoFrills", "towel");
 
 coopEggPrice = getPrice(coopEggPage, coopTarget, "Coop", "egg");
 coopMilkPrice = getPrice(coopMilkPage, coopTarget, "Coop", "milk");
