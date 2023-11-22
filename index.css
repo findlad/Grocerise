@@ -27,9 +27,8 @@ svg {
 .grid_container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  margin: 75px;
   gap: clamp(0.5vh, 0.8vh, 2vh); /* Gap between grid items */
-  max-width: 1000px; /* Limit the maximum width of the grid */
+  max-width: 1100px; /* Limit the maximum width of the grid */
   margin: auto; /* Center the grid horizontally */
   padding: 25px;
   background-color: #6E9CDF;
@@ -66,7 +65,7 @@ svg {
   text-align: center;
   justify-content: center;
   align-items: center;
-  font-size: clamp(2.5vw, 3vw, 2em);
+  font-size: clamp(16px, 2vw, 36px);
 }
 
 .titleRow {
@@ -81,7 +80,7 @@ svg {
   text-align: center;
   justify-content: center;
   align-items: center;
-  font-size: 3vh;
+  font-size: clamp(16px, 2vw, 36px);
 } 
 
 .grid-title {
@@ -144,9 +143,9 @@ svg {
 
 @media (max-width: 600px) {
   .grid_container {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    
   
-    padding: 0.25vh; /* Reduce padding */
+    padding: 10px; /* Reduce padding */
     max-width: 100%; /* Make it 100% of the viewport width */
   }
 
