@@ -7,7 +7,7 @@ const delay = (milliseconds) =>
 
 let ssTarget = ".price__value";
 let wmTarget = '[itemprop="price"]';
-let swTarget = ".iHsOrF";
+let swTarget = ".cnwOeN";
 let nfTarget = ".price__value";
 let coopTarget = ".product-price";
 

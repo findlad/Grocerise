@@ -7,7 +7,7 @@ const delay = (milliseconds) =>
 
 let wmTarget = '[itemprop="price"]';
 let ssTarget = ".price__value";
-let swTarget = ".iHsOrF";
+let swTarget = ".cnwOeN";
 let nfTarget = ".price__value";
 let coopTarget = ".product-price";
 
@@ -59,7 +59,7 @@ let swMilkPrice;
 let swMilkPage = "https://voila.ca/products/490731EA/details";
 
 let nfMilkPrice;
-let nfMilkPage = "https://www.nofrills.ca/skim-milk/p/20658003_EA";
+let nfMilkPage = "https://www.nofrills.ca/milk-1-mf/p/20657990_EA";
 
 let coopMilkPrice;
 let coopMilkPage = "https://shoponline.calgarycoop.com/crowfoot#/product/211";
