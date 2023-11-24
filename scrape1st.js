@@ -119,9 +119,9 @@ function getPrice(targetPage, target, vendor, type) {
   })();
 }
 
-// wmMilkPrice = getPrice(wmMilkPage, wmTarget, "Walmart", "milk");
-// wmEggPrice = getPrice(wmEggPage, wmTarget, "Walmart", "egg");
-// wmTowelPrice = getPrice(wmTowelPage, wmTarget, "Walmart", "towel");
+wmMilkPrice = getPrice(wmMilkPage, wmTarget, "Walmart", "milk");
+wmEggPrice = getPrice(wmEggPage, wmTarget, "Walmart", "egg");
+wmTowelPrice = getPrice(wmTowelPage, wmTarget, "Walmart", "towel");
 
 ssMilkPrice = getPrice(ssMilkPage, ssTarget, "Superstore", "milk");
 ssEggPrice = getPrice(ssEggPage, ssTarget, "Superstore", "egg");
