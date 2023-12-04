@@ -1,4 +1,6 @@
 const puppeteer = require("puppeteer");
+require("events").EventEmitter.prototype._maxListeners = 100;
+
 const scrollPageToBottom = require("puppeteer-autoscroll-down");
 const cheerio = require("cheerio");
 const fs = require("fs");
@@ -71,7 +73,6 @@ function getPrice(targetPage, target, vendor, type) {
   (async () => {
     let price = "";
     //console.log(targetPage + " " + target + " " + vendor + " " + type);
-
     const browser = await puppeteer.launch({ headless: false });
     const page = await browser.newPage();
     await page.setGeolocation({ latitude: 51.049999, longitude: -114.066666 });

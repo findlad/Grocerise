@@ -1,4 +1,5 @@
 const puppeteer = require("puppeteer");
+require("events").EventEmitter.prototype._maxListeners = 100;
 const scrollPageToBottom = require("puppeteer-autoscroll-down");
 const cheerio = require("cheerio");
 const fs = require("fs");
