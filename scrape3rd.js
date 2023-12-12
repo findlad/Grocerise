@@ -70,11 +70,10 @@ function getPrice(targetPage, target, vendor, type) {
   (async () => {
     let price = "";
     //console.log(targetPage + " " + target + " " + vendor + " " + type);
-
     const browser = await puppeteer.launch({ headless: false });
     const page = await browser.newPage();
     await page.setGeolocation({ latitude: 51.049999, longitude: -114.066666 });
-    await page.setViewport({ width: 1300, height: 1000 });
+    await page.setViewport({ width: 1700, height: 1000 });
     await page.goto(targetPage);
     try {
       const textSelector = target;
@@ -121,13 +120,13 @@ function getPrice(targetPage, target, vendor, type) {
   })();
 }
 
-ssChipsPrice = getPrice(ssChipsPage, ssTarget, "Superstore", "chips");
-ssPizzaPrice = getPrice(ssPizzaPage, ssTarget, "Superstore", "pizza");
-ssBranPrice = getPrice(ssBranPage, ssTarget, "Superstore", "bran");
+// ssChipsPrice = getPrice(ssChipsPage, ssTarget, "Superstore", "chips");
+// ssPizzaPrice = getPrice(ssPizzaPage, ssTarget, "Superstore", "pizza");
+// ssBranPrice = getPrice(ssBranPage, ssTarget, "Superstore", "bran");
 
-swChipsPrice = getPrice(swChipsPage, swTarget, "Safeway", "chips");
-swPizzaPrice = getPrice(swPizzaPage, swTarget, "Safeway", "pizza");
-swBranPrice = getPrice(swBranPage, swTarget, "Safeway", "bran");
+// swChipsPrice = getPrice(swChipsPage, swTarget, "Safeway", "chips");
+// swPizzaPrice = getPrice(swPizzaPage, swTarget, "Safeway", "pizza");
+// swBranPrice = getPrice(swBranPage, swTarget, "Safeway", "bran");
 
 nfChipsPrice = getPrice(nfChipsPage, nfTarget, "NoFrills", "chips");
 nfPizzaPrice = getPrice(nfPizzaPage, nfTarget, "NoFrills", "pizza");

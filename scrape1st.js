@@ -69,7 +69,6 @@ function getPrice(targetPage, target, vendor, type) {
   (async () => {
     let price = "";
     //console.log(targetPage + " " + target + " " + vendor + " " + type);
-
     const browser = await puppeteer.launch({ headless: false });
     const page = await browser.newPage();
     await page.setGeolocation({ latitude: 51.049999, longitude: -114.066666 });
@@ -120,17 +119,17 @@ function getPrice(targetPage, target, vendor, type) {
   })();
 }
 
-wmMilkPrice = getPrice(wmMilkPage, wmTarget, "Walmart", "milk");
-wmEggPrice = getPrice(wmEggPage, wmTarget, "Walmart", "egg");
-wmTowelPrice = getPrice(wmTowelPage, wmTarget, "Walmart", "towel");
+// wmMilkPrice = getPrice(wmMilkPage, wmTarget, "Walmart", "milk");
+// wmEggPrice = getPrice(wmEggPage, wmTarget, "Walmart", "egg");
+// wmTowelPrice = getPrice(wmTowelPage, wmTarget, "Walmart", "towel");
 
-ssMilkPrice = getPrice(ssMilkPage, ssTarget, "Superstore", "milk");
-ssEggPrice = getPrice(ssEggPage, ssTarget, "Superstore", "egg");
-ssTowelPrice = getPrice(ssTowelPage, ssTarget, "Superstore", "towel");
+// ssMilkPrice = getPrice(ssMilkPage, ssTarget, "Superstore", "milk");
+// ssEggPrice = getPrice(ssEggPage, ssTarget, "Superstore", "egg");
+// ssTowelPrice = getPrice(ssTowelPage, ssTarget, "Superstore", "towel");
 
-swMilkPrice = getPrice(swMilkPage, swTarget, "Safeway", "milk");
-swEggPrice = getPrice(swEggPage, swTarget, "Safeway", "egg");
-swTowelPrice = getPrice(swTowelPage, swTarget, "Safeway", "towel");
+// swMilkPrice = getPrice(swMilkPage, swTarget, "Safeway", "milk");
+// swEggPrice = getPrice(swEggPage, swTarget, "Safeway", "egg");
+// swTowelPrice = getPrice(swTowelPage, swTarget, "Safeway", "towel");
 
 nfMilkPrice = getPrice(nfMilkPage, nfTarget, "NoFrills", "milk");
 nfEggPrice = getPrice(nfEggPage, nfTarget, "NoFrills", "egg");
