@@ -71,7 +71,7 @@ function getPrice(targetPage, target, vendor, type) {
     //console.log(targetPage + " " + target + " " + vendor + " " + type);
     const browser = await puppeteer.launch({ headless: false });
     const page = await browser.newPage();
-    await page.setGeolocation({ latitude: 51.049999, longitude: -114.066666 });
+    // await page.setGeolocation({ latitude: 51.049999, longitude: -114.066666 });
     await page.setViewport({ width: 1700, height: 1000 });
     await page.goto(targetPage);
     try {
@@ -119,22 +119,22 @@ function getPrice(targetPage, target, vendor, type) {
   })();
 }
 
-// wmMilkPrice = getPrice(wmMilkPage, wmTarget, "Walmart", "milk");
-// wmEggPrice = getPrice(wmEggPage, wmTarget, "Walmart", "egg");
-// wmTowelPrice = getPrice(wmTowelPage, wmTarget, "Walmart", "towel");
+wmMilkPrice = getPrice(wmMilkPage, wmTarget, "Walmart", "milk");
+wmEggPrice = getPrice(wmEggPage, wmTarget, "Walmart", "egg");
+wmTowelPrice = getPrice(wmTowelPage, wmTarget, "Walmart", "towel");
 
-// ssMilkPrice = getPrice(ssMilkPage, ssTarget, "Superstore", "milk");
-// ssEggPrice = getPrice(ssEggPage, ssTarget, "Superstore", "egg");
-// ssTowelPrice = getPrice(ssTowelPage, ssTarget, "Superstore", "towel");
+ssMilkPrice = getPrice(ssMilkPage, ssTarget, "Superstore", "milk");
+ssEggPrice = getPrice(ssEggPage, ssTarget, "Superstore", "egg");
+ssTowelPrice = getPrice(ssTowelPage, ssTarget, "Superstore", "towel");
 
-// swMilkPrice = getPrice(swMilkPage, swTarget, "Safeway", "milk");
-// swEggPrice = getPrice(swEggPage, swTarget, "Safeway", "egg");
-// swTowelPrice = getPrice(swTowelPage, swTarget, "Safeway", "towel");
+swMilkPrice = getPrice(swMilkPage, swTarget, "Safeway", "milk");
+swEggPrice = getPrice(swEggPage, swTarget, "Safeway", "egg");
+swTowelPrice = getPrice(swTowelPage, swTarget, "Safeway", "towel");
 
-nfMilkPrice = getPrice(nfMilkPage, nfTarget, "NoFrills", "milk");
-nfEggPrice = getPrice(nfEggPage, nfTarget, "NoFrills", "egg");
-nfTowelPrice = getPrice(nfTowelPage, nfTarget, "NoFrills", "towel");
+// nfMilkPrice = getPrice(nfMilkPage, nfTarget, "NoFrills", "milk");
+// nfEggPrice = getPrice(nfEggPage, nfTarget, "NoFrills", "egg");
+// nfTowelPrice = getPrice(nfTowelPage, nfTarget, "NoFrills", "towel");
 
-coopEggPrice = getPrice(coopEggPage, coopTarget, "Coop", "egg");
-coopMilkPrice = getPrice(coopMilkPage, coopTarget, "Coop", "milk");
-coopTowelPrice = getPrice(coopTowelPage, coopTarget, "Coop", "towel");
+// coopEggPrice = getPrice(coopEggPage, coopTarget, "Coop", "egg");
+// coopMilkPrice = getPrice(coopMilkPage, coopTarget, "Coop", "milk");
+// coopTowelPrice = getPrice(coopTowelPage, coopTarget, "Coop", "towel");
