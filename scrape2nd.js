@@ -82,7 +82,7 @@ function getPrice(targetPage, target, vendor, type) {
       const textSelector = target;
       await delay(10000);
       const htmlCode = await page.content();
-      console.log(htmlCode);
+      // console.log(htmlCode);
       // fs.writeFile("html.txt", htmlCode, "utf-8"); //dumps the html to check
 
       function scrapePrice(html) {
@@ -91,27 +91,27 @@ function getPrice(targetPage, target, vendor, type) {
           .text()
           .trim()
           .replace(/[^-.0-9]/g, "");
-        console.log(priceTxt);
+        // console.log(priceTxt);
         priceTxt = Number(priceTxt.slice(0, 5)).toFixed(2);
 
-        console.log(priceTxt);
+        // console.log(priceTxt);
         return priceTxt;
       }
 
-      // let price = scrapePrice(htmlCode);
-      // if (price != 0) {
-      //   todaysArray = {
-      //     item: type,
-      //     shop: vendor,
-      //     cost: price,
-      //     day: new Date(),
-      //   };
-      //   let existingFile = fs.readFileSync("priceHistory.json", "utf-8");
-      //   let existingArray = JSON.parse(existingFile);
-      //   existingArray.push(todaysArray);
-      //   existingFile = JSON.stringify(existingArray);
-      //   fs.writeFileSync("priceHistory.json", existingFile, "utf-8");
-      // }
+      let price = scrapePrice(htmlCode);
+      if (price != 0) {
+        todaysArray = {
+          item: type,
+          shop: vendor,
+          cost: price,
+          day: new Date(),
+        };
+        let existingFile = fs.readFileSync("priceHistory.json", "utf-8");
+        let existingArray = JSON.parse(existingFile);
+        existingArray.push(todaysArray);
+        existingFile = JSON.stringify(existingArray);
+        fs.writeFileSync("priceHistory.json", existingFile, "utf-8");
+      }
       console.log(vendor + " " + type + " $" + price);
     } catch (error) {
       console.error("Error: ", error);
@@ -123,17 +123,17 @@ function getPrice(targetPage, target, vendor, type) {
   })();
 }
 
-// ssRicePrice = getPrice(ssRicePage, ssTarget, "Superstore", "rice");
-// ssChickenPrice = getPrice(ssChickenPage, ssTarget, "Superstore", "chicken");
-// ssCokeZeroPrice = getPrice(ssCokeZeroPage, ssTarget, "Superstore", "coke");
+ssRicePrice = getPrice(ssRicePage, ssTarget, "Superstore", "rice");
+ssChickenPrice = getPrice(ssChickenPage, ssTarget, "Superstore", "chicken");
+ssCokeZeroPrice = getPrice(ssCokeZeroPage, ssTarget, "Superstore", "coke");
 
-// swRicePrice = getPrice(swRicePage, swTarget, "Safeway", "rice");
-// swChickenPrice = getPrice(swChickenPage, swTarget, "Safeway", "chicken");
-// swCokeZeroPrice = getPrice(swCokeZeroPage, swTarget, "Safeway", "coke");
+swRicePrice = getPrice(swRicePage, swTarget, "Safeway", "rice");
+swChickenPrice = getPrice(swChickenPage, swTarget, "Safeway", "chicken");
+swCokeZeroPrice = getPrice(swCokeZeroPage, swTarget, "Safeway", "coke");
 
 nfRicePrice = getPrice(nfRicePage, nfTarget, "NoFrills", "rice");
-// nfChickenPrice = getPrice(nfChickenPage, nfTarget, "NoFrills", "chicken");
-// nfCokeZeroPrice = getPrice(nfCokeZeroPage, nfTarget, "NoFrills", "coke");
+nfChickenPrice = getPrice(nfChickenPage, nfTarget, "NoFrills", "chicken");
+nfCokeZeroPrice = getPrice(nfCokeZeroPage, nfTarget, "NoFrills", "coke");
 
 // wmRicePrice = getPrice(wmRicePage, wmTarget, "Walmart", "rice");
 // wmChickenPrice = getPrice(wmChickenPage, wmTarget, "Walmart", "chicken");
