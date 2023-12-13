@@ -123,22 +123,22 @@ function getPrice(targetPage, target, vendor, type) {
   })();
 }
 
-ssRicePrice = getPrice(ssRicePage, ssTarget, "Superstore", "rice");
-ssChickenPrice = getPrice(ssChickenPage, ssTarget, "Superstore", "chicken");
-ssCokeZeroPrice = getPrice(ssCokeZeroPage, ssTarget, "Superstore", "coke");
+// ssRicePrice = getPrice(ssRicePage, ssTarget, "Superstore", "rice");
+// ssChickenPrice = getPrice(ssChickenPage, ssTarget, "Superstore", "chicken");
+// ssCokeZeroPrice = getPrice(ssCokeZeroPage, ssTarget, "Superstore", "coke");
 
-swRicePrice = getPrice(swRicePage, swTarget, "Safeway", "rice");
-swChickenPrice = getPrice(swChickenPage, swTarget, "Safeway", "chicken");
-swCokeZeroPrice = getPrice(swCokeZeroPage, swTarget, "Safeway", "coke");
+// swRicePrice = getPrice(swRicePage, swTarget, "Safeway", "rice");
+// swChickenPrice = getPrice(swChickenPage, swTarget, "Safeway", "chicken");
+// swCokeZeroPrice = getPrice(swCokeZeroPage, swTarget, "Safeway", "coke");
 
-nfRicePrice = getPrice(nfRicePage, nfTarget, "NoFrills", "rice");
-nfChickenPrice = getPrice(nfChickenPage, nfTarget, "NoFrills", "chicken");
-nfCokeZeroPrice = getPrice(nfCokeZeroPage, nfTarget, "NoFrills", "coke");
+// nfRicePrice = getPrice(nfRicePage, nfTarget, "NoFrills", "rice");
+// nfChickenPrice = getPrice(nfChickenPage, nfTarget, "NoFrills", "chicken");
+// nfCokeZeroPrice = getPrice(nfCokeZeroPage, nfTarget, "NoFrills", "coke");
 
-// wmRicePrice = getPrice(wmRicePage, wmTarget, "Walmart", "rice");
-// wmChickenPrice = getPrice(wmChickenPage, wmTarget, "Walmart", "chicken");
-// wmCokeZeroPrice = getPrice(wmCokeZeroPage, wmTarget, "Walmart", "coke");
+wmRicePrice = getPrice(wmRicePage, wmTarget, "Walmart", "rice");
+wmChickenPrice = getPrice(wmChickenPage, wmTarget, "Walmart", "chicken");
+wmCokeZeroPrice = getPrice(wmCokeZeroPage, wmTarget, "Walmart", "coke");
 
-// coopRicePrice = getPrice(coopRicePage, coopTarget, "Coop", "rice");
-// coopChickenPrice = getPrice(coopChickenPage, coopTarget, "Coop", "chicken");
-// coopCokeZeroPrice = getPrice(coopCokeZeroPage, coopTarget, "Coop", "coke");
+coopRicePrice = getPrice(coopRicePage, coopTarget, "Coop", "rice");
+coopChickenPrice = getPrice(coopChickenPage, coopTarget, "Coop", "chicken");
+coopCokeZeroPrice = getPrice(coopCokeZeroPage, coopTarget, "Coop", "coke");
