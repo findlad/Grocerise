@@ -13,7 +13,7 @@ export async function getPrice(targetPage, target, vendor, type) {
     // const executablePath =
     //   "./node_modules/puppeteer-core/lib/esm/puppeteer/node/ChromeLauncher";
     const browser = await puppeteer.launch({
-      headless: false,
+      headless: true,
       // executablePath: executablePath,
     });
     const page = await browser.newPage();
@@ -22,7 +22,7 @@ export async function getPrice(targetPage, target, vendor, type) {
     await page.goto(targetPage);
     try {
       const textSelector = target;
-      await delay(15000);
+      await delay(10000);
       const htmlCode = await page.content();
       // console.log(htmlCode);
       // fs.writeFile("html.txt", htmlCode, "utf-8", (err) => {

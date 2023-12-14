@@ -43,14 +43,15 @@ let ssButterPrice;
 let ssButterPage =
   "https://www.realcanadiansuperstore.ca/unsalted-butter/p/20316543002_EA";
 
-// ssMilkPrice = getPrice(ssMilkPage, ssTarget, "Superstore", "milk");
-// ssEggPrice = getPrice(ssEggPage, ssTarget, "Superstore", "egg");
-// ssTowelPrice = getPrice(ssTowelPage, ssTarget, "Superstore", "towel");
-// ssRicePrice = getPrice(ssRicePage, ssTarget, "Superstore", "rice");
-// ssChickenPrice = getPrice(ssChickenPage, ssTarget, "Superstore", "chicken");
-// ssCokeZeroPrice = getPrice(ssCokeZeroPage, ssTarget, "Superstore", "coke");
-// ssChipsPrice = getPrice(ssChipsPage, ssTarget, "Superstore", "chips");
-// ssPizzaPrice = getPrice(ssPizzaPage, ssTarget, "Superstore", "pizza");
-// ssBranPrice = getPrice(ssBranPage, ssTarget, "Superstore", "bran");
-// ssCoffeePrice = getPrice(ssCoffeePage, ssTarget, "Superstore", "coffee");
+ssMilkPrice = getPrice(ssMilkPage, ssTarget, "Superstore", "milk");
+ssEggPrice = getPrice(ssEggPage, ssTarget, "Superstore", "egg");
+ssTowelPrice = getPrice(ssTowelPage, ssTarget, "Superstore", "towel");
+ssRicePrice = getPrice(ssRicePage, ssTarget, "Superstore", "rice");
+ssChickenPrice = getPrice(ssChickenPage, ssTarget, "Superstore", "chicken");
+delay(30000);
+ssCokeZeroPrice = getPrice(ssCokeZeroPage, ssTarget, "Superstore", "coke");
+ssChipsPrice = getPrice(ssChipsPage, ssTarget, "Superstore", "chips");
+ssPizzaPrice = getPrice(ssPizzaPage, ssTarget, "Superstore", "pizza");
+ssBranPrice = getPrice(ssBranPage, ssTarget, "Superstore", "bran");
+ssCoffeePrice = getPrice(ssCoffeePage, ssTarget, "Superstore", "coffee");
 ssButterPrice = getPrice(ssButterPage, ssTarget, "Superstore", "butter");

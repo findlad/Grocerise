@@ -33,14 +33,15 @@ let nfCoffeePage =
 let nfButterPrice;
 let nfButterPage = "https://www.nofrills.ca/unsalted-butter/p/20316543002_EA";
 
-// nfMilkPrice = getPrice(nfMilkPage, nfTarget, "NoFrills", "milk");
-// nfEggPrice = getPrice(nfEggPage, nfTarget, "NoFrills", "egg");
-// nfTowelPrice = getPrice(nfTowelPage, nfTarget, "NoFrills", "towel");
-// nfRicePrice = getPrice(nfRicePage, nfTarget, "NoFrills", "rice");
-// nfChickenPrice = getPrice(nfChickenPage, nfTarget, "NoFrills", "chicken");
-// nfCokeZeroPrice = getPrice(nfCokeZeroPage, nfTarget, "NoFrills", "coke");
-// nfChipsPrice = getPrice(nfChipsPage, nfTarget, "NoFrills", "chips");
-// nfPizzaPrice = getPrice(nfPizzaPage, nfTarget, "NoFrills", "pizza");
-// nfBranPrice = getPrice(nfBranPage, nfTarget, "NoFrills", "bran");
-// nfCoffeePrice = getPrice(nfCoffeePage, nfTarget, "NoFrills", "coffee");
+nfMilkPrice = getPrice(nfMilkPage, nfTarget, "NoFrills", "milk");
+nfEggPrice = getPrice(nfEggPage, nfTarget, "NoFrills", "egg");
+nfTowelPrice = getPrice(nfTowelPage, nfTarget, "NoFrills", "towel");
+nfRicePrice = getPrice(nfRicePage, nfTarget, "NoFrills", "rice");
+nfChickenPrice = getPrice(nfChickenPage, nfTarget, "NoFrills", "chicken");
+delay(15000);
+nfCokeZeroPrice = getPrice(nfCokeZeroPage, nfTarget, "NoFrills", "coke");
+nfChipsPrice = getPrice(nfChipsPage, nfTarget, "NoFrills", "chips");
+nfPizzaPrice = getPrice(nfPizzaPage, nfTarget, "NoFrills", "pizza");
+nfBranPrice = getPrice(nfBranPage, nfTarget, "NoFrills", "bran");
+nfCoffeePrice = getPrice(nfCoffeePage, nfTarget, "NoFrills", "coffee");
 nfButterPrice = getPrice(nfButterPage, nfTarget, "NoFrills", "butter");
