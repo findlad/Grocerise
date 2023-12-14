@@ -9,7 +9,7 @@ const delay = (milliseconds) =>
 let ssTarget = ".price__value";
 let wmTarget = '[itemprop="price"]';
 let swTarget = ".cnwOeN";
-let nfTarget = ".now-price__value";
+let nfTarget = ".price__value";
 let coopTarget = ".product-price";
 
 let wmBranPrice;
@@ -130,12 +130,12 @@ function getPrice(targetPage, target, vendor, type) {
 
 nfChipsPrice = getPrice(nfChipsPage, nfTarget, "NoFrills", "chips");
 nfPizzaPrice = getPrice(nfPizzaPage, nfTarget, "NoFrills", "pizza");
-nfBranPrice = getPrice(nfBranPage, nfTarget, "NoFrills", "bran");
+// nfBranPrice = getPrice(nfBranPage, nfTarget, "NoFrills", "bran");
 
-wmChipsPrice = getPrice(wmChipsPage, wmTarget, "Walmart", "chips");
-wmPizzaPrice = getPrice(wmPizzaPage, wmTarget, "Walmart", "pizza");
-wmBranPrice = getPrice(wmBranPage, wmTarget, "Walmart", "bran");
+// wmChipsPrice = getPrice(wmChipsPage, wmTarget, "Walmart", "chips");
+// wmPizzaPrice = getPrice(wmPizzaPage, wmTarget, "Walmart", "pizza");
+// wmBranPrice = getPrice(wmBranPage, wmTarget, "Walmart", "bran");
 
-coopChipsPrice = getPrice(coopChipsPage, coopTarget, "Coop", "chips");
-coopPizzaPrice = getPrice(coopPizzaPage, coopTarget, "Coop", "pizza");
-coopBranPrice = getPrice(coopBranPage, coopTarget, "Coop", "bran");
+// coopChipsPrice = getPrice(coopChipsPage, coopTarget, "Coop", "chips");
+// coopPizzaPrice = getPrice(coopPizzaPage, coopTarget, "Coop", "pizza");
+// coopBranPrice = getPrice(coopBranPage, coopTarget, "Coop", "bran");
