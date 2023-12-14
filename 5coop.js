@@ -26,14 +26,18 @@ let coopChipsPage = "https://shoponline.calgarycoop.com/Midtown#/product/32844";
 let coopCoffeePrice;
 let coopCoffeePage =
   "https://shoponline.calgarycoop.com/crowfoot#/product/9470";
+let coopButterPrice;
+let coopButterPage =
+  "https://shoponline.calgarycoop.com/crowfoot#/product/2200";
 
-coopEggPrice = getPrice(coopEggPage, coopTarget, "Coop", "egg");
-coopMilkPrice = getPrice(coopMilkPage, coopTarget, "Coop", "milk");
-coopTowelPrice = getPrice(coopTowelPage, coopTarget, "Coop", "towel");
-coopRicePrice = getPrice(coopRicePage, coopTarget, "Coop", "rice");
-coopChickenPrice = getPrice(coopChickenPage, coopTarget, "Coop", "chicken");
-coopCokeZeroPrice = getPrice(coopCokeZeroPage, coopTarget, "Coop", "coke");
-coopChipsPrice = getPrice(coopChipsPage, coopTarget, "Coop", "chips");
-coopPizzaPrice = getPrice(coopPizzaPage, coopTarget, "Coop", "pizza");
-coopBranPrice = getPrice(coopBranPage, coopTarget, "Coop", "bran");
-coopCoffeePrice = getPrice(coopCoffeePage, coopTarget, "Coop", "coffee");
+// coopEggPrice = getPrice(coopEggPage, coopTarget, "Coop", "egg");
+// coopMilkPrice = getPrice(coopMilkPage, coopTarget, "Coop", "milk");
+// coopTowelPrice = getPrice(coopTowelPage, coopTarget, "Coop", "towel");
+// coopRicePrice = getPrice(coopRicePage, coopTarget, "Coop", "rice");
+// coopChickenPrice = getPrice(coopChickenPage, coopTarget, "Coop", "chicken");
+// coopCokeZeroPrice = getPrice(coopCokeZeroPage, coopTarget, "Coop", "coke");
+// coopChipsPrice = getPrice(coopChipsPage, coopTarget, "Coop", "chips");
+// coopPizzaPrice = getPrice(coopPizzaPage, coopTarget, "Coop", "pizza");
+// coopBranPrice = getPrice(coopBranPage, coopTarget, "Coop", "bran");
+// coopCoffeePrice = getPrice(coopCoffeePage, coopTarget, "Coop", "coffee");
+coopButterPrice = getPrice(coopButterPage, coopTarget, "Coop", "butter");
