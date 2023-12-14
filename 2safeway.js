@@ -1,11 +1,4 @@
-const puppeteer = require("puppeteer");
-require("events").EventEmitter.prototype._maxListeners = 100;
-
-const scrollPageToBottom = require("puppeteer-autoscroll-down");
-const cheerio = require("cheerio");
-const fs = require("fs");
-const delay = (milliseconds) =>
-  new Promise((resolve) => setTimeout(resolve, milliseconds));
+import { getPrice, delay } from "./function.js";
 
 let swTarget = ".cnwOeN";
 
@@ -21,6 +14,16 @@ let swChickenPrice;
 let swChickenPage = "https://voila.ca/products/340841KG/details";
 let swRicePrice;
 let swRicePage = "https://voila.ca/products/160395EA/details";
+let swPizzaPrice;
+let swPizzaPage = "https://voila.ca/products/819557EA/details";
+
+let swBranPrice;
+let swBranPage = "https://voila.ca/products/875435EA/details";
+
+let swChipsPrice;
+let swChipsPage = "https://voila.ca/products/890971EA/details";
+let swCoffeePrice;
+let swCoffeePage = "https://voila.ca/products/280087EA/details";
 
 swMilkPrice = getPrice(swMilkPage, swTarget, "Safeway", "milk");
 swEggPrice = getPrice(swEggPage, swTarget, "Safeway", "egg");
@@ -31,3 +34,4 @@ swCokeZeroPrice = getPrice(swCokeZeroPage, swTarget, "Safeway", "coke");
 swChipsPrice = getPrice(swChipsPage, swTarget, "Safeway", "chips");
 swPizzaPrice = getPrice(swPizzaPage, swTarget, "Safeway", "pizza");
 swBranPrice = getPrice(swBranPage, swTarget, "Safeway", "bran");
+swCoffeePrice = getPrice(swCoffeePage, swTarget, "Safeway", "coffee");

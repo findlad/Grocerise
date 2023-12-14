@@ -1,11 +1,4 @@
-const puppeteer = require("puppeteer");
-require("events").EventEmitter.prototype._maxListeners = 100;
-
-const scrollPageToBottom = require("puppeteer-autoscroll-down");
-const cheerio = require("cheerio");
-const fs = require("fs");
-const delay = (milliseconds) =>
-  new Promise((resolve) => setTimeout(resolve, milliseconds));
+import { getPrice, delay } from "./function.js";
 
 let nfTarget = ".price__value";
 
@@ -34,6 +27,9 @@ let nfPizzaPage =
 let nfChipsPrice;
 let nfChipsPage =
   "https://www.nofrills.ca/oven-baked-bar-b-q-flavoured-potato-chips/p/21434125_EA";
+let nfCoffeePrice;
+let nfCoffeePage =
+  "https://www.nofrills.ca/original-fine-grind-coffee/p/20875767_EA";
 
 nfMilkPrice = getPrice(nfMilkPage, nfTarget, "NoFrills", "milk");
 nfEggPrice = getPrice(nfEggPage, nfTarget, "NoFrills", "egg");
@@ -44,3 +40,4 @@ nfCokeZeroPrice = getPrice(nfCokeZeroPage, nfTarget, "NoFrills", "coke");
 nfChipsPrice = getPrice(nfChipsPage, nfTarget, "NoFrills", "chips");
 nfPizzaPrice = getPrice(nfPizzaPage, nfTarget, "NoFrills", "pizza");
 nfBranPrice = getPrice(nfBranPage, nfTarget, "NoFrills", "bran");
+nfCoffeePrice = getPrice(nfCoffeePage, nfTarget, "NoFrills", "coffee");

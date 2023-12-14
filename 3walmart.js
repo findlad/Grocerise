@@ -1,11 +1,4 @@
-const puppeteer = require("puppeteer");
-require("events").EventEmitter.prototype._maxListeners = 100;
-
-const scrollPageToBottom = require("puppeteer-autoscroll-down");
-const cheerio = require("cheerio");
-const fs = require("fs");
-const delay = (milliseconds) =>
-  new Promise((resolve) => setTimeout(resolve, milliseconds));
+import { getPrice, delay } from "./function.js";
 
 let wmTarget = '[itemprop="price"]';
 
@@ -36,6 +29,9 @@ let wmPizzaPage =
 let wmChipsPrice;
 let wmChipsPage =
   "https://www.walmart.ca/en/ip/Lay-s-Oven-Baked-Potato-Chips-BBQ/5HYMR7FOVBPG";
+let wmCoffeePrice;
+let wmCoffeePage =
+  "https://www.walmart.ca/en/ip/Tim-Hortons-Fine-Grind-Coffee/6000187769641";
 
 wmMilkPrice = getPrice(wmMilkPage, wmTarget, "Walmart", "milk");
 wmEggPrice = getPrice(wmEggPage, wmTarget, "Walmart", "egg");
@@ -46,3 +42,4 @@ wmCokeZeroPrice = getPrice(wmCokeZeroPage, wmTarget, "Walmart", "coke");
 wmChipsPrice = getPrice(wmChipsPage, wmTarget, "Walmart", "chips");
 wmPizzaPrice = getPrice(wmPizzaPage, wmTarget, "Walmart", "pizza");
 wmBranPrice = getPrice(wmBranPage, wmTarget, "Walmart", "bran");
+wmCoffeePrice = getPrice(wmCoffeePage, wmTarget, "Walmart", "coffee");

@@ -1,6 +1,3 @@
-// import puppeteer from "puppeteer";
-// import * as cheerio from "cheerio";
-// import fs from "fs";
 import { getPrice, delay } from "./function.js";
 
 let ssTarget = ".price__value";
@@ -39,6 +36,9 @@ let ssTowelPage =
 let ssMilkPrice;
 let ssMilkPage =
   "https://www.realcanadiansuperstore.ca/milk-1-mf/p/20657990_EA";
+let ssCoffeePrice;
+let ssCoffeePage =
+  "https://www.realcanadiansuperstore.ca/original-fine-grind-coffee/p/20875767_EA";
 
 ssMilkPrice = getPrice(ssMilkPage, ssTarget, "Superstore", "milk");
 ssEggPrice = getPrice(ssEggPage, ssTarget, "Superstore", "egg");
@@ -49,3 +49,4 @@ ssCokeZeroPrice = getPrice(ssCokeZeroPage, ssTarget, "Superstore", "coke");
 ssChipsPrice = getPrice(ssChipsPage, ssTarget, "Superstore", "chips");
 ssPizzaPrice = getPrice(ssPizzaPage, ssTarget, "Superstore", "pizza");
 ssBranPrice = getPrice(ssBranPage, ssTarget, "Superstore", "bran");
+ssCoffeePrice = getPrice(ssCoffeePage, ssTarget, "Superstore", "coffee");

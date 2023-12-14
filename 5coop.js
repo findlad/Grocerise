@@ -1,11 +1,4 @@
-const puppeteer = require("puppeteer");
-require("events").EventEmitter.prototype._maxListeners = 100;
-
-const scrollPageToBottom = require("puppeteer-autoscroll-down");
-const cheerio = require("cheerio");
-const fs = require("fs");
-const delay = (milliseconds) =>
-  new Promise((resolve) => setTimeout(resolve, milliseconds));
+import { getPrice, delay } from "./function.js";
 
 let coopTarget = ".product-price";
 
@@ -30,6 +23,9 @@ let coopPizzaPrice;
 let coopPizzaPage = "https://shoponline.calgarycoop.com/Midtown#/product/6001";
 let coopChipsPrice;
 let coopChipsPage = "https://shoponline.calgarycoop.com/Midtown#/product/32844";
+let coopCoffeePrice;
+let coopCoffeePage =
+  "https://shoponline.calgarycoop.com/crowfoot#/product/9470";
 
 coopEggPrice = getPrice(coopEggPage, coopTarget, "Coop", "egg");
 coopMilkPrice = getPrice(coopMilkPage, coopTarget, "Coop", "milk");
@@ -40,3 +36,4 @@ coopCokeZeroPrice = getPrice(coopCokeZeroPage, coopTarget, "Coop", "coke");
 coopChipsPrice = getPrice(coopChipsPage, coopTarget, "Coop", "chips");
 coopPizzaPrice = getPrice(coopPizzaPage, coopTarget, "Coop", "pizza");
 coopBranPrice = getPrice(coopBranPage, coopTarget, "Coop", "bran");
+coopCoffeePrice = getPrice(coopCoffeePage, coopTarget, "Coop", "coffee");
