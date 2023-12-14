@@ -1,0 +1,58 @@
+{
+  
+  "type": "module",
+  
+  "name": "project1",
+  
+  "version": "1.0.0",
+  
+  "description": "Scrape grocery prices",
+  
+  "main": "1superstore.js",
+  
+  "scripts": {
+  
+    
+  "test": "echo \"Error: no test specified\" && exit 1",
+  
+    
+  "start": "node 1superstore.js"
+  
+  },
+  
+  "repository": {
+  
+    
+  "type": "git",
+  
+    
+  "url": "git+https://github.com/findlad/Project1.git"
+  
+  },
+  
+  "author": "Duncan Findlay",
+  
+  "license": "ISC",
+  
+  "bugs": {
+  
+    
+  "url": "https://github.com/findlad/Project1/issues"
+  
+  },
+  
+  "homepage": "https://github.com/findlad/Project1#readme",
+  
+  "dependencies": {
+  
+    
+  "cheerio": "^1.0.0-rc.12",
+  
+    
+  "fs": "^0.0.1-security",
+  
+    
+  "puppeteer": "^21.6.1"
+  
+  }
+}

@@ -1,19 +1,37 @@
-function getPrice(targetPage, target, vendor, type) {
+import puppeteer from "puppeteer";
+import * as cheerio from "cheerio";
+import fs from "fs";
+
+const delay = (milliseconds) =>
+  new Promise((resolve) => setTimeout(resolve, milliseconds));
+
+export async function getPrice(targetPage, target, vendor, type) {
   (async () => {
     let price = "";
+    let todaysArray;
     //console.log(targetPage + " " + target + " " + vendor + " " + type);
-
-    const browser = await puppeteer.launch({ headless: false });
+    // const executablePath =
+    //   "./node_modules/puppeteer-core/lib/esm/puppeteer/node/ChromeLauncher";
+    const browser = await puppeteer.launch({
+      headless: false,
+      // executablePath: executablePath,
+    });
     const page = await browser.newPage();
-    await page.setGeolocation({ latitude: 51.049999, longitude: -114.066666 });
+    // await page.setGeolocation({ latitude: 51.049999, longitude: -114.066666 });
     await page.setViewport({ width: 1700, height: 1000 });
     await page.goto(targetPage);
     try {
       const textSelector = target;
-      await delay(10000);
+      await delay(15000);
       const htmlCode = await page.content();
-
-      // fs.writeFile("html.txt", htmlCode, "utf-8"); //dumps the html to check
+      // console.log(htmlCode);
+      // fs.writeFile("html.txt", htmlCode, "utf-8", (err) => {
+      //   if (err) {
+      //     console.error("error writing file", err);
+      //   } else {
+      //     console.log("file written fine");
+      //   }
+      // }); //dumps the html to check
 
       function scrapePrice(html) {
         const $ = cheerio.load(html);
@@ -21,13 +39,11 @@ function getPrice(targetPage, target, vendor, type) {
           .text()
           .trim()
           .replace(/[^-.0-9]/g, "");
-        console.log(priceTxt);
-        priceNum =
-          priceTxt.split(".")[0] + "." + priceTxt.split(".")[1].slice(0, 2);
-        // priceNum = Number(priceNum.slice(0, 5)).toFixed(2);
+        // console.log("prenumber " + priceTxt);
+        priceTxt = Number(priceTxt.slice(0, 5)).toFixed(2);
 
-        console.log(priceNum);
-        return priceNum;
+        // console.log("postnumber " + priceTxt);
+        return priceTxt;
       }
 
       let price = scrapePrice(htmlCode);
@@ -54,3 +70,5 @@ function getPrice(targetPage, target, vendor, type) {
     return price;
   })();
 }
+
+export { delay };

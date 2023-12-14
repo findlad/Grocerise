@@ -1,11 +1,7 @@
-const puppeteer = require("puppeteer");
-require("events").EventEmitter.prototype._maxListeners = 100;
-
-const scrollPageToBottom = require("puppeteer-autoscroll-down");
-const cheerio = require("cheerio");
-const fs = require("fs");
-const delay = (milliseconds) =>
-  new Promise((resolve) => setTimeout(resolve, milliseconds));
+// import puppeteer from "puppeteer";
+// import * as cheerio from "cheerio";
+// import fs from "fs";
+import { getPrice, delay } from "./function.js";
 
 let ssTarget = ".price__value";
 

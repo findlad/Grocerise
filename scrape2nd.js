@@ -77,7 +77,9 @@ function getPrice(targetPage, target, vendor, type) {
     const page = await browser.newPage();
     // await page.setGeolocation({ latitude: 51.049999, longitude: -114.066666 });
     await page.setViewport({ width: 1700, height: 1000 });
+    // console.log("Chromium executable path:", browser.executablePath);
     await page.goto(targetPage);
+
     try {
       const textSelector = target;
       await delay(15000);
