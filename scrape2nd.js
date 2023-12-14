@@ -10,7 +10,7 @@ const delay = (milliseconds) =>
 let ssTarget = ".price__value";
 let wmTarget = '[itemprop="price"]';
 let swTarget = ".cnwOeN";
-let nfTarget = ".now-price__value";
+let nfTarget = ".price__value";
 let coopTarget = ".product-price";
 
 let wmCokeZeroPrice;
@@ -80,10 +80,16 @@ function getPrice(targetPage, target, vendor, type) {
     await page.goto(targetPage);
     try {
       const textSelector = target;
-      await delay(10000);
+      await delay(15000);
       const htmlCode = await page.content();
       // console.log(htmlCode);
-      // fs.writeFile("html.txt", htmlCode, "utf-8"); //dumps the html to check
+      // fs.writeFile("html.txt", htmlCode, "utf-8", (err) => {
+      //   if (err) {
+      //     console.error("error writing file", err);
+      //   } else {
+      //     console.log("file written fine");
+      //   }
+      // }); //dumps the html to check
 
       function scrapePrice(html) {
         const $ = cheerio.load(html);
@@ -91,10 +97,10 @@ function getPrice(targetPage, target, vendor, type) {
           .text()
           .trim()
           .replace(/[^-.0-9]/g, "");
-        // console.log(priceTxt);
+        // console.log("prenumber " + priceTxt);
         priceTxt = Number(priceTxt.slice(0, 5)).toFixed(2);
 
-        // console.log(priceTxt);
+        // console.log("postnumber " + priceTxt);
         return priceTxt;
       }
 
@@ -132,13 +138,13 @@ function getPrice(targetPage, target, vendor, type) {
 // swCokeZeroPrice = getPrice(swCokeZeroPage, swTarget, "Safeway", "coke");
 
 // nfRicePrice = getPrice(nfRicePage, nfTarget, "NoFrills", "rice");
-// nfChickenPrice = getPrice(nfChickenPage, nfTarget, "NoFrills", "chicken");
-// nfCokeZeroPrice = getPrice(nfCokeZeroPage, nfTarget, "NoFrills", "coke");
+nfChickenPrice = getPrice(nfChickenPage, nfTarget, "NoFrills", "chicken");
+nfCokeZeroPrice = getPrice(nfCokeZeroPage, nfTarget, "NoFrills", "coke");
 
-wmRicePrice = getPrice(wmRicePage, wmTarget, "Walmart", "rice");
-wmChickenPrice = getPrice(wmChickenPage, wmTarget, "Walmart", "chicken");
-wmCokeZeroPrice = getPrice(wmCokeZeroPage, wmTarget, "Walmart", "coke");
+// wmRicePrice = getPrice(wmRicePage, wmTarget, "Walmart", "rice");
+// wmChickenPrice = getPrice(wmChickenPage, wmTarget, "Walmart", "chicken");
+// wmCokeZeroPrice = getPrice(wmCokeZeroPage, wmTarget, "Walmart", "coke");
 
-coopRicePrice = getPrice(coopRicePage, coopTarget, "Coop", "rice");
-coopChickenPrice = getPrice(coopChickenPage, coopTarget, "Coop", "chicken");
-coopCokeZeroPrice = getPrice(coopCokeZeroPage, coopTarget, "Coop", "coke");
+// coopRicePrice = getPrice(coopRicePage, coopTarget, "Coop", "rice");
+// coopChickenPrice = getPrice(coopChickenPage, coopTarget, "Coop", "chicken");
+// coopCokeZeroPrice = getPrice(coopCokeZeroPage, coopTarget, "Coop", "coke");
