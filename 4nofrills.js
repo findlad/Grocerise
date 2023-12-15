@@ -33,14 +33,55 @@ let nfCoffeePage =
 let nfButterPrice;
 let nfButterPage = "https://www.nofrills.ca/unsalted-butter/p/20316543002_EA";
 
-nfMilkPrice = getPrice(nfMilkPage, nfTarget, "NoFrills", "milk");
-nfEggPrice = getPrice(nfEggPage, nfTarget, "NoFrills", "egg");
-nfTowelPrice = getPrice(nfTowelPage, nfTarget, "NoFrills", "towel");
-nfRicePrice = getPrice(nfRicePage, nfTarget, "NoFrills", "rice");
-nfChickenPrice = getPrice(nfChickenPage, nfTarget, "NoFrills", "chicken");
-nfCokeZeroPrice = getPrice(nfCokeZeroPage, nfTarget, "NoFrills", "coke");
-nfChipsPrice = getPrice(nfChipsPage, nfTarget, "NoFrills", "chips");
-nfPizzaPrice = getPrice(nfPizzaPage, nfTarget, "NoFrills", "pizza");
-nfBranPrice = getPrice(nfBranPage, nfTarget, "NoFrills", "bran");
-nfCoffeePrice = getPrice(nfCoffeePage, nfTarget, "NoFrills", "coffee");
-nfButterPrice = getPrice(nfButterPage, nfTarget, "NoFrills", "butter");
+// nfMilkPrice = getPrice(nfMilkPage, nfTarget, "NoFrills", "milk");
+// nfEggPrice = getPrice(nfEggPage, nfTarget, "NoFrills", "egg");
+// nfTowelPrice = getPrice(nfTowelPage, nfTarget, "NoFrills", "towel");
+// nfRicePrice = getPrice(nfRicePage, nfTarget, "NoFrills", "rice");
+// nfChickenPrice = getPrice(nfChickenPage, nfTarget, "NoFrills", "chicken");
+// nfCokeZeroPrice = getPrice(nfCokeZeroPage, nfTarget, "NoFrills", "coke");
+// nfChipsPrice = getPrice(nfChipsPage, nfTarget, "NoFrills", "chips");
+// nfPizzaPrice = getPrice(nfPizzaPage, nfTarget, "NoFrills", "pizza");
+// nfBranPrice = getPrice(nfBranPage, nfTarget, "NoFrills", "bran");
+// nfCoffeePrice = getPrice(nfCoffeePage, nfTarget, "NoFrills", "coffee");
+// nfButterPrice = getPrice(nfButterPage, nfTarget, "NoFrills", "butter");
+
+const arrayOfCode = [
+  { code: 'nfMilkPrice = getPrice(nfMilkPage, nfTarget, "NoFrills", "milk");' },
+  { code: 'nfEggPrice = getPrice(nfEggPage, nfTarget, "NoFrills", "egg");' },
+  {
+    code: 'nfTowelPrice = getPrice(nfTowelPage, nfTarget, "NoFrills", "towel");',
+  },
+  { code: 'nfRicePrice = getPrice(nfRicePage, nfTarget, "NoFrills", "rice");' },
+  {
+    code: 'nfChickenPrice = getPrice(nfChickenPage, nfTarget, "NoFrills", "chicken");',
+  },
+  {
+    code: 'nfCokeZeroPrice = getPrice(nfCokeZeroPage, nfTarget, "NoFrills", "coke");',
+  },
+  {
+    code: 'nfChipsPrice = getPrice(nfChipsPage, nfTarget, "NoFrills", "chips");',
+  },
+  {
+    code: 'nfPizzaPrice = getPrice(nfPizzaPage, nfTarget, "NoFrills", "pizza");',
+  },
+  { code: 'nfBranPrice = getPrice(nfBranPage, nfTarget, "NoFrills", "bran");' },
+  {
+    code: 'nfCoffeePrice = getPrice(nfCoffeePage, nfTarget, "NoFrills", "coffee");',
+  },
+  {
+    code: 'nfButterPrice = getPrice(nfButterPage, nfTarget, "NoFrills", "butter");',
+  },
+];
+
+const randomisedArray = arrayOfCode.sort(() => Math.random() - 0.5);
+// console.log(randomisedArray);
+
+async function runCodeWithDelay() {
+  for (const element of randomisedArray) {
+    const code = element.code;
+    eval(code);
+    await new Promise((resolve) => setTimeout(resolve, 60000));
+  }
+}
+
+runCodeWithDelay();

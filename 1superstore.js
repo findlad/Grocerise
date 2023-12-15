@@ -48,7 +48,6 @@ ssEggPrice = getPrice(ssEggPage, ssTarget, "Superstore", "egg");
 ssTowelPrice = getPrice(ssTowelPage, ssTarget, "Superstore", "towel");
 ssRicePrice = getPrice(ssRicePage, ssTarget, "Superstore", "rice");
 ssChickenPrice = getPrice(ssChickenPage, ssTarget, "Superstore", "chicken");
-delay(30000);
 ssCokeZeroPrice = getPrice(ssCokeZeroPage, ssTarget, "Superstore", "coke");
 ssChipsPrice = getPrice(ssChipsPage, ssTarget, "Superstore", "chips");
 ssPizzaPrice = getPrice(ssPizzaPage, ssTarget, "Superstore", "pizza");

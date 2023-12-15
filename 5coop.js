@@ -31,23 +31,23 @@ let coopButterPage =
   "https://shoponline.calgarycoop.com/crowfoot#/product/2200";
 
 coopEggPrice = getPrice(coopEggPage, coopTarget, "Coop", "egg");
-delay(10000);
+
 coopMilkPrice = getPrice(coopMilkPage, coopTarget, "Coop", "milk");
-delay(10000);
+
 coopTowelPrice = getPrice(coopTowelPage, coopTarget, "Coop", "towel");
-delay(10000);
+
 coopRicePrice = getPrice(coopRicePage, coopTarget, "Coop", "rice");
-delay(10000);
+
 coopChickenPrice = getPrice(coopChickenPage, coopTarget, "Coop", "chicken");
-delay(10000);
+
 coopCokeZeroPrice = getPrice(coopCokeZeroPage, coopTarget, "Coop", "coke");
-delay(10000);
+
 coopChipsPrice = getPrice(coopChipsPage, coopTarget, "Coop", "chips");
-delay(10000);
+
 coopPizzaPrice = getPrice(coopPizzaPage, coopTarget, "Coop", "pizza");
-delay(10000);
+
 coopBranPrice = getPrice(coopBranPage, coopTarget, "Coop", "bran");
-delay(10000);
+
 coopCoffeePrice = getPrice(coopCoffeePage, coopTarget, "Coop", "coffee");
-delay(10000);
+
 coopButterPrice = getPrice(coopButterPage, coopTarget, "Coop", "butter");

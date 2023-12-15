@@ -1,1 +1,0 @@
-node 1superstore.js && 2safeway.js && 3walmart.js && 4nofrills.js && 5coop.js
