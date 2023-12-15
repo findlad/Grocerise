@@ -126,9 +126,14 @@ async function fetchChartJSON(thing, store) {
   );
   categoryPricesStore.sort((a, b) => new Date(a.day) - new Date(b.day));
 
+  const formatDate = (dateString) => {
+    const options = { day: "numeric", month: "short", year: "2-digit" };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  };
+
   // Extract the x and y values for the chart
-  const x = categoryPricesStore.map((entry) => entry.day);
-  const y = categoryPricesStore.map((entry) => entry.cost);
+  const x = categoryPricesStore.map((entry) => formatDate(entry.day));
+  const y = categoryPricesStore.map((entry) => parseFloat(entry.cost));
 
   // Create the Chart.js chart
   const ctx = document.getElementById("graph").getContext("2d");
@@ -144,6 +149,20 @@ async function fetchChartJSON(thing, store) {
       ],
     },
     options: {
+      scales: {
+        xAxes: [
+          {
+            type: "time",
+            time: {
+              unit: "day",
+
+              displayFormats: {
+                day: "DD MMM YY",
+              },
+            },
+          },
+        ],
+      },
       // Add any chart options you need here
       responsive: true, // Make the chart responsive
       maintainAspectRatio: false, // Allow the aspect ratio to change
