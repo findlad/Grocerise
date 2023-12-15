@@ -37,23 +37,23 @@ let wmButterPage =
   "https://www.walmart.ca/en/ip/Great-Value-Unsalted-Butter/10054933";
 
 wmMilkPrice = getPrice(wmMilkPage, wmTarget, "Walmart", "milk");
-delay(10000);
+
 wmEggPrice = getPrice(wmEggPage, wmTarget, "Walmart", "egg");
-delay(10000);
+
 wmTowelPrice = getPrice(wmTowelPage, wmTarget, "Walmart", "towel");
-delay(10000);
+
 wmRicePrice = getPrice(wmRicePage, wmTarget, "Walmart", "rice");
-delay(10000);
+
 wmChickenPrice = getPrice(wmChickenPage, wmTarget, "Walmart", "chicken");
-delay(10000);
+
 wmCokeZeroPrice = getPrice(wmCokeZeroPage, wmTarget, "Walmart", "coke");
-delay(10000);
+
 wmChipsPrice = getPrice(wmChipsPage, wmTarget, "Walmart", "chips");
-delay(10000);
+
 wmPizzaPrice = getPrice(wmPizzaPage, wmTarget, "Walmart", "pizza");
-delay(10000);
+
 wmBranPrice = getPrice(wmBranPage, wmTarget, "Walmart", "bran");
-delay(10000);
+
 wmCoffeePrice = getPrice(wmCoffeePage, wmTarget, "Walmart", "coffee");
-delay(10000);
+
 wmButterPrice = getPrice(wmButterPage, wmTarget, "Walmart", "butter");

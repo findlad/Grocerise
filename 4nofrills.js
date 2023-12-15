@@ -38,7 +38,6 @@ nfEggPrice = getPrice(nfEggPage, nfTarget, "NoFrills", "egg");
 nfTowelPrice = getPrice(nfTowelPage, nfTarget, "NoFrills", "towel");
 nfRicePrice = getPrice(nfRicePage, nfTarget, "NoFrills", "rice");
 nfChickenPrice = getPrice(nfChickenPage, nfTarget, "NoFrills", "chicken");
-delay(15000);
 nfCokeZeroPrice = getPrice(nfCokeZeroPage, nfTarget, "NoFrills", "coke");
 nfChipsPrice = getPrice(nfChipsPage, nfTarget, "NoFrills", "chips");
 nfPizzaPrice = getPrice(nfPizzaPage, nfTarget, "NoFrills", "pizza");
