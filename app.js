@@ -209,3 +209,8 @@ window.addEventListener("click", (event) => {
     modal.style.display = "none";
   }
 });
+window.addEventListener("touchend", (event) => {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+});
