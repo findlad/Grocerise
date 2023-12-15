@@ -158,6 +158,10 @@ const gridItems = document.querySelectorAll(".grid-item");
 const closeModalButton = document.getElementById("closeModalButton");
 const modal = document.getElementById("modalBox");
 
+function closeModal() {
+  modal.style.display = "none";
+}
+
 gridItems.forEach((gridItem) => {
   gridItem.addEventListener("click", () => {
     const thing = gridItem.dataset.item;
@@ -175,6 +179,9 @@ gridItems.forEach((gridItem) => {
 });
 
 closeModalButton.addEventListener("click", () => {
+  modal.style.display = "none";
+});
+closeModalButton.addEventListener("touchend", () => {
   modal.style.display = "none";
 });
 
