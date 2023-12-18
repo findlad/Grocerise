@@ -55,6 +55,9 @@
   "fs": "^0.0.1-security",
   
     
+  "node-dig-dns": "^0.3.3",
+  
+    
   "puppeteer": "^21.6.1"
   
   }
