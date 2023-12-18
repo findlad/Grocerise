@@ -13,7 +13,7 @@ export async function getPrice(targetPage, target, vendor, type) {
     // const executablePath =
     //   "./node_modules/puppeteer-core/lib/esm/puppeteer/node/ChromeLauncher";
     const browser = await puppeteer.launch({
-      headless: false,
+      headless: "new",
       // executablePath: executablePath,
     });
     const page = await browser.newPage();
@@ -21,7 +21,7 @@ export async function getPrice(targetPage, target, vendor, type) {
     await page.setViewport({ width: 1700, height: 1000 });
     await page.goto(targetPage);
     try {
-      const textSelector = target;
+      // const textSelector = target;
       await delay(10000);
       const htmlCode = await page.content();
       // console.log(htmlCode);
@@ -33,20 +33,14 @@ export async function getPrice(targetPage, target, vendor, type) {
       //   }
       // }); //dumps the html to check
 
-      function scrapePrice(html) {
-        const $ = cheerio.load(html);
-        let priceTxt = $(target)
-          .text()
-          .trim()
-          .replace(/[^-.0-9]/g, "");
-        // console.log("prenumber " + priceTxt);
-        priceTxt = Number(priceTxt.slice(0, 5)).toFixed(2);
+      const $ = cheerio.load(htmlCode);
+      let price = $(target)
+        .text()
+        .trim()
+        .replace(/[^-.0-9]/g, "");
+      // console.log("prenumber " + price);
+      price = Number(price.slice(0, 5)).toFixed(2);
 
-        // console.log("postnumber " + priceTxt);
-        return priceTxt;
-      }
-
-      let price = scrapePrice(htmlCode);
       if (price != 0) {
         todaysArray = {
           item: type,

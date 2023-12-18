@@ -160,7 +160,9 @@ const arrayOfCode = [
   {
     code: 'ssMilkPrice = getPrice(ssMilkPage, ssTarget, "Superstore", "milk");',
   },
-  { code: 'ssEggPrice = getPrice(ssEggPage, ssTarget, "Superstore", "egg");' },
+  {
+    code: 'ssEggPrice = getPrice(ssEggPage, ssTarget, "Superstore", "egg");',
+  },
   {
     code: 'ssTowelPrice = getPrice(ssTowelPage, ssTarget, "Superstore", "towel");',
   },
