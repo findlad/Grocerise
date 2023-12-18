@@ -13,7 +13,7 @@ export async function getPrice(targetPage, target, vendor, type) {
     // const executablePath =
     //   "./node_modules/puppeteer-core/lib/esm/puppeteer/node/ChromeLauncher";
     const browser = await puppeteer.launch({
-      headless: "new",
+      headless: false,
       // executablePath: executablePath,
     });
     const page = await browser.newPage();

@@ -36,24 +36,24 @@ let wmButterPrice;
 let wmButterPage =
   "https://www.walmart.ca/en/ip/Great-Value-Unsalted-Butter/10054933";
 
-wmMilkPrice = getPrice(wmMilkPage, wmTarget, "Walmart", "milk");
+// wmMilkPrice = getPrice(wmMilkPage, wmTarget, "Walmart", "milk");
 
 wmEggPrice = getPrice(wmEggPage, wmTarget, "Walmart", "egg");
 
-wmTowelPrice = getPrice(wmTowelPage, wmTarget, "Walmart", "towel");
+// wmTowelPrice = getPrice(wmTowelPage, wmTarget, "Walmart", "towel");
 
-wmRicePrice = getPrice(wmRicePage, wmTarget, "Walmart", "rice");
+// wmRicePrice = getPrice(wmRicePage, wmTarget, "Walmart", "rice");
 
-wmChickenPrice = getPrice(wmChickenPage, wmTarget, "Walmart", "chicken");
+// wmChickenPrice = getPrice(wmChickenPage, wmTarget, "Walmart", "chicken");
 
-wmCokeZeroPrice = getPrice(wmCokeZeroPage, wmTarget, "Walmart", "coke");
+// wmCokeZeroPrice = getPrice(wmCokeZeroPage, wmTarget, "Walmart", "coke");
 
-wmChipsPrice = getPrice(wmChipsPage, wmTarget, "Walmart", "chips");
+// wmChipsPrice = getPrice(wmChipsPage, wmTarget, "Walmart", "chips");
 
-wmPizzaPrice = getPrice(wmPizzaPage, wmTarget, "Walmart", "pizza");
+// wmPizzaPrice = getPrice(wmPizzaPage, wmTarget, "Walmart", "pizza");
 
-wmBranPrice = getPrice(wmBranPage, wmTarget, "Walmart", "bran");
+// wmBranPrice = getPrice(wmBranPage, wmTarget, "Walmart", "bran");
 
-wmCoffeePrice = getPrice(wmCoffeePage, wmTarget, "Walmart", "coffee");
+// wmCoffeePrice = getPrice(wmCoffeePage, wmTarget, "Walmart", "coffee");
 
-wmButterPrice = getPrice(wmButterPage, wmTarget, "Walmart", "butter");
+// wmButterPrice = getPrice(wmButterPage, wmTarget, "Walmart", "butter");
