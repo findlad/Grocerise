@@ -103,7 +103,7 @@ svg {
   justify-content: center; /* Center vertically */
   align-items: center; /* Center horizontally */
   text-align: center;
-  font-size: 3vh;
+  font-size:clamp(12px, 1.25vw, 36px);
   max-width: 200px;
   background-color: #A3D5FF;
   max-height: 200px;
@@ -133,7 +133,7 @@ svg {
   
 .grid-title:hover::before {
     display: flex;
-    font-size: 2vw;
+    
     justify-content: center;
     align-items: center;
     vertical-align: middle; /* Show the title attribute on hover */
