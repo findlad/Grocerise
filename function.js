@@ -12,7 +12,7 @@ const delay = (milliseconds) =>
 
 export async function getPrice(targetPage, target, vendor, type) {
   (async () => {
-    let price = "";
+    let price;
     let todaysArray;
     //console.log(targetPage + " " + target + " " + vendor + " " + type);
     // const executablePath =
@@ -69,11 +69,11 @@ export async function getPrice(targetPage, target, vendor, type) {
           day: new Date(),
         });
 
-        let existingFile = fs.readFileSync("priceHistory.json", "utf-8");
-        let existingArray = JSON.parse(existingFile);
-        existingArray.push(todaysArray);
-        existingFile = JSON.stringify(existingArray);
-        fs.writeFileSync("priceHistory.json", existingFile, "utf-8");
+        // let existingFile = fs.readFileSync("priceHistory.json", "utf-8");
+        // let existingArray = JSON.parse(existingFile);
+        // existingArray.push(todaysArray);
+        // existingFile = JSON.stringify(existingArray);
+        // fs.writeFileSync("priceHistory.json", existingFile, "utf-8");
       }
       console.log(vendor + " " + type + " $" + price);
     } catch (error) {
