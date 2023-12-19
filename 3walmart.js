@@ -38,7 +38,7 @@ let wmButterPage =
 
 // wmMilkPrice = getPrice(wmMilkPage, wmTarget, "Walmart", "milk");
 
-wmEggPrice = getPrice(wmEggPage, wmTarget, "Walmart", "egg");
+// wmEggPrice = getPrice(wmEggPage, wmTarget, "Walmart", "egg");
 
 // wmTowelPrice = getPrice(wmTowelPage, wmTarget, "Walmart", "towel");
 
@@ -54,6 +54,6 @@ wmEggPrice = getPrice(wmEggPage, wmTarget, "Walmart", "egg");
 
 // wmBranPrice = getPrice(wmBranPage, wmTarget, "Walmart", "bran");
 
-// wmCoffeePrice = getPrice(wmCoffeePage, wmTarget, "Walmart", "coffee");
+wmCoffeePrice = getPrice(wmCoffeePage, wmTarget, "Walmart", "coffee");
 
-// wmButterPrice = getPrice(wmButterPage, wmTarget, "Walmart", "butter");
+wmButterPrice = getPrice(wmButterPage, wmTarget, "Walmart", "butter");
