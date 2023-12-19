@@ -4,7 +4,7 @@ import fs from "fs";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 dotenv.config();
-console.log(process.env.MONGO_URL);
+// console.log(process.env.MONGO_URL);
 const connectionString = process.env.MONGO_URL;
 
 const delay = (milliseconds) =>
@@ -50,18 +50,19 @@ export async function getPrice(targetPage, target, vendor, type) {
         const dataStructure = new mongoose.Schema({
           item: String,
           shop: String,
-          price: Number,
+          cost: Number,
           day: Date,
         });
         const db = await mongoose.connect(connectionString);
         const priceData = db.model("priceData", dataStructure);
 
-        // todaysArray = {
-        //   item: type,
-        //   shop: vendor,
-        //   cost: price,
-        //   day: new Date(),
-        // };
+        todaysArray = {
+          item: type,
+          shop: vendor,
+          cost: price,
+          day: new Date(),
+        };
+
         let todaysPriceData = await priceData.create({
           item: type,
           shop: vendor,
@@ -69,11 +70,12 @@ export async function getPrice(targetPage, target, vendor, type) {
           day: new Date(),
         });
 
-        // let existingFile = fs.readFileSync("priceHistory.json", "utf-8");
-        // let existingArray = JSON.parse(existingFile);
-        // existingArray.push(todaysArray);
-        // existingFile = JSON.stringify(existingArray);
-        // fs.writeFileSync("priceHistory.json", existingFile, "utf-8");
+        let existingFile = fs.readFileSync("priceHistory.json", "utf-8");
+        let existingArray = JSON.parse(existingFile);
+        existingArray.push(todaysArray);
+        existingFile = JSON.stringify(existingArray);
+        fs.writeFileSync("priceHistory.json", existingFile, "utf-8");
+        await mongoose.disconnect();
       }
       console.log(vendor + " " + type + " $" + price);
     } catch (error) {
