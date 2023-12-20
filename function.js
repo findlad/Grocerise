@@ -10,6 +10,13 @@ const connectionString = process.env.MONGO_URL;
 const delay = (milliseconds) =>
   new Promise((resolve) => setTimeout(resolve, milliseconds));
 
+const dataStructure = new mongoose.Schema({
+  item: String,
+  shop: String,
+  cost: Number,
+  day: Date,
+});
+
 export async function getPrice(targetPage, target, vendor, type) {
   (async () => {
     let price;
@@ -47,21 +54,8 @@ export async function getPrice(targetPage, target, vendor, type) {
       price = Number(price.slice(0, 5)).toFixed(2);
 
       if (price != 0) {
-        const dataStructure = new mongoose.Schema({
-          item: String,
-          shop: String,
-          cost: Number,
-          day: Date,
-        });
         const db = await mongoose.connect(connectionString);
         const priceData = db.model("priceData", dataStructure);
-
-        todaysArray = {
-          item: type,
-          shop: vendor,
-          cost: price,
-          day: new Date(),
-        };
 
         let todaysPriceData = await priceData.create({
           item: type,
@@ -70,6 +64,12 @@ export async function getPrice(targetPage, target, vendor, type) {
           day: new Date(),
         });
 
+        todaysArray = {
+          item: type,
+          shop: vendor,
+          cost: price,
+          day: new Date(),
+        };
         let existingFile = fs.readFileSync("priceHistory.json", "utf-8");
         let existingArray = JSON.parse(existingFile);
         existingArray.push(todaysArray);

@@ -1,18 +1,31 @@
+// import mongoose from "mongoose";
+import dotenv from "dotenv";
+// const dotenv = require("dotenv");
+dotenv.config();
+
+// console.log(process.env.MONGO_URL);
+
 const delay = (milliseconds) =>
   new Promise((resolve) => setTimeout(resolve, milliseconds));
 
-let globalArray = [];
-
-async function loadJSON() {
-  const response = await fetch("priceHistory.json");
-  let jsonArray = await response.json();
-  globalArray = jsonArray;
-}
-
-await loadJSON();
+const connectionString = process.env.MONGO_URL;
 
 async function fetchPricesJSON(thing, store) {
-  const categoryPrices = globalArray.filter((entry) => entry.item === thing);
+  const db = await mongoose.connect(connectionString);
+
+  const dataStructure = new mongoose.Schema({
+    item: String,
+    shop: String,
+    cost: Number,
+    day: Date,
+  });
+
+  const data = db.model("Grocerise", dataStructure);
+  let priceArray = data.find();
+
+  // const response = await fetch("priceHistory.json");
+  // priceArray = await response.json();
+  const categoryPrices = priceArray.filter((entry) => entry.item === thing);
   //console.log(store);
   const categoryPricesStore = categoryPrices.filter(
     (entry) => entry.shop === store
@@ -26,10 +39,19 @@ async function fetchPricesJSON(thing, store) {
   document.getElementById(gridId).innerHTML = "$" + newestEntry.cost;
 }
 
+let globalArray = [];
 let shopArray = [];
 let itemArray = [];
 
+async function loadJSON() {
+  const response = await fetch("priceHistory.json");
+  let jsonArray = await response.json();
+  globalArray = jsonArray;
+}
+
 async function loading() {
+  await loadJSON();
+
   //console.log(globalArray);
   shopArray = [...new Set(globalArray.map((item) => item.shop))];
   itemArray = [...new Set(globalArray.map((item) => item.item))];
@@ -41,6 +63,9 @@ async function loading() {
   await calculateAndDisplayTotal(itemArray);
 }
 loading();
+
+// Calculate the sum and update the total
+// calculateAndDisplayTotal();
 
 function getNumber(store, item) {
   return Number(
@@ -91,8 +116,8 @@ async function calculateAndDisplayTotal(itemArray) {
   const minimum = Math.min(
     ...[nofrillsSum, walmartSum, safewaySum, superstoreSum, coopSum]
   );
-  // console.log("minimum");
-  // console.log(minimum);
+  console.log("minimum");
+  console.log(minimum);
 
   if (minimum === nofrillsSum) {
     document.getElementById("NoFrillsTotal").classList.add("cheapest");
