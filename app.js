@@ -4,7 +4,7 @@ const delay = (milliseconds) =>
 let globalArray = [];
 
 async function loadJSON() {
-  const response = await fetch("priceHistory.json");
+  const response = await fetch("/api");
   let jsonArray = await response.json();
   globalArray = jsonArray;
 }
