@@ -34,7 +34,7 @@ export async function getPrice(targetPage, target, vendor, type) {
     await page.goto(targetPage);
     try {
       // const textSelector = target;
-      await delay(10000);
+      await delay(5000);
       const htmlCode = await page.content();
       // console.log(htmlCode);
       // fs.writeFile("html.txt", htmlCode, "utf-8", (err) => {
