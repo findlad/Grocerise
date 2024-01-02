@@ -26,7 +26,6 @@
     "fs": "^0.0.1-security",
     "mongodb": "^6.3.0",
     "mongoose": "^8.0.3",
-    "node-dig-dns": "^0.3.3",
-    "puppeteer": "^21.6.1"
+    "node-dig-dns": "^0.3.3"
   }
 }

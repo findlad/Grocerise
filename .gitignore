@@ -1,3 +1,5 @@
 node_modules
 .env
 grocerise.zip
+lambdaFunction/node_modules
+puppeteerLayer/node_modules
